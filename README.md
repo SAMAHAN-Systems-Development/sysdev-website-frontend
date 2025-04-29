@@ -2,7 +2,7 @@ This is a Next.js project that uses TypeScript and App Router. For styling, we w
 
 ## Getting Started
 
-First, clone the project. After, if necessary, run `npm i`.
+First, clone the project. After, if there are errors, try this command in the terminal: `npm i`.
 
 To run the project:
 
@@ -40,5 +40,3 @@ To learn more, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-## Additional Info
