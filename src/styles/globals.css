@@ -9,16 +9,19 @@
 
 @theme {
   --color-blue1: #A0B8EC;
-  --color-blue2: #4268FF;
+  --color-blue2: #1D408D;
   --color-blue3: #0E2558;
   --color-orange: #FF9546;
   --color-yellow1: #FFE663;
   --color-yellow2: #FFDF36;
   --color-yellow3: #FFE234;
+  --color-yellow4: #F8D000;
   --color-green: #BDFF2F;
+  --color-green2: #a4df27;
   --color-purple: #9747FF;
   --color-pink1: #FF7AFE;
   --color-pink2: #FF30FD;
+  --color-pink3: #DF04DD;
   --color-maroon: #940512;
 }
 
