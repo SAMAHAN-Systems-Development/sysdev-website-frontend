@@ -24,28 +24,30 @@ const SortDropdown: React.FC = () => {
     ];
 
   return (
-    <div className='relative'>
-        <div onClick={handleClick} className="px-3 py-2 rounded-full border-[2.05px] border-[#F530FD]">
+    <div className='relative w-max '>
+        <div onClick={handleClick} className="font-inter px-4 py-1.5 rounded-full border-[2.05px] border-[#F530FD]">
             {!open ? 
                 <div className='flex flex-row items-center cursor-pointer'>
                     <span className='text-gray-500'>Sort by:</span>
+                    <div className='w-1.5'></div>
                     {/* <span className='text-[#F530FD] px-1 font-semibold'>{selected}</span> */}
                     <div className='w-4 h-4 bg-[#727272] rounded-md ml-1 mr-1'>
-                        <RiArrowDropDownLine />
+                        <RiArrowDropDownLine color='white'/>
                     </div>
                 </div>
             :   
                 <div className='flex flex-row items-center cursor-pointer'>
                     <span className='text-gray-500'>Sort by:</span>
+                    <div className='w-1.5'></div>
                     {/* <span className='text-[#F530FD] px-1 font-semibold'>{selected}</span> */}
                     <div className='w-4 h-4 bg-[#727272] rounded-md ml-1 mr-1'>
-                        <RiArrowDropUpLine />
+                        <RiArrowDropUpLine color='white'/>
                     </div>
                 </div>
             }
         </div>
         {open && (
-            <div className="absolute w-40 bg-white text-[#727272] border border-gray-400 rounded-lg mt-2">
+            <div className="font-instrument-sans absolute w-40 bg-white text-[#727272] border border-gray-400 rounded-lg mt-2">
                 <div className="flex flex-col">
                       {options.map(({ label, value }) => (
                     <label key={value} className={`flex items-center cursor-pointer border-b border-gray-500 p-2 last:border-b-0 transition-discrete ${
@@ -58,7 +60,7 @@ const SortDropdown: React.FC = () => {
                         onChange={handleChange}
                         className="hidden peer cursor-pointer"
                         />
-                        <div className="w-5 h-5 mr-2 rounded-md flex items-center justify-center peer-checked:bg-[#F530FD]">
+                        <div className="w-5 h-5 mr-2 mb-0.5 rounded-md flex items-center justify-center peer-checked:bg-[#F530FD]">
                             {selected === value && (
                                 <svg
                                 className="w-3 h-3 text-white"
@@ -70,6 +72,7 @@ const SortDropdown: React.FC = () => {
                                 </svg>
                             )}
                         </div>
+                        <div className='w-0.5'></div>
                         {label}
                     </label>
                     ))}
