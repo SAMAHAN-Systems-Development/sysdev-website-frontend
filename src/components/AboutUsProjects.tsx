@@ -7,7 +7,7 @@ import Button from "./ui/Button";
 export default function AboutUsProjects() {
   const router = useRouter();
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = () => {
     router.push("/");
   };
 
