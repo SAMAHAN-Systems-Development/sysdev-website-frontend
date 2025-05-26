@@ -12,8 +12,8 @@ const buttonVariants = cva(
         green: 'bg-green active:bg-green2 text-blue3',
       },
       size: {
-        tight: 'text-sm px-2 hover:py-0.5',
-        normal: 'text-base px-7 py-1.5 hover:py-2.5 ',
+        tight: 'text-base px-2 hover:py-0.5',
+        normal: 'text-lg px-7 py-1.5 hover:py-2.5 ',
       },
     },
     defaultVariants: {

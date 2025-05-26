@@ -1,0 +1,22 @@
+[
+  { "href": "/", "label": "Home" },
+  { "href": "/about", "label": "About" },
+  { "href": "/services", "label": "Services" },
+  { "href": "/blog", "label": "Blog" },
+  {
+    "href": "/members",
+    "label": "Members",
+    "subLinks": [
+      { "href": "/members/alumni", "label": "Alumni" },
+      { "href": "/members/officers", "label": "Officers" },
+      { "href": "/members/front-end", "label": "Front-End" },
+      { "href": "/members/back-end", "label": "Back-End" },
+      { "href": "/members/full-stack", "label": "Full-Stack" },
+      { "href": "/members/ui-ux", "label": "UI/UX" },
+      { "href": "/members/devops", "label": "DevOps" },
+      { "href": "/members/qa", "label": "QA" },
+      { "href": "/members/creatives", "label": "Creatives" }
+    ]
+  },
+  { "href": "/contact", "label": "Contact" }
+]
