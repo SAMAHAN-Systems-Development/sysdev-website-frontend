@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import type { Metadata } from "next";
-import NavigationBar from '@/components/ui/NavigationBar';
 
 export const metadata: Metadata = {
   title: "SAMAHAN Systems Development",
@@ -31,7 +30,7 @@ export default function Home() {
       ></link>
     </Head>
     <main>
-      <NavigationBar />
+      {"Insert your component here"}
     </main>
   </>);
 }
