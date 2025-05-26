@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import type { Metadata } from "next";
+import NavigationBar from '@/components/ui/NavigationBar';
 
 export const metadata: Metadata = {
   title: "SAMAHAN Systems Development",
