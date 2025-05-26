@@ -5,7 +5,7 @@ export default function AboutUsHeroBanner() {
         <h1 className="font-instrument-sans font-bold text-6xl 2xl:text-8xl text-yellow3 max-w-fit">
           About Us
         </h1>
-        <p className="font-instrument-sans text-justify text-xl 2xl:text-2xl max-w-md 2xl:max-w-[524px]">
+        <p className="font-instrument-sans text-white text-justify text-xl 2xl:text-2xl max-w-md 2xl:max-w-[524px]">
           SYSDEV develops tech solutions for SAMAHAN and the AdDU community, driven by student
           collaboration and innovation.
         </p>
