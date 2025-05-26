@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import Button from './Button';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
 import navLinksData from '@/data/navLinks.json';
 
@@ -56,15 +57,17 @@ const NavigationBar = () => {
     setActiveMobileSubmenu(activeMobileSubmenu === label ? null : label);
   };
 
+  const router = useRouter();
+
   return (
-    <div className='bg-blue3 text-white p-4 md:px-20 flex items-center justify-between relative'>
+    <div className='bg-blue3 text-white p-4 md:px-12 xl:px-20 flex items-center justify-between relative'>
       <Link href="/">
-        <Image src="/images/SysDevLogo.svg" alt="SysDev Logo" width={50} height={50} className='h-12' />
+        <Image src="/images/SysDevLogo.svg" alt="SysDev Logo" width={50} height={50} className='h-12 logo-hide-navbar' />
       </Link>
 
       {/* Desktop Navigation */}
-      <div className='hidden md:flex items-center gap-7'>
-        <div className='flex gap-10'>
+      <div className='hidden md:flex items-center gap-5'>
+        <div className='flex gap-7 xl:gap-10'>
           {navLinks.map((link) => (
             <div
               key={link.label}
@@ -86,7 +89,7 @@ const NavigationBar = () => {
                 )}
               </Link>
               {link.subLinks && membersDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-max bg-blue3 rounded-lg shadow-lg z-10 overflow-hidden">
+                <div className="absolute top-full left-0 mt-11 w-max bg-blue3 rounded-lg shadow-lg z-10 overflow-hidden">
                   {link.subLinks.map((subLink) => (
                     <Link
                       key={subLink.href}
@@ -107,8 +110,8 @@ const NavigationBar = () => {
             </div>
           ))}
         </div>
-        <div className='flex items-center h-7'>
-          <Button> Projects </Button>
+        <div className='flex items-center h-7' >
+          <Button size={"tight"} className='w-[86px]' onClick={() => router.push('/')}> Projects </Button>
         </div>
       </div>
 
@@ -116,7 +119,7 @@ const NavigationBar = () => {
       <div className="md:hidden">
         <button
           onClick={toggleMobileMenu}
-          className="text-white p-2 focus:outline-none hover:text-yellow4 transition-colors duration-200"
+          className="text-white p-2 focus:outline-none hover:text-yellow4 transition-colors duration-200 cursor-pointer"
         >
           {mobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
@@ -149,7 +152,7 @@ const NavigationBar = () => {
                           <Link
                             key={subLink.href}
                             href={subLink.href}
-                            className="block py-2 px-6 text-sm hover:text-yellow4 transition-colors duration-200"
+                            className="block py-2 pr-6 pl-12 text-sm hover:text-yellow4 transition-colors duration-200"
                             onClick={toggleMobileMenu}
                           >
                             {subLink.label}
@@ -169,8 +172,8 @@ const NavigationBar = () => {
                 )}
               </div>
             ))}
-            <div className="p-4">
-              <Button className="w-full" onClick={toggleMobileMenu}> Projects </Button>
+            <div className="px-4 pt-7 pb-10 flex items-center h-13">
+              <Button className="w-full" onClick={() => router.push('/')}> Projects </Button>
             </div>
           </div>
         </div>
