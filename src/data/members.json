@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Juan Dela Cruz",
+    "email": "juan.delacruz@example.com",
+    "position": "Front-End",
+    "position2": "UI/UX"
+  },
+  {
+    "name": "Maria Santos",
+    "email": "maria.santos@example.com",
+    "position": "Back-End",
+    "imageUrl": "/images/placeholder-profile.png"
+  },
+  {
+    "name": "John Doe",
+    "email": "maria.santos@example.com",
+    "position": "Officer",
+    "position2": "Project Manager",
+    "imageUrl": "/images/placeholder-profile.png"
+  }
+]
