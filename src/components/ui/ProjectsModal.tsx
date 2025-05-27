@@ -5,35 +5,25 @@ import { FaGithub } from "react-icons/fa";
 import { IoCalendar } from "react-icons/io5";
 import { MdArrowOutward } from "react-icons/md";
 import { FaCircleXmark } from "react-icons/fa6";
-
-export type Project = {
-  imageUrl: string;
-  projectName: string;
-  description: string;
-  websiteUrl: string;
-  githubUrl: string;
-  clientName: string;
-  deploymentMonth: string;
-  deploymentYear: number;
-    members?: { name: string; category: string; title: string }[];
-};
+import { Project } from "@/lib/types/projects";
 
 type ProjectsModalProps = {
   project: Project;
+  setOpenedProject: (project: Project | null) => void;
 };
 
-const ProjectsModal: React.FC<ProjectsModalProps> = ({ project }) => {
+const ProjectsModal: React.FC<ProjectsModalProps> = ({ project, setOpenedProject }) => {
 
     const [category, setCategory] = React.useState<string>("core");
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black/5 z-10">
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-blue3/50 z-10">
             <div className="w-[420px] overflow-scroll py-15 z-50">
 
                 {/* white portion */}
                 <div className="relative bg-white rounded-t-md h-9 w-full">
                     <button 
-                        onClick={() => console.log("Close modal")}
+                        onClick={() => setOpenedProject(null)}
                         className="absolute top-0 bottom-0 right-3 cursor-pointer hover:scale-105 transition duration-200 ease-in-out">
                         <FaCircleXmark color="#292D32" size={20} />
                     </button>
@@ -78,11 +68,11 @@ const ProjectsModal: React.FC<ProjectsModalProps> = ({ project }) => {
                                 <div className="w-2 h-full rounded-l-md bg-[#FDDF37]"></div>
                                 <div className="w-[155px] h-full flex flex-col gap-1 p-2 rounded-r-md bg-[#324153]">
                                     <span className="text-white font-semibold text-sm px-2 py-1 flex flex-col gap-1">
-                                        <span className="flex flex-row items-center justify-start text-[10px]">
+                                        <span className="flex flex-row items-center justify-start text-xs">
                                             <IoCalendar className="inline-block mr-1" color="#BDFF30" />
                                             Launch Date
                                         </span>
-                                        <span className="font-light text-[9px]">
+                                        <span className="font-light text-[11px]">
                                             {`${project.deploymentMonth} ${project.deploymentYear}`}
                                         </span>
                                     </span>
@@ -92,11 +82,11 @@ const ProjectsModal: React.FC<ProjectsModalProps> = ({ project }) => {
                                 <div className="w-2 h-full rounded-l-md bg-[#FDDF37]"></div>
                                 <div className="w-[155px] h-full flex flex-col gap-1 p-2 rounded-r-md bg-[#324153]">
                                     <span className="text-white font-semibold text-sm px-2 py-1 flex flex-col gap-1">
-                                        <span className="flex flex-row items-center justify-start text-[10px]">
+                                        <span className="flex flex-row items-center justify-start text-xs">
                                             <IoCalendar className="inline-block mr-1" color="#BDFF30" />
                                             Partnered with
                                         </span>
-                                        <span className="font-light text-[9px]">
+                                        <span className="font-light text-[11px]">
                                             {project.clientName}
                                         </span>
                                     </span>
