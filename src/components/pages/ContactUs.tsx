@@ -7,6 +7,7 @@ import { FaFacebookSquare, FaLinkedin } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { HiMiniMapPin } from "react-icons/hi2";
 import { IoIosPeople } from "react-icons/io";
+import Image from "next/image";
 
 const ContactUs: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
@@ -36,18 +37,18 @@ const ContactUs: React.FC = () => {
       <h1 className="text-4xl font-bold text-center mb-4 text-[var(--color-blue3)] ">
         COLLABORATE WITH <span className="text-[var(--color-yellow2)]">US</span>
       </h1>
-      <p className="text-lg text-center mb-8 text-[var(--color-blue2)] ">
+      <p className="text-lg text-center mb-8 text-[var(--color-blue3)] ">
         Collaborate with our Developer for your next project.
       </p>
 
-      <div className="border border---color-blue3 rounded-xl shadow-lg border border-[var(--color-blue3)]">
+      <div className="border border---color-blue3 rounded-xl shadow-lg border-[var(--color-blue3)]">
         <div className="grid grid-cols-1 md:grid-cols-[0.7fr_1fr] gap-0">
           {/* Left Side: Contact Information */}
-          <div className="bg-[var(--color-blue3)] text-white p-8 rounded-t-xl md:rounded-l-xl md:rounded-tr-none flex flex-col justify-between">
+          <div className="bg-[var(--color-blue3)] text-white p-8 rounded-t-xl md:rounded-l-xl md:rounded-tr-none">
             <div>
-              <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
+              <h2 className="text-2xl font-semibold mt-10 mb-4">Contact Information</h2>
               <div className="border-t border-[var(--color-yellow2)] mb-6"></div>
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {/* Address */}
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -60,7 +61,7 @@ const ContactUs: React.FC = () => {
                 </div>
 
                 {/* Email */}
-                <div>
+                <div className="mb-10">
                   <div className="flex items-center gap-2 mb-1">
                     <MdEmail className="text-[var(--color-yellow2)] text-2xl" />
                     <span className="font-medium text-xl">Email</span>
@@ -115,14 +116,14 @@ const ContactUs: React.FC = () => {
 
           {/* Right Side: Form Section */}
           <div className="bg-white p-8 rounded-b-xl md:rounded-r-xl md:rounded-bl-none">
-          <h2 className="text-2xl font-semibold mb-4 text-[var(--color-blue3)] text-center">
+          <h2 className="text-2xl font-semibold mb-6 text-[var(--color-blue3)] text-center">
             Send us a Message!
           </h2>
             <form onSubmit={handleSubmit}>
             {/* Name Inputs: 2 columns */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-3">
               <div>
-                <label htmlFor="first-name" className="block text-sm font-medium mb-2 text-[var(--color-blue2)]">
+                <label htmlFor="first-name" className="block text-sm font-medium mb-2 text-[var(--color-blue3)]">
                   First Name
                 </label>
                 <input
@@ -134,7 +135,7 @@ const ContactUs: React.FC = () => {
                 />
               </div>
               <div>
-                <label htmlFor="last-name" className="block text-sm font-medium mb-2 text-[var(--color-blue2)]">
+                <label htmlFor="last-name" className="block text-sm font-medium mb-2 text-[var(--color-blue3)]">
                   Last Name
                 </label>
                 <input
@@ -147,8 +148,8 @@ const ContactUs: React.FC = () => {
               </div>
             </div>
             {/* Email: full width */}
-            <div className="mb-6">
-              <label htmlFor="email" className="block text-sm font-medium mb-2 text-[var(--color-blue2)]">
+            <div className="mb-3">
+              <label htmlFor="email" className="block text-sm font-medium mb-2 text-[var(--color-blue3)]">
                 Email
               </label>
               <input
@@ -160,9 +161,9 @@ const ContactUs: React.FC = () => {
               />
             </div>
             {/* Name Inputs: 2 columns */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-3">
               <div>
-                <label htmlFor="first-name" className="block text-sm font-medium mb-2 text-[var(--color-blue2)]">
+                <label htmlFor="first-name" className="block text-sm font-medium mb-2 text-[var(--color-blue3)]">
                   Organization (Optional)
                 </label>
                 <input
@@ -174,7 +175,7 @@ const ContactUs: React.FC = () => {
                 />
               </div>
               <div>
-                <label htmlFor="last-name" className="block text-sm font-medium mb-2 text-[var(--color-blue2)]">
+                <label htmlFor="last-name" className="block text-sm font-medium mb-2 text-[var(--color-blue3)]">
                   Position (Optional)
                 </label>
                 <input
@@ -189,7 +190,7 @@ const ContactUs: React.FC = () => {
 
             {/* Message: full width */}
             <div className="mb-2"> {/* Reduced margin */}
-              <label htmlFor="message" className="block text-sm font-medium mb-2 text-[var(--color-blue2)]">
+              <label htmlFor="message" className="block text-sm font-medium mb-2 text-[var(--color-blue3)]">
                 Message
               </label>
               <textarea
@@ -199,7 +200,7 @@ const ContactUs: React.FC = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
-              className="w-full p-3 border border---color-blue3 bg-white text-[var(--color-blue3)] focus:ring-2 focus:ring-[var(--color-blue2)] resize-none overflow-y-auto"
+              className="w-full p-1 border border---color-blue3 bg-white text-[var(--color-blue3)] focus:ring-2 focus:ring-[var(--color-blue2)] resize-none overflow-y-auto"
               style={{
                 minHeight: "90px",
                 maxHeight: "180px",
@@ -210,26 +211,26 @@ const ContactUs: React.FC = () => {
 
             {/* File Upload: full width */}
             <div className="mb-6"> {/* Reduced margin */}
-              <label htmlFor="file-upload" className="block text-sm font-medium mb-2 text-[var(--color-blue2)]">
+              <label htmlFor="file-upload" className="block text-sm font-medium mb-2 text-[var(--color-blue3)]">
                 Upload Document (Optional)
               </label>
-              <div className="flex items-center gap-3 mt-5">
+              <div className="flex items-center gap-3 mt-2">
                 <div className="relative">
-                  <label
-                    htmlFor="file-upload"
-                    className="cursor-pointer bg-[var(--color-blue3)] text-white font-semibold rounded-full px-6 py-2 transition hover:bg-[var(--color-blue2)]"
-                  >
-                    Choose File
-                  </label>
                   <input
                     id="file-upload"
                     type="file"
                     multiple
                     accept="image/*, .pdf, .docx"
                     onChange={handleFileChange}
-                    className="absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer"
+                    className="absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer hidden"
                     style={{ width: '100%', height: '100%' }}
                   />
+                  <label
+                    htmlFor="file-upload"
+                    className="cursor-pointer bg-[var(--color-blue3)] text-white rounded-full px-2 py-1 transition hover:bg-[var(--color-blue2)]"
+                  >
+                    Choose File
+                  </label>
                 </div>
                 <span className="text-xs text-gray-500">
                   JPEG, PNG, PDF, DOCX formats up to Xmb
@@ -256,7 +257,7 @@ const ContactUs: React.FC = () => {
                   {files.map((file, idx) => (
                     <div key={idx} className="file-thumbnail flex flex-col items-center">
                       {file.type.startsWith("image/") ? (
-                        <img
+                        <Image
                           src={URL.createObjectURL(file)}
                           alt={file.name}
                           className="w-16 h-16 object-cover"
@@ -277,12 +278,12 @@ const ContactUs: React.FC = () => {
 
               
             {/* Submit Button */}
-            <div className="flex justify-end">
+            <div className="flex justify-end items-center h-13">
               <Button
                 variant="yellow"
                 size="normal"
                 type="submit"
-                className="rounded-full px-20 py-3 text-lg"
+                className="w-40"
               >
                 SEND
               </Button>
