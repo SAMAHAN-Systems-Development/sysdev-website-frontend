@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import type { Metadata } from "next";
-import ContactUs from '@/components/pages/ContactUs';
-import AboutUsIdea from '@/components/AboutUsIdeaInMind';
 
 export const metadata: Metadata = {
   title: "SAMAHAN Systems Development",
@@ -32,8 +30,7 @@ export default function Home() {
       ></link>
     </Head>
     <main>
-      {/* <AboutUsIdea /> */}
-      <ContactUs />
+      {"Insert your component here"}
     </main>
   </>);
 }
