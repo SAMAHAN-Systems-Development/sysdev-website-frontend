@@ -3,21 +3,22 @@
 import Image from "next/image";
 import { IoCalendar } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
-import projectsData from '@/data/projects.json';
+// import projectsData from '@/data/projects.json';
 import { Project } from "@/lib/types/projects";
 
-interface SingleProjectCardProps {
+interface ProjectCardProps {
     project: Project;
+    setOpenedProject: (project: Project) => void;
 }
 
-function SingleProjectCard({ project }: SingleProjectCardProps) {
+export default function ProjectCard({ project, setOpenedProject }: ProjectCardProps) {
 
     function truncate(str: string, n: number) {
         return str.length > n ? str.slice(0, n) + "..." : str;
     }
 
     return (
-        <div className=" overflow-hidden w-full max-w-sm mx-auto cursor-pointer transition-all duration-300 ease-in-out rounded-2xl hover:shadow-2xl transform hover:-translate-y-1" onClick={() => {}}>
+        <div className=" overflow-hidden w-full max-w-sm mx-auto cursor-pointer transition-all duration-300 ease-in-out rounded-2xl hover:shadow-2xl transform hover:-translate-y-1" onClick={() => setOpenedProject && setOpenedProject(project)}>
             {/* wrapper for img padding */}
             <div className="p-2">
                 {/* project image */}
@@ -51,15 +52,15 @@ function SingleProjectCard({ project }: SingleProjectCardProps) {
 }
 
 // component to render all project cards
-export default function ProjectCardList() {
-    return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 p-4 mx-auto w-fit">
-            {projectsData.map((projectItem, index) => (
-                <SingleProjectCard
-                    key={index}
-                    project={projectItem as Project}
-                />
-            ))}
-        </div>
-    );
-}
+// export default function ProjectCardList() {
+//     return (
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 p-4 mx-auto w-fit">
+//             {projectsData.map((projectItem, index) => (
+//                 <SingleProjectCard
+//                     key={index}
+//                     project={projectItem as Project}
+//                 />
+//             ))}
+//         </div>
+//     );
+// }
