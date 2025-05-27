@@ -6,7 +6,7 @@ import { FaUser } from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
 import projectsData from '@/data/projects.json';
 
-interface ProjectCardProps {
+interface Project {
     imageUrl: string;
     projectName: string;
     websiteUrl: string;
@@ -16,21 +16,27 @@ interface ProjectCardProps {
     deploymentYear: number;
 }
 
-function SingleProjectCard({
-    imageUrl,
-    projectName,
-    websiteUrl,
-    githubUrl,
-    clientName,
-    deploymentMonth,
-    deploymentYear,
-}: ProjectCardProps) {
+interface SingleProjectCardProps {
+    project: Project;
+}
+
+function SingleProjectCard({ project }: SingleProjectCardProps) {
+    const {
+        imageUrl,
+        projectName,
+        websiteUrl,
+        githubUrl,
+        clientName,
+        deploymentMonth,
+        deploymentYear,
+    } = project;
+
     return (
-        <div className="bg-white rounded-3xl shadow-lg overflow-hidden w-full max-w-sm mx-auto transition-all duration-300 ease-in-out hover:shadow-2xl transform hover:-translate-y-1"> {/* Replaced w-80 with w-full */}
+        <div className="bg-white rounded-3xl shadow-lg overflow-hidden w-full max-w-sm mx-auto transition-all duration-300 ease-in-out hover:shadow-2xl transform hover:-translate-y-1">
             {/* wrapper for img padding */}
             <div className="p-2">
                 {/* project image */}
-                <div className="relative h-48 w-full rounded-2xl overflow-hidden"> {/* Apply rounding to the image container itself */}
+                <div className="relative h-48 w-full rounded-2xl overflow-hidden">
                     <Image src={imageUrl || "/placeholder.svg"} alt={projectName} fill className="object-cover" />
                 </div>
             </div>
@@ -43,13 +49,13 @@ function SingleProjectCard({
                 {/* client */}
                 <div className="flex items-center mb-3">
                     <FaUser className="w-4 h-4 text-green mr-3" />
-                    <span className="text-gray-700 font-medium">{clientName}</span>
+                    <span className="text-gray-800 font-medium">{clientName}</span>
                 </div>
 
                 {/* deployment date */}
                 <div className="flex items-center mb-6">
                     <IoCalendar className="w-4 h-4 text-blue1 mr-3" />
-                    <span className="text-gray-700">
+                    <span className="text-gray-800">
                         {deploymentMonth} {deploymentYear}
                     </span>
                 </div>
@@ -82,16 +88,10 @@ function SingleProjectCard({
 export default function ProjectCardList() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 p-4 mx-auto w-fit">
-            {projectsData.map((project, index) => (
+            {projectsData.map((projectItem, index) => (
                 <SingleProjectCard
                     key={index}
-                    imageUrl={project.imageUrl}
-                    projectName={project.projectName}
-                    websiteUrl={project.websiteUrl}
-                    githubUrl={project.githubUrl}
-                    clientName={project.clientName}
-                    deploymentMonth={project.deploymentMonth}
-                    deploymentYear={project.deploymentYear}
+                    project={projectItem as Project}
                 />
             ))}
         </div>
