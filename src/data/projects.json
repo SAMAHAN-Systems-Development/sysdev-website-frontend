@@ -1,7 +1,8 @@
 [
   {
+    "id": 1,
     "imageUrl": "/images/AboutUsProjectsBAckground.png",
-    "projectName": "THE SAMAHAN WEBSITE '24 - '25",
+    "projectName": "FYLP",
     "websiteUrl": "/",
     "githubUrl": "/",
     "clientName": "SAMAHAN",
@@ -9,6 +10,7 @@
     "deploymentYear": 2024
   },
   {
+    "id": 2,
     "imageUrl": "/images/AboutUsProjectsBAckground.png",
     "projectName": "THE SAMAHAN WEBSITE '24 - '25",
     "websiteUrl": "/",
