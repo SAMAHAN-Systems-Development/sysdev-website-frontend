@@ -135,7 +135,7 @@ export function MemberCard({
   };
 
   return (
-    <div className={`${cardVariants({ backgroundColor })} w-72 h-104 flex-shrink-0`}>
+    <div className={`${cardVariants({ backgroundColor })} w-72 h-104 flex-shrink-0 `}>
       <div className="relative w-52 h-52 rounded-full overflow-hidden bg-gray-300 mb-6">
         <Image
           src={imageUrl}
@@ -153,7 +153,7 @@ export function MemberCard({
         {email}
       </p>
 
-      <div className="w-full">
+      <div className="w-full h-17 flex flex-col justify-center">
         {renderPositions()}
       </div>
     </div>
