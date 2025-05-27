@@ -76,8 +76,66 @@ export function MemberCard({
 
   const nameTextColor = positionColor === "officer" ? "text-black" : "text-white";
 
+  const positions = [
+    { text: position, color: positionColor },
+    ...(position2 ? [{ text: position2, color: getPositionColor(position2) }] : []),
+    ...(position3 ? [{ text: position3, color: getPositionColor(position3) }] : []),
+    ...(position4 ? [{ text: position4, color: getPositionColor(position4) }] : []),
+  ];
+
+   const renderPositions = () => {
+    if (positions.length === 3) {
+      // for exactly 3 positions: first position on top, other two in a row below
+      return (
+        <>
+          <div className="w-full mb-3">
+            <div className={`
+              ${instrument_sans.className} 
+              ${positionVariants({ positionColor: positions[0].color })}
+            `}>
+              {positions[0].text}
+            </div>
+          </div>
+          <div className="w-full flex gap-2">
+            {positions.slice(1).map((pos, idx) => (
+              <div key={idx} className="flex-1">
+                <div className={`
+                  ${instrument_sans.className} 
+                  ${positionVariants({ positionColor: pos.color })}
+                `}>
+                  {pos.text}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      );
+       // for 1-4 positions, display in rows of 2
+    } else {
+      const rows = [];
+      for (let i = 0; i < positions.length; i += 2) {
+        rows.push(positions.slice(i, Math.min(i + 2, positions.length)));
+      }
+      
+      return rows.map((row, rowIndex) => (
+        <div key={rowIndex} className={`w-full flex gap-2 ${rowIndex > 0 ? "mt-3" : ""}`}>
+          {row.map((pos, colIndex) => (
+            <div key={`${rowIndex}-${colIndex}`} className="flex-1">
+              <div className={`
+                ${instrument_sans.className} 
+                ${positionVariants({ positionColor: pos.color })}
+              `}>
+                {pos.text}
+              </div>
+            </div>
+          ))}
+        </div>
+      ));
+    }
+  };
+
   return (
-    <div className={`${cardVariants({ backgroundColor })} w-70 h-102`}>
+    <div className={`${cardVariants({ backgroundColor })} w-72 h-104 flex-shrink-0`}>
       <div className="relative w-52 h-52 rounded-full overflow-hidden bg-gray-300 mb-6">
         <Image
           src={imageUrl}
@@ -87,7 +145,7 @@ export function MemberCard({
         />
       </div>
 
-      <h3 className={`${instrument_sans.className} text-xl font-bold ${nameTextColor} mb-2`}>
+      <h3 className={`${instrument_sans.className} text-[19px] font-bold ${nameTextColor} mb-2`}>
         {name}
       </h3>
 
@@ -96,32 +154,8 @@ export function MemberCard({
       </p>
 
       <div className="w-full">
-        <div className={`${instrument_sans.className} ${positionVariants({ positionColor })}`}>
-          {position}
-        </div>
+        {renderPositions()}
       </div>
-
-      {position2 && (
-        <div className="w-full mt-3">
-          <div className={`${instrument_sans.className} ${positionVariants({ positionColor: getPositionColor(position2) })}`}>
-            {position2}
-          </div>
-        </div>
-      )}
-      {position3 && (
-        <div className="w-full mt-3">
-          <div className={`${instrument_sans.className} ${positionVariants({ positionColor: getPositionColor(position3) })}`}>
-            {position3}
-          </div>
-        </div>
-      )}
-      {position4 && (
-        <div className="w-full mt-3">
-          <div className={`${instrument_sans.className} ${positionVariants({ positionColor: getPositionColor(position4) })}`}>
-            {position4}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
@@ -143,7 +177,7 @@ function getPositionColor(position: string): MemberCardProps["positionColor"] {
       return "creatives";
     case "Alumni":
       return "alumni";
-    case "Project Manager":
+    case "Proj. Man.":
       return "projmngr";
     case "QA":
       return "qa";

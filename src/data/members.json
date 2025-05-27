@@ -1,21 +1,43 @@
 [
+  
   {
-    "name": "Juan Dela Cruz",
-    "email": "juan.delacruz@example.com",
+    "name": "Arabella Grace Mejorada",
+    "email": "maria.santos@example.com",
     "position": "Front-End",
-    "position2": "UI/UX"
+    "imageUrl": "/images/placeholder-profile.png"
   },
   {
-    "name": "Maria Santos",
+    "name": "Karl Justin Natividad",
     "email": "maria.santos@example.com",
     "position": "Back-End",
     "imageUrl": "/images/placeholder-profile.png"
   },
   {
-    "name": "John Doe",
+    "name": "Miguel Emmanual Dailisan",
     "email": "maria.santos@example.com",
-    "position": "Officer",
-    "position2": "Project Manager",
+    "position": "Full-Stack",
+    "position2": "DevOps",
     "imageUrl": "/images/placeholder-profile.png"
+  },
+  {
+    "name": "El Gatenean",
+    "email": "juan.delacruz@example.com",
+    "position": "UI/UX",
+    "position2": "Creatives",
+    "position3": "Alumni",
+    "position4": "Proj. Man."
+  },
+  {
+    "name": "Juan Dela Cruz",
+    "email": "juan.delacruz@example.com",
+    "position": "UI/UX",
+    "position2": "Creatives",
+    "position3": "Alumni"
+  },
+  {
+    "name": "Juan Dela Cruz",
+    "email": "juan.delacruz@example.com",
+    "position": "Officer",
+    "position2": "UI/UX"
   }
 ]
