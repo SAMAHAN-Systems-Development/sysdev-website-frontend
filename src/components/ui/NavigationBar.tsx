@@ -5,8 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
-import navLinksData from '@/data/navLinks.json';
-
+import importedNavLinksData from '@/data/navLinks.json';
 
 interface SubLink {
   href: string;
@@ -19,37 +18,59 @@ interface NavLink {
   subLinks?: SubLink[];
 }
 
-const navLinks: NavLink[] = navLinksData;
+interface AllLinks {
+  mainNavigation: NavLink[];
+}
+
+const navLinks: NavLink[] = (importedNavLinksData as AllLinks).mainNavigation || [];
 
 const NavigationBar = () => {
-  const [membersDropdownOpen, setMembersDropdownOpen] = useState(false);
+  const [openDropdownLabel, setOpenDropdownLabel] = useState<string | null>(null);
   const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
 
-  const handleMouseEnter = () => {
+  const router = useRouter();
+
+  const handleDropdownMouseEnter = (label: string) => {
     if (leaveTimeoutRef.current) {
       clearTimeout(leaveTimeoutRef.current);
     }
-    setMembersDropdownOpen(true);
+    setOpenDropdownLabel(label);
   };
 
-  const handleMouseLeave = () => {
+  const handleDropdownMouseLeave = () => {
     leaveTimeoutRef.current = setTimeout(() => {
-      setMembersDropdownOpen(false);
+      setOpenDropdownLabel(null);
     }, 200);
   };
 
-  const handleMembersLinkClick = (event: React.MouseEvent) => {
-    event.preventDefault();
-    setMembersDropdownOpen(prev => !prev);
+  const handleDropdownToggleClick = (event: React.MouseEvent, label: string, href: string, hasSubLinks?: boolean) => {
+    if (hasSubLinks) {
+      event.preventDefault();
+      setOpenDropdownLabel(prevLabel => (prevLabel === label ? null : label));
+      if (leaveTimeoutRef.current) {
+        clearTimeout(leaveTimeoutRef.current);
+      }
+    } else {
+      setOpenDropdownLabel(null);
+    }
+  };
+
+  const closeDropdownAndNavigate = (href: string) => {
+    setOpenDropdownLabel(null);
     if (leaveTimeoutRef.current) {
       clearTimeout(leaveTimeoutRef.current);
     }
+    if (mobileMenuOpen) {
+      toggleMobileMenu();
+    }
+    router.push(href);
   };
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+    setOpenDropdownLabel(null);
     setActiveMobileSubmenu(null);
   };
 
@@ -57,7 +78,7 @@ const NavigationBar = () => {
     setActiveMobileSubmenu(activeMobileSubmenu === label ? null : label);
   };
 
-  const router = useRouter();
+  const displayNavLinks = navLinks.filter(link => link.label.toLowerCase() !== 'projects');
 
   return (
     <div className='bg-blue3 text-white p-4 md:px-12 xl:px-20 flex items-center justify-between relative'>
@@ -65,42 +86,40 @@ const NavigationBar = () => {
         <Image src="/images/SysDevLogo.svg" alt="SysDev Logo" width={50} height={50} className='h-12 logo-hide-navbar' />
       </Link>
 
-      {/* Desktop Navigation */}
       <div className='hidden md:flex items-center gap-5'>
         <div className='flex gap-7 xl:gap-10'>
-          {navLinks.map((link) => (
+          {displayNavLinks.map((link) => (
             <div
               key={link.label}
               className="relative"
-              onMouseEnter={link.subLinks ? handleMouseEnter : undefined}
-              onMouseLeave={link.subLinks ? handleMouseLeave : undefined}
+              onMouseEnter={link.subLinks ? () => handleDropdownMouseEnter(link.label) : undefined}
+              onMouseLeave={link.subLinks ? handleDropdownMouseLeave : undefined}
             >
               <Link
                 href={link.href}
                 className='hover:text-yellow4 transition-colors duration-200 flex items-center cursor-pointer'
-                onClick={link.subLinks ? handleMembersLinkClick : undefined}
+                onClick={(e) => handleDropdownToggleClick(e, link.label, link.href, !!link.subLinks)}
               >
                 {link.label}
                 {link.subLinks && (
                   <FaChevronDown
-                    className={`w-3 h-3 ml-2 transition-transform duration-300 ${membersDropdownOpen ? 'rotate-180' : ''
+                    className={`w-3 h-3 ml-2 transition-transform duration-300 ${openDropdownLabel === link.label ? 'rotate-180' : ''
                       }`}
                   />
                 )}
               </Link>
-              {link.subLinks && membersDropdownOpen && (
-                <div className="absolute top-full left-0 mt-11 w-max bg-blue3 rounded-lg shadow-lg z-10 overflow-hidden">
+              {link.subLinks && openDropdownLabel === link.label && (
+                <div
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-max bg-blue3 rounded-lg shadow-lg z-10 overflow-hidden"
+                  onMouseEnter={() => handleDropdownMouseEnter(link.label)}
+                  onMouseLeave={handleDropdownMouseLeave}
+                >
                   {link.subLinks.map((subLink) => (
                     <Link
                       key={subLink.href}
                       href={subLink.href}
                       className="block px-4 py-2 text-sm text-white hover:bg-blue2 hover:text-yellow4 transition-colors duration-200"
-                      onClick={() => {
-                        setMembersDropdownOpen(false);
-                        if (leaveTimeoutRef.current) {
-                          clearTimeout(leaveTimeoutRef.current);
-                        }
-                      }}
+                      onClick={() => closeDropdownAndNavigate(subLink.href)}
                     >
                       {subLink.label}
                     </Link>
@@ -111,26 +130,25 @@ const NavigationBar = () => {
           ))}
         </div>
         <div className='flex items-center h-7' >
-          <Button size={"tight"} className='w-[86px]' onClick={() => router.push('/')}> Projects </Button>
+          <Button size={"tight"} className='w-[86px]' onClick={() => router.push('/projects')}> Projects </Button>
         </div>
       </div>
 
-      {/* hamburger icon */}
       <div className="md:hidden">
         <button
           onClick={toggleMobileMenu}
           className="text-white p-2 focus:outline-none hover:text-yellow4 transition-colors duration-200 cursor-pointer"
+          aria-label="Toggle mobile menu"
         >
           {mobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
       </div>
 
-      {/* mobile menu */}
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-blue3 shadow-xl z-20">
           <div className="flex flex-col">
-            {navLinks.map((link) => (
-              <div key={link.label} className="w-full">
+            {displayNavLinks.map((link) => (
+              <div key={link.label} className="w-full border-b border-blue2/50 last:border-b-0">
                 {link.subLinks ? (
                   <>
                     <div
@@ -144,7 +162,7 @@ const NavigationBar = () => {
                       />
                     </div>
                     <div
-                      className={`bg-blue3 overflow-hidden transition-all duration-300 ease-in-out ${activeMobileSubmenu === link.label ? 'max-h-screen' : 'max-h-0'
+                      className={`bg-blue2/30 overflow-hidden transition-all duration-300 ease-in-out ${activeMobileSubmenu === link.label ? 'max-h-screen' : 'max-h-0'
                         }`}
                     >
                       <div className="py-1">
@@ -153,7 +171,7 @@ const NavigationBar = () => {
                             key={subLink.href}
                             href={subLink.href}
                             className="block py-2 pr-6 pl-12 text-sm hover:text-yellow4 transition-colors duration-200"
-                            onClick={toggleMobileMenu}
+                            onClick={() => closeDropdownAndNavigate(subLink.href)}
                           >
                             {subLink.label}
                           </Link>
@@ -165,7 +183,7 @@ const NavigationBar = () => {
                   <Link
                     href={link.href}
                     className="block py-3 px-4 hover:text-yellow4 transition-colors duration-200"
-                    onClick={toggleMobileMenu}
+                    onClick={() => closeDropdownAndNavigate(link.href)}
                   >
                     {link.label}
                   </Link>
@@ -173,7 +191,7 @@ const NavigationBar = () => {
               </div>
             ))}
             <div className="px-4 pt-7 pb-10 flex items-center h-13">
-              <Button className="w-full" onClick={() => router.push('/')}> Projects </Button>
+              <Button className="w-full" onClick={() => { router.push('/projects'); toggleMobileMenu(); }}> Projects </Button>
             </div>
           </div>
         </div>
