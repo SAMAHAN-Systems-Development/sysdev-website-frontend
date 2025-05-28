@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import type { Metadata } from "next";
-import ProjectsHeroBanner from '@/components/ui/ProjectsHeroBanner';
 
 export const metadata: Metadata = {
   title: "SAMAHAN Systems Development",
