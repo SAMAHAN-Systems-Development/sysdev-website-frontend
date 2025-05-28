@@ -61,7 +61,7 @@ export default function Footer({ className = "" }: FooterProps) {
     }).filter(social => social.icon);
 
     return (
-        <footer className={`bg-blue3 text-white py-16 px-8 ${className}`}>
+        <footer className={`bg-blue3 text-white py-16 px-17 ${className}`}>
             <div className="container mx-auto max-w-7xl">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
                     <div className="lg:col-span-2">
@@ -69,10 +69,10 @@ export default function Footer({ className = "" }: FooterProps) {
                     </div>
 
                     <div className="lg:col-span-4 lg:col-start-4 space-y-2">
-                        <p className="text-white text-base max-w-md">Meet the developers behind the website.</p>
+                        <p className="text-white text-lg max-w-xs font-inter mb-2">Meet the developers behind the website.</p>
 
                         <Link href={"/"}> {/* meet the devs page */}
-                            <TbCircleArrowRightFilled className="text-white w-6 h-6" />
+                            <TbCircleArrowRightFilled className="text-white hover:text-yellow2 transition-colors w-6 h-6" />
                         </Link>
 
                         <div className="flex gap-2 mt-8 md:mt-20 lg:mt-40">
@@ -88,7 +88,7 @@ export default function Footer({ className = "" }: FooterProps) {
                                         className="w-8 h-8 rounded flex items-center justify-center transition-colors"
                                         aria-label={social.label}
                                     >
-                                        <SocialIcon className="w-5 h-5" />
+                                        <SocialIcon className="w-5 h-5 hover:text-yellow2" />
                                     </Link>
                                 );
                             })}
@@ -102,7 +102,7 @@ export default function Footer({ className = "" }: FooterProps) {
                                 <Link
                                     key={link.label}
                                     href={link.href}
-                                    className="block text-gray-400 hover:text-white transition-colors text-sm"
+                                    className="block text-gray-400 hover:text-yellow2 transition-colors text-sm"
                                 >
                                     {link.label}
                                 </Link>
@@ -117,7 +117,7 @@ export default function Footer({ className = "" }: FooterProps) {
                                 <Link
                                     key={link.label}
                                     href={link.href}
-                                    className="block text-gray-400 hover:text-white transition-colors text-sm"
+                                    className="block text-gray-400 hover:text-yellow2 transition-colors text-sm"
                                 >
                                     {link.label}
                                 </Link>
