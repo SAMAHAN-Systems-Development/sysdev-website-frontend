@@ -68,15 +68,14 @@ export default function Footer({ className = "" }: FooterProps) {
                         <Image src="/images/SysDevLogo.svg" alt="SAMAHAN Systems Development Logo" width={200} height={50} />
                     </div>
 
-                    {/* Meet the developers section */}
                     <div className="lg:col-span-4 lg:col-start-4 space-y-2">
                         <p className="text-white text-base max-w-md">Meet the developers behind the website.</p>
 
-                        <Link href={"/"}> {/* needs to be updated to meet the devs page */}
+                        <Link href={"/"}> {/* meet the devs page */}
                             <TbCircleArrowRightFilled className="text-white w-6 h-6" />
                         </Link>
 
-                        <div className="flex gap-2 mt-4 md:mt-20 lg:mt-42">
+                        <div className="flex gap-2 mt-8 md:mt-20 lg:mt-40">
                             {socialLinks.map((social) => {
                                 const SocialIcon = social.icon;
                                 if (!SocialIcon) return null;
@@ -99,7 +98,7 @@ export default function Footer({ className = "" }: FooterProps) {
                     <div className="lg:col-span-2 lg:col-start-9 space-y-4">
                         <h3 className="text-white font-semibold text-lg">Navigation</h3>
                         <nav className="space-y-3">
-                            {navigationLinks.map((link) => (
+                            {navigationLinks && navigationLinks.map((link) => (
                                 <Link
                                     key={link.label}
                                     href={link.href}
@@ -114,7 +113,7 @@ export default function Footer({ className = "" }: FooterProps) {
                     <div className="lg:col-span-2 lg:col-start-11 space-y-4">
                         <h3 className="text-white font-semibold text-lg">Explore</h3>
                         <nav className="space-y-3">
-                            {exploreLinks.map((link) => (
+                            {exploreLinks && exploreLinks.map((link) => (
                                 <Link
                                     key={link.label}
                                     href={link.href}
