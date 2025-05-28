@@ -30,7 +30,7 @@ export default function Home() {
       ></link>
     </Head>
     <main>
-      {"Insert you conponent here"}
+      {"Insert you component here"}
     </main>
   </>);
 }
