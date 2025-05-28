@@ -14,6 +14,7 @@ const buttonVariants = cva(
       size: {
         tight: 'text-base px-2 hover:py-0.5',
         normal: 'text-lg px-7 py-1.5 hover:py-2.5 ',
+        big: 'text-2xl px-10 py-3 hover:py-4',
       },
     },
     defaultVariants: {
