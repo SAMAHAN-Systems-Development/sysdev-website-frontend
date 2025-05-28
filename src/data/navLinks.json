@@ -24,7 +24,6 @@
   ],
   "footerExplore": [
     { "label": "Resources", "href": "/resources" },
-    { "label": "Blog", "href": "/blog" },
     { "label": "Documents", "href": "/documents" }
   ],
   "socialMedia": [
