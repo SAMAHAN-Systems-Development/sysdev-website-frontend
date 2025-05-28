@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import type { Metadata } from "next";
-import MissionVision from "@/components/ui/MissionVision";
+import ProjectsHeroBanner from '@/components/ui/ProjectsHeroBanner';
 
 export const metadata: Metadata = {
   title: "SAMAHAN Systems Development",
@@ -31,7 +31,7 @@ export default function Home() {
       ></link>
     </Head>
     <main>
-      <MissionVision></MissionVision>
+      {'Insert your conponent here'}
     </main>
   </>);
 }
