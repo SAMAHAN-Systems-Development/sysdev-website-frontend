@@ -39,8 +39,8 @@ const DevelopersCarousel = () => {
   const slideRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="p-12">
-      <div className="relative w-full min-w-[1200px] h-[600px] rounded-lg overflow-hidden">
+    <div className="w-full py-5 flex justify-center items-center">
+      <div className="relative w-11/12  h-[600px] rounded-lg overflow-hidden">
         {/* Slides */}
         <div
           ref={slideRef}
@@ -62,11 +62,11 @@ const DevelopersCarousel = () => {
 
         {/* Overlay content */}
         <div className="absolute inset-0 bg-blue-950/50 flex justify-center items-center z-10">
-          <div className="flex flex-col gap-12 items-center text-white">
+          <div className="flex flex-col items-center text-yellow2">
             <h1 className="text-[60px] font-bold">
               {carouselItems[currentIndex].title}
             </h1>
-            <p className="text-[32px] text-center max-w-xl">
+            <p className="text-[32px] text-center max-w-xl text-white">
               {carouselItems[currentIndex].desc}
             </p>
           </div>
@@ -86,7 +86,7 @@ const DevelopersCarousel = () => {
           <FaArrowCircleRight size={30}></FaArrowCircleRight>
         </button>
         {/* Pagination Dots */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
           {carouselItems.map((_, index) => (
             <button
               key={index}
