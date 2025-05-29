@@ -153,7 +153,7 @@ export function MemberCard({
         {email}
       </p>
 
-      <div className="w-full h-17 flex flex-col justify-center">
+      <div className="w-full h-17 flex flex-col justify-start">
         {renderPositions()}
       </div>
     </div>
