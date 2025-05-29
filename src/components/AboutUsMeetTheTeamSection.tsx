@@ -125,7 +125,7 @@ export default function AboutUsMeetTheTeamSection() {
       </div>
       <div className="w-fit flex items-center justify-center h-13 mt-28">
         <Link href="/">
-          <Button variant={"pink"} className="font-bold w-96">
+          <Button variant={"pink"} size={"big"} className="font-bold w-[600px]">
             Meet the Team
           </Button>
         </Link>
