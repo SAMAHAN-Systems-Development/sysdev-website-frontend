@@ -33,7 +33,7 @@ const ContactUs: React.FC = () => {
   };
 
   return (
-    <div className="contact-us-form container mx-auto p-25 max-w-7xl min-h-[300px] ">
+    <div className="contact-us-form container mx-auto px-25 py-13 max-w-7xl min-h-[300px] ">
       <h1 className="text-4xl font-bold text-center mb-4 text-[var(--color-blue3)] ">
         COLLABORATE WITH <span className="text-[var(--color-yellow2)]">US</span>
       </h1>
