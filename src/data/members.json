@@ -1,43 +1,62 @@
 [
-  
+  {
+    "name": "Mariel Mabano",
+    "email": "email@addu.edu.ph",
+    "position": "Secretary-General",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Jiyo Seth Valmoria",
+    "email": "email@addu.edu.ph",
+    "position": "Director",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Aaron Justin Macias",
+    "email": "email@addu.edu.ph",
+    "position": "Treasurer",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
   {
     "name": "Arabella Grace Mejorada",
     "email": "maria.santos@example.com",
-    "position": "Front-End",
-    "imageUrl": "/images/placeholder-profile.png"
+    "position": "Deputy Director",
+    "imageUrl": "/images/PlaceholderImage.png"
   },
   {
-    "name": "Karl Justin Natividad",
-    "email": "maria.santos@example.com",
-    "position": "Back-End",
-    "imageUrl": "/images/placeholder-profile.png"
+    "name": "Isabelle Faith Labuguen",
+    "email": "email@addu.edu.ph",
+    "position": "Auditor",
+    "imageUrl": "/images/PlaceholderImage.png"
   },
   {
-    "name": "Miguel Emmanual Dailisan",
-    "email": "maria.santos@example.com",
-    "position": "Full-Stack",
-    "position2": "DevOps",
-    "imageUrl": "/images/placeholder-profile.png"
+    "name": "Jan Patrick Matayabas",
+    "email": "email@addu.edu.ph",
+    "position": "External Affairs Head",
+    "imageUrl": "/images/PlaceholderImage.png"
   },
   {
-    "name": "El Gatenean",
-    "email": "juan.delacruz@example.com",
-    "position": "UI/UX",
-    "position2": "Creatives",
-    "position3": "Alumni",
-    "position4": "Proj. Man."
+    "name": "Paolo Luis Ramirez",
+    "email": "email@addu.edu.ph",
+    "position": "Front-End Head",
+    "imageUrl": "/images/PlaceholderImage.png"
   },
   {
-    "name": "Juan Dela Cruz",
-    "email": "juan.delacruz@example.com",
-    "position": "UI/UX",
-    "position2": "Creatives",
-    "position3": "Alumni"
+    "name": "Ivan Sam Wabina",
+    "email": "email@addu.edu.ph",
+    "position": "Back-End Head",
+    "imageUrl": "/images/PlaceholderImage.png"
   },
   {
-    "name": "Juan Dela Cruz",
-    "email": "juan.delacruz@example.com",
-    "position": "Officer",
-    "position2": "UI/UX"
+    "name": "Maverick Pigao",
+    "email": "email@addu.edu.ph",
+    "position": "UI/UX Head",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Mark Lyod Carin",
+    "email": "email@addu.edu.ph",
+    "position": "Creatives Head",
+    "imageUrl": "/images/PlaceholderImage.png"
   }
 ]
