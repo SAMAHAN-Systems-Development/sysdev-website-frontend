@@ -40,7 +40,7 @@ const DevelopersCarousel = () => {
 
   return (
     <div className="w-full py-5 flex justify-center items-center">
-      <div className="relative w-11/12  h-[600px] rounded-lg overflow-hidden">
+      <div className="relative w-11/12  h-[600px] rounded-4xl overflow-hidden">
         {/* Slides */}
         <div
           ref={slideRef}
@@ -75,13 +75,13 @@ const DevelopersCarousel = () => {
         {/* Navigation Buttons */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
+          className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
         >
           <FaArrowCircleLeft size={30}></FaArrowCircleLeft>
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 text-white  hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
+          className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 text-white  hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
         >
           <FaArrowCircleRight size={30}></FaArrowCircleRight>
         </button>

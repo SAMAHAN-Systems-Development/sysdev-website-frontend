@@ -6,7 +6,7 @@ export default function MissionVision() {
   const vision = "/images/favicon-32x32.png";
 
     return (
-    <section className="w-full py-16 bg-white">
+    <section className="w-full py-16 bg-white mt-14">
       <div className="container mx-auto max-w-7xl px-48">
         {/* mission section */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 mb-16">

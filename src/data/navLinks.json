@@ -1,7 +1,7 @@
 {
   "mainNavigation": [
     { "href": "/", "label": "Home" },
-    { "href": "/about", "label": "About" },
+    { "href": "/about-us", "label": "About" },
     { "href": "/services", "label": "Services" },
     { "href": "/blog", "label": "Blog" },
     {
@@ -19,7 +19,7 @@
         { "href": "/members/creatives", "label": "Creatives" }
       ]
     },
-    { "href": "/contact", "label": "Contact" },
+    { "href": "/contact-us", "label": "Contact" },
     { "href": "/projects", "label": "Projects" }
   ],
   "footerExplore": [

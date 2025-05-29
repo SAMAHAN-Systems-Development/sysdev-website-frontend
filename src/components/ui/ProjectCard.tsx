@@ -18,7 +18,7 @@ export default function ProjectCard({ project, setOpenedProject }: ProjectCardPr
     }
 
     return (
-        <div className=" overflow-hidden w-full max-w-sm mx-auto cursor-pointer transition-all duration-300 ease-in-out rounded-2xl hover:shadow-2xl transform hover:-translate-y-1" onClick={() => setOpenedProject && setOpenedProject(project)}>
+        <div className="z-40 overflow-hidden w-96 mx-auto cursor-pointer transition-all duration-300 ease-in-out rounded-2xl hover:shadow-2xl transform hover:-translate-y-1" onClick={() => setOpenedProject && setOpenedProject(project)}>
             {/* wrapper for img padding */}
             <div className="p-2">
                 {/* project image */}
