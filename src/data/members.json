@@ -1,20 +1,14 @@
 [
   {
-    "name": "Jiyo Seth Valmoria",
-    "email": "email@addu.edu.ph",
-    "position": "Director",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Arabella Grace Mejorada",
-    "email": "email@addu.edu.ph",
-    "position": "Deputy Director",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
     "name": "Mariel Mabano",
     "email": "email@addu.edu.ph",
     "position": "Secretary-General",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Jiyo Seth Valmoria",
+    "email": "email@addu.edu.ph",
+    "position": "Director",
     "imageUrl": "/images/PlaceholderImage.png"
   },
   {
@@ -24,9 +18,15 @@
     "imageUrl": "/images/PlaceholderImage.png"
   },
   {
+    "name": "Arabella Grace Mejorada",
+    "email": "maria.santos@example.com",
+    "position": "Deputy Director",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
     "name": "Isabelle Faith Labuguen",
     "email": "email@addu.edu.ph",
-    "position": "Author",
+    "position": "Auditor",
     "imageUrl": "/images/PlaceholderImage.png"
   },
   {
