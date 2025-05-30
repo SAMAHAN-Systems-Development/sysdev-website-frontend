@@ -6,6 +6,9 @@ import { IoCalendar } from "react-icons/io5";
 import { MdArrowOutward } from "react-icons/md";
 import { FaCircleXmark } from "react-icons/fa6";
 import { Project } from "@/lib/types/projects";
+import Image from "next/image";
+import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
+
 
 type ProjectsModalProps = {
   project: Project;
@@ -14,14 +17,39 @@ type ProjectsModalProps = {
 
 const ProjectsModal: React.FC<ProjectsModalProps> = ({ project, setOpenedProject }) => {
 
+const carouselItems = [
+  {
+    img: "AboutUsHeroBannerBackground.png",
+  },
+  {
+    img: "AboutUsHeroBannerBackground.png",
+  },
+  {
+    img: "AboutUsHeroBannerBackground.png",
+  },
+  {
+    img: "AboutUsHeroBannerBackground.png",
+  },
+];
+
+const [currentIndex, setCurrentIndex] = React.useState(0);
+
+const nextSlide = () => {
+  setCurrentIndex((prev) => (prev + 1) % carouselItems.length);
+};
+const prevSlide = () => {
+  setCurrentIndex(
+    (prev) => (prev - 1 + carouselItems.length) % carouselItems.length
+  );
+};
+
     const [category, setCategory] = React.useState<string>("core");
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-blue3/50 z-10">
-            <div className="w-[420px] overflow-scroll py-15 z-50">
-
-                {/* white portion */}
-                <div className="relative bg-white rounded-t-md h-9 w-full">
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-blue3/50 z-50">
+            <div className="w-[420px] h-[90vh] z-50 bg-white rounded-t-md">
+                {/* white portion (fixed, not scrollable) */}
+                <div className="relative h-9 w-full">
                     <button 
                         onClick={() => setOpenedProject(null)}
                         className="absolute top-0 bottom-0 right-3 cursor-pointer hover:scale-105 transition duration-200 ease-in-out">
@@ -29,12 +57,58 @@ const ProjectsModal: React.FC<ProjectsModalProps> = ({ project, setOpenedProject
                     </button>
                 </div>
 
-                {/* blue portion */}
-                <div className="bg-[#0E2558] rounded-b-md h-full w-full p-8 flex flex-col gap-5 items-center justify-start">
-
-                    {/* carousel */}
-                    <div className="w-full h-40 bg-[#9daac5] rounded-lg flex justify-center items-center">
-                        Carousel Placeholder
+                {/* blue portion (scrollable) */}
+                <div className="bg-[#0E2558] rounded-b-md w-full p-8 flex flex-col items-center justify-start overflow-y-auto h-[calc(90vh-2.25rem)]">
+      
+                    <div className="w-full h-36 relative rounded-lg overflow-hidden">
+                      
+                      {/* Slides */}
+                      <div
+                        className="w-full h-36 flex transition-transform duration-500 ease-in-out"
+                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                      >
+                        {carouselItems.map((item, index) => (
+                          <div key={index} className="relative w-full flex-shrink-0 h-36">
+                            <Image
+                              src={`/images/${item.img}`}
+                              alt={item.img}
+                              fill
+                              className="object-cover"
+                              priority={index === 0}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      {/* Navigation Buttons */}
+                      <button
+                        onClick={prevSlide}
+                        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
+                        aria-label="Previous"
+                      >
+                        <FaArrowCircleLeft size={22} />
+                      </button>
+                      <button
+                        onClick={nextSlide}
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
+                        aria-label="Next"
+                      >
+                        <FaArrowCircleRight size={22} />
+                      </button>
+                      {/* Pagination Dots */}
+                      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20 flex gap-1">
+                        {carouselItems.map((_, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setCurrentIndex(index)}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                              index === currentIndex
+                                ? "bg-[#FFDF36] scale-125"
+                                : "bg-white/50"
+                            }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                          />
+                        ))}
+                      </div>
                     </div>
 
                     <div className="p-1 flex flex-col gap-5 items-center justify-start w-full">
@@ -118,7 +192,7 @@ const ProjectsModal: React.FC<ProjectsModalProps> = ({ project, setOpenedProject
                                         ${category === "frontend"
                                             ? "bg-transparent text-white"
                                             : "bg-[#F530FD] text-[#FDDF37]"}`}>
-                                        Front-End Developer
+                                        Front-End Developers
                                     </button>
                                     <span className="col-span-1 border border-[#F530FD] bg-[#F530FD] rounded-full"></span>
                                 </div>
@@ -130,7 +204,7 @@ const ProjectsModal: React.FC<ProjectsModalProps> = ({ project, setOpenedProject
                                         ${category === "backend"
                                             ? "bg-transparent text-white"
                                             : "bg-[#BDFF30] text-black"}`}>
-                                        Backend-End Developers
+                                        Back-End Developers
                                     </button>
                                     <button
                                         onClick={() => setCategory("uiux")}

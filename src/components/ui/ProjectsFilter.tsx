@@ -6,10 +6,10 @@ const ProjectsFilter = () => {
   const [selectedFilter, setSelectedFilter] = useState<'SAMAHAN' | 'Other'>('SAMAHAN');
 
   return (
-    <div className="flex w-min justify-center text-lg font-bold border-b border-black transition-colors duration-200 text-black overflow-hidden bg-white pt-10">
+    <div className="flex w-min justify-center text-3xl font-bold border-b border-black transition-colors duration-200 text-black overflow-hidden bg-white pt-10">
       <button
         onClick={() => setSelectedFilter('SAMAHAN')}
-        className={`rounded-t-lg w-56 py-2 cursor-pointer ${
+        className={`rounded-t-xl w-[409px] py-4 cursor-pointer ${
           selectedFilter === 'SAMAHAN'
             ? 'bg-green '
             : 'bg-white '
@@ -19,7 +19,7 @@ const ProjectsFilter = () => {
       </button>
       <button
         onClick={() => setSelectedFilter('Other')}
-        className={`rounded-t-lg w-56 py-2 cursor-pointer ${
+        className={`rounded-t-xl w-[409px] py-4 cursor-pointer ${
           selectedFilter === 'Other'
             ? 'bg-green '
             : 'bg-white '

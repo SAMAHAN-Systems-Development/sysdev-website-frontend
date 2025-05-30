@@ -1,5 +1,7 @@
 import "@/styles/globals.css";
 import { instrument_sans, inter } from '@/styles/font';
+import NavigationBar from "@/components/ui/NavigationBar";
+import Footer from "@/components/ui/Footer";
 
 export default function RootLayout({
   children,
@@ -17,11 +19,13 @@ export default function RootLayout({
         ></link>
         <meta property="og:image" content="/images/SysDevLogo.png"></meta>
       </head>
+      <NavigationBar />
       <body
         className={`${inter.variable} ${instrument_sans.variable} antialiased`}
       >
         {children}
       </body>
+      <Footer />
     </html>
   );
 }

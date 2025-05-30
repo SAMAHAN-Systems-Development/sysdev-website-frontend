@@ -1,14 +1,16 @@
 import Link from "next/link";
-import Button from "./ui/Button";
-import { MemberCard } from "./ui/MemberCard";
+
+
 import members from "@/data/members.json";
 import { Member } from "@/lib/types/members";
+import { MemberCard } from "../ui/MemberCard";
+import Button from "../ui/Button";
 
 export default function AboutUsMeetTheTeamSection() {
   const membersData = members as Member[];
 
   return (
-    <section className="font-inter w-full flex flex-col items-center p-7 md:p-14 xl:p-24">
+    <section className="font-inter w-full flex flex-col items-center px-7 pt-7 pb-4 md:p-14 xl:p-24 mt-10">
       <div className="flex flex-col items-center text-blue3 text-center gap-2.5">
         <h1 className="font-bold text-4xl">Meet the Team</h1>
         <p className="text-xl">
