@@ -6,26 +6,28 @@ const ProjectsFilter = () => {
   const [selectedFilter, setSelectedFilter] = useState<'SAMAHAN' | 'Other'>('SAMAHAN');
 
   return (
-    <div className="flex w-min justify-center text-3xl font-bold border-b border-black transition-colors duration-200 text-black overflow-hidden bg-white pt-10">
+    <div className="inline-flex w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg overflow-hidden bg-white border-b border-black">
       <button
         onClick={() => setSelectedFilter('SAMAHAN')}
-        className={`rounded-t-xl w-[409px] py-4 cursor-pointer ${
+        className={`flex-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-6 lg:py-3 text-xs md:text-sm lg:text-base font-bold transition-colors duration-200 ${
           selectedFilter === 'SAMAHAN'
-            ? 'bg-green '
-            : 'bg-white '
+            ? 'bg-lime-400 text-black'
+            : 'bg-white text-gray-700 hover:bg-gray-50'
         }`}
       >
-        SAMAHAN Projects
+        <span className="block sm:hidden">SAMAHAN<br />Projects</span>
+        <span className="hidden sm:block">SAMAHAN Projects</span>
       </button>
       <button
         onClick={() => setSelectedFilter('Other')}
-        className={`rounded-t-xl w-[409px] py-4 cursor-pointer ${
+        className={`flex-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-6 lg:py-3 text-xs md:text-sm lg:text-base font-bold transition-colors duration-200 ${
           selectedFilter === 'Other'
-            ? 'bg-green '
-            : 'bg-white '
+            ? 'bg-lime-400 text-black'
+            : 'bg-white text-gray-700 hover:bg-gray-50'
         }`}
       >
-        Other Projects
+        <span className="block sm:hidden">Other<br />Projects</span>
+        <span className="hidden sm:block">Other Projects</span>
       </button>
     </div>
   );
