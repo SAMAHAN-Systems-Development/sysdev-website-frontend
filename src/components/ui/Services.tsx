@@ -17,7 +17,7 @@ const servicesData = importedServicesData as ServiceItem[];
 
 const Services = () => {
     return (
-        <div className="w-full max-w-6xl mx-auto px-4 py-8">
+        <div className="w-full md:max-w-4xl lg:max-w-5xl mx-auto px-20 py-8">
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-0">
                 {servicesData.map((item: ServiceItem) => (
                     <div
@@ -37,7 +37,7 @@ const Services = () => {
                                 </p>
                             </div>
                         ) : (
-                            <div className="relative w-full h-full min-h-[200px] md:min-h-[300px]">
+                            <div className="relative w-full h-full min-h-[200px] md:min-h-[280px] lg:min-h-[200px]">
                                 <Image
                                     src={item.src || ''}
                                     alt={item.alt || 'Service Image'}
