@@ -1,0 +1,19 @@
+{
+  "tabletCompactMenuLinks": [
+    { "href": "/", "label": "Home" },
+    { "href": "/about", "label": "About" },
+    { "href": "/services", "label": "Services" },
+    { "href": "/blog", "label": "Blog" },
+    { "href": "/members", "label": "Members" },
+    { "href": "/contact", "label": "Contact" }
+  ],
+  "mobileCompactMenuLinks": [
+    { "href": "/", "label": "Home" },
+    { "href": "/about", "label": "About" },
+    { "href": "/services", "label": "Services" },
+    { "href": "/blog", "label": "Blog" },
+    { "href": "/members", "label": "Members" },
+    { "href": "/contact", "label": "Contact" },
+    { "href": "/projects", "label": "Projects" }
+  ]
+}
