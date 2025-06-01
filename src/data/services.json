@@ -1,0 +1,50 @@
+[
+    {
+        "id": "text1",
+        "type": "text",
+        "title": "Internal Dev Support",
+        "description": "We provide technical development and long-term support for SAMAHAN recognized organizations. From websites to internal tools, we help orgs work smarter, not harder.",
+        "orderClasses": "order-1 lg:order-1",
+        "roundingClasses": "rounded-tl-xl lg:rounded-tl-xl"
+    },
+    {
+        "id": "image1",
+        "type": "image",
+        "src": "/images/AboutUsHeroBannerBackground.png",
+        "alt": "Development Support",
+        "orderClasses": "order-2 lg:order-2",
+        "roundingClasses": "rounded-r-xl lg:rounded-t-xl lg:rounded-br-none"
+    },
+    {
+        "id": "text2",
+        "type": "text",
+        "title": "Potential Future Public Collaborations",
+        "description": "We are exploring opportunities to open our systems and services to the broader AdDU community. Stay tuned as we expand our reach beyond organizations.",
+        "orderClasses": "order-4 lg:order-3",
+        "roundingClasses": "rounded-tr-xl lg:rounded-tr-xl"
+    },
+    {
+        "id": "image2",
+        "type": "image",
+        "src": "/images/AboutUsHeroBannerBackground.png",
+        "alt": "Partnership Collaboration",
+        "orderClasses": "order-3 lg:order-4",
+        "roundingClasses": "rounded-l-xl lg:rounded-bl-xl lg:rounded-tl-none"
+    },
+    {
+        "id": "text3",
+        "type": "text",
+        "title": "Partnerships & Cross-Org Collabs",
+        "description": "We team up with other sectors and orgs within the university to co-develop platforms and initiatives that align with shared goals – always in user-centered design.",
+        "orderClasses": "order-5 lg:order-5",
+        "roundingClasses": "rounded-bl-xl lg:rounded-none"
+    },
+    {
+        "id": "image3",
+        "type": "image",
+        "src": "/images/AboutUsHeroBannerBackground.png",
+        "alt": "Future Collaborations",
+        "orderClasses": "order-6 lg:order-6",
+        "roundingClasses": "rounded-r-xl lg:rounded-br-xl lg:rounded-tr-none"
+    }
+]
