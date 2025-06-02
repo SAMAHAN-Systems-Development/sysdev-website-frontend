@@ -6,28 +6,28 @@ const ProjectsFilter = () => {
   const [selectedFilter, setSelectedFilter] = useState<'SAMAHAN' | 'Other'>('SAMAHAN');
 
   return (
-    <div className="inline-flex w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg overflow-hidden bg-white border-b border-black">
+    <div className="flex min-w-full max-w-full overflow-hidden bg-white text-black border-b border-black text-lg md:text-2xl lg:text-3xl">
       <button
         onClick={() => setSelectedFilter('SAMAHAN')}
-        className={`flex-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-6 lg:py-3 text-xs md:text-sm lg:text-base font-bold transition-colors duration-200 ${
+        className={`rounded-t-xl flex-1 px-5 py-1 md:px-6 md:py-3  font-bold transition-colors duration-200 cursor-pointer ${
           selectedFilter === 'SAMAHAN'
-            ? 'bg-lime-400 text-black'
-            : 'bg-white text-gray-700 hover:bg-gray-50'
+            ? 'bg-green '
+            : 'bg-white '
         }`}
       >
-        <span className="block sm:hidden">SAMAHAN<br />Projects</span>
-        <span className="hidden sm:block">SAMAHAN Projects</span>
+        <span className="block md:hidden">SAMAHAN<br />Projects</span>
+        <span className="hidden md:block">SAMAHAN Projects</span>
       </button>
       <button
         onClick={() => setSelectedFilter('Other')}
-        className={`flex-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-6 lg:py-3 text-xs md:text-sm lg:text-base font-bold transition-colors duration-200 ${
+        className={`rounded-t-xl flex-1 px-5 py-1 md:px-6 md:py-3 font-bold transition-colors duration-200 cursor-pointer ${
           selectedFilter === 'Other'
-            ? 'bg-lime-400 text-black'
-            : 'bg-white text-gray-700 hover:bg-gray-50'
+            ? 'bg-green '
+            : 'bg-white '
         }`}
       >
-        <span className="block sm:hidden">Other<br />Projects</span>
-        <span className="hidden sm:block">Other Projects</span>
+        <span className="block md:hidden">Other<br />Projects</span>
+        <span className="hidden md:block">Other Projects</span>
       </button>
     </div>
   );
