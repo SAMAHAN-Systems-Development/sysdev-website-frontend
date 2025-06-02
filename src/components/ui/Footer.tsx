@@ -110,7 +110,7 @@ export default function Footer({ className = "" }: FooterProps) {
                             className="h-auto"
                         />
                         <div>
-                            <p className="text-white text-sm font-inter mb-2">Meet the developers behind the website.</p>
+                            <p className="text-white text-sm font-inter mb-2 mt-5 md:mt-0 max-w-40">Meet the developers behind the website.</p>
                             <Link href={"/"} className="inline-block">
                                 <TbCircleArrowRightFilled className="text-white hover:text-yellow2 transition-colors w-6 h-6" />
                             </Link>
