@@ -179,7 +179,7 @@ export function MemberCard({
     </h3>
 
     <p className={`${inter.className} 
-     text-xs md:text-sm lg:text-sm 
+     text-xs md:text-sm lg:text-xs
      ${positionColor === "officer" ? "text-gray-800" : "text-gray-300"} 
      mb-2 md:mb-4 lg:mb-4 
      text-center md:text-center lg:text-center
