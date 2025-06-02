@@ -6,26 +6,28 @@ const ProjectsFilter = () => {
   const [selectedFilter, setSelectedFilter] = useState<'SAMAHAN' | 'Other'>('SAMAHAN');
 
   return (
-    <div className="flex w-min justify-center text-3xl font-bold border-b border-black transition-colors duration-200 text-black overflow-hidden bg-white pt-10">
+    <div className="flex min-w-full max-w-full overflow-hidden bg-white text-black border-b border-black text-lg md:text-2xl lg:text-3xl">
       <button
         onClick={() => setSelectedFilter('SAMAHAN')}
-        className={`rounded-t-xl w-[409px] py-4 cursor-pointer ${
+        className={`rounded-t-xl flex-1 px-5 py-1 md:px-6 md:py-3  font-bold transition-colors duration-200 cursor-pointer ${
           selectedFilter === 'SAMAHAN'
             ? 'bg-green '
             : 'bg-white '
         }`}
       >
-        SAMAHAN Projects
+        <span className="block md:hidden">SAMAHAN<br />Projects</span>
+        <span className="hidden md:block">SAMAHAN Projects</span>
       </button>
       <button
         onClick={() => setSelectedFilter('Other')}
-        className={`rounded-t-xl w-[409px] py-4 cursor-pointer ${
+        className={`rounded-t-xl flex-1 px-5 py-1 md:px-6 md:py-3 font-bold transition-colors duration-200 cursor-pointer ${
           selectedFilter === 'Other'
             ? 'bg-green '
             : 'bg-white '
         }`}
       >
-        Other Projects
+        <span className="block md:hidden">Other<br />Projects</span>
+        <span className="hidden md:block">Other Projects</span>
       </button>
     </div>
   );
