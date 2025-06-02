@@ -1,6 +1,7 @@
 export type Project = {
     imageUrl: string;
     projectName: string;
+    type: 'internal' | 'external' | 'cross-orgs';
     description: string;
     websiteUrl: string;
     githubUrl: string;
