@@ -7,9 +7,11 @@
     "imageUrl": "/images/placeholder-profile.png"
   },
   {
-    "name": "Karl Justin Natividad",
+    "name": "Miguel Emmanual Dailisan",
     "email": "maria.santos@example.com",
     "position": "Back-End",
+    "position2": "Creatives",
+    "position3": "Proj. Man.",
     "imageUrl": "/images/placeholder-profile.png"
   },
   {
@@ -17,23 +19,16 @@
     "email": "maria.santos@example.com",
     "position": "Full-Stack",
     "position2": "DevOps",
+    "position3": "Proj. Man.",
+    "position4": "Alumni",
     "imageUrl": "/images/placeholder-profile.png"
   },
   {
     "name": "El Gatenean",
     "email": "juan.delacruz@example.com",
-    "position": "UI/UX",
-    "position2": "Creatives",
-    "position3": "Alumni",
-    "position4": "Proj. Man."
+    "position": "UI/UX"
   },
-  {
-    "name": "Juan Dela Cruz",
-    "email": "juan.delacruz@example.com",
-    "position": "UI/UX",
-    "position2": "Creatives",
-    "position3": "Alumni"
-  },
+
   {
     "name": "Juan Dela Cruz",
     "email": "juan.delacruz@example.com",

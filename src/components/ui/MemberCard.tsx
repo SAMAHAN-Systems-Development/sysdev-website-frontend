@@ -21,7 +21,7 @@ const cardVariants = cva(
 );
 
 const positionVariants = cva(
-  "py-1 px-5 rounded-full text-sm font-medium w-full text-center",
+   "py-1 px-5 rounded-full text-[10px] md:text-sm font-medium w-full text-center",
   {
     variants: {
       positionColor: {
@@ -83,83 +83,117 @@ export function MemberCard({
     ...(position4 ? [{ text: position4, color: getPositionColor(position4) }] : []),
   ];
 
-   const renderPositions = () => {
-    if (positions.length === 3) {
-      // for exactly 3 positions: first position on top, other two in a row below
-      return (
-        <>
-          <div className="w-full mb-3">
-            <div className={`
-              ${instrument_sans.className} 
-              ${positionVariants({ positionColor: positions[0].color })}
-            `}>
-              {positions[0].text}
-            </div>
+// only replace "Proj. Man." with "PM" when on mobile
+  const getResponsiveText = (text: string) => {
+  return text === "Proj. Man." ? (
+    <span>
+      <span className="inline md:hidden">PM</span>
+      <span className="hidden md:inline">Proj. Man.</span>
+    </span>
+  ) : text;
+};
+
+  const renderPositions = () => {
+  if (positions.length === 3) {
+    // for exactly 3 positions: first position on top, other two in a row below
+    return (
+      <>
+        <div className="w-full mb-3">
+          <div className={`
+            ${instrument_sans.className} 
+            ${positionVariants({ positionColor: positions[0].color })}
+          `}>
+            {getResponsiveText(positions[0].text)}
           </div>
-          <div className="w-full flex gap-2">
-            {positions.slice(1).map((pos, idx) => (
-              <div key={idx} className="flex-1">
-                <div className={`
-                  ${instrument_sans.className} 
-                  ${positionVariants({ positionColor: pos.color })}
-                `}>
-                  {pos.text}
-                </div>
-              </div>
-            ))}
-          </div>
-        </>
-      );
-       // for 1-4 positions, display in rows of 2
-    } else {
-      const rows = [];
-      for (let i = 0; i < positions.length; i += 2) {
-        rows.push(positions.slice(i, Math.min(i + 2, positions.length)));
-      }
-      
-      return rows.map((row, rowIndex) => (
-        <div key={rowIndex} className={`w-full flex gap-2 ${rowIndex > 0 ? "mt-3" : ""}`}>
-          {row.map((pos, colIndex) => (
-            <div key={`${rowIndex}-${colIndex}`} className="flex-1">
+        </div>
+        <div className="w-full flex gap-2">
+          {positions.slice(1).map((pos, idx) => (
+            <div key={idx} className="flex-1">
               <div className={`
                 ${instrument_sans.className} 
                 ${positionVariants({ positionColor: pos.color })}
               `}>
-                {pos.text}
+                {getResponsiveText(pos.text)}
               </div>
             </div>
           ))}
         </div>
-      ));
+      </>
+    );
+    // for 1-4 positions, display in rows of 2
+  } else {
+    const rows = [];
+    for (let i = 0; i < positions.length; i += 2) {
+      rows.push(positions.slice(i, Math.min(i + 2, positions.length)));
     }
-  };
-
+    
+    return rows.map((row, rowIndex) => (
+      <div key={rowIndex} className={`w-full flex gap-2 ${rowIndex > 0 ? "mt-3" : ""}`}>
+        {row.map((pos, colIndex) => (
+          <div
+            key={`${rowIndex}-${colIndex}`}
+            className={`flex-1 ${row.length === 1 ? "min-w-[120px] mx-auto" : ""}`}
+          >
+            <div className={`
+              ${instrument_sans.className} 
+              ${positionVariants({ positionColor: pos.color })}
+            `}>
+              {getResponsiveText(pos.text)}
+            </div>
+          </div>
+        ))}
+      </div>
+    ));
+  }
+};
   return (
-    <div className={`${cardVariants({ backgroundColor })} w-72 h-104 flex-shrink-0`}>
-      <div className="relative w-52 h-52 rounded-full overflow-hidden bg-gray-300 mb-6">
-        <Image
-          src={imageUrl}
-          alt={`${name}'s profile`}
-          fill
-          style={{ objectFit: "cover" }}
-        />
-      </div>
+<div className={`${cardVariants({ backgroundColor })} 
+  flex-row md:flex-col
+  w-full max-w-[3480px] md:w-72 lg:w-72 
+  h-48 md:h-[430px] lg:h-[430px]  // Increased heights here
+  flex-shrink-0 
+  p-4 md:p-6 lg:p-6`}>
+    
+ <div className="relative 
+    w-26 h-26 md:w-52 md:h-52 lg:w-52 lg:h-52
+    rounded-full overflow-hidden bg-gray-300 
+    mb-0 md:mb-6 lg:mb-6 
+    ml-0 mr-4 md:mx-auto
+    flex-shrink-0">
+    <Image
+      src={imageUrl}
+      alt={`${name}'s profile`}
+      fill
+      style={{ objectFit: "cover" }}
+    />
+  </div>
 
-      <h3 className={`${instrument_sans.className} text-[19px] font-bold ${nameTextColor} mb-2`}>
-        {name}
-      </h3>
+  <div className="flex flex-col items-center justify-center w-full">
+    <h3 className={`${instrument_sans.className} 
+      text-sm md:text-[19px] lg:text-[19px] 
+      font-bold ${nameTextColor} 
+      mb-1 md:mb-2 lg:mb-2 
+      text-center md:text-center lg:text-center
+      w-full`}>  
+      {name}
+    </h3>
 
-      <p className={`${inter.className} text-sm ${positionColor === "officer" ? "text-gray-800" : "text-gray-300"} mb-4`}>
-        {email}
-      </p>
+    <p className={`${inter.className} 
+     text-xs md:text-sm lg:text-sm 
+     ${positionColor === "officer" ? "text-gray-800" : "text-gray-300"} 
+     mb-2 md:mb-4 lg:mb-4 
+     text-center md:text-center lg:text-center
+     w-full`}>  
+     {email}
+   </p>
 
-      <div className="w-full">
-        {renderPositions()}
-      </div>
-    </div>
-  );
+   <div className="mt-2 w-full flex flex-col items-center justify-center">
+   {renderPositions()}
+  </div>
+  </div>
+  </div>
+);
 }
-
 // Helper to map position to positionColor variant
 function getPositionColor(position: string): MemberCardProps["positionColor"] {
   switch (position) {
@@ -210,7 +244,12 @@ export function MemberCardList() {
   const members = membersData as Member[];
 
   return (
-    <div className="flex flex-wrap gap-8">
+    <div className="flex 
+      flex-col md:flex-row md:flex-wrap lg:flex-row lg:flex-wrap 
+      justify-center 
+      gap-4 md:gap-6 lg:gap-8 
+      p-4 md:p-6 lg:p-8 
+      max-w-screen-2xl mx-auto">
       {members.map((member, idx) => (
         <MemberCard
           key={idx}
