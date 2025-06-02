@@ -139,11 +139,11 @@ const NavigationBar = () => {
         </div>
       </div>
 
-      <div className="hidden md:flex lg:hidden items-center gap-3">
+      <div className="hidden md:flex lg:hidden items-center gap-3 ">
         <Button size={"tight"} className='w-auto px-4' onClick={() => closeAllDropdownsAndNavigate('/projects')}> Projects </Button>
         <button
           onClick={toggleCompactMenu}
-          className="text-white p-2 focus:outline-none hover:text-yellow4 transition-colors duration-200"
+          className="text-white p-2 focus:outline-none hover:text-yellow4 transition-colors duration-200 cursor-pointer"
           aria-label="Toggle menu"
         >
           {compactMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -153,7 +153,7 @@ const NavigationBar = () => {
       <div className="flex md:hidden items-center">
         <button
           onClick={toggleCompactMenu}
-          className="text-white p-2 focus:outline-none hover:text-yellow4 transition-colors duration-200"
+          className="text-white p-2 focus:outline-none hover:text-yellow4 transition-colors duration-200 cursor-pointer"
           aria-label="Toggle menu"
         >
           {compactMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -161,7 +161,7 @@ const NavigationBar = () => {
       </div>
 
       {compactMenuOpen && (
-        <div className="absolute top-full right-4 mt-2 w-max max-w-[220px] bg-blue3 rounded-lg shadow-lg z-20 overflow-hidden">
+        <div className="absolute top-full right-4 md:right-14 mt-2 w-max max-w-[220px] bg-blue3 rounded-lg shadow-lg z-20 overflow-hidden">
           <div className="hidden md:block lg:hidden">
             {tabletCompactMenuLinks.map((link) => (
               <Link
