@@ -12,9 +12,9 @@ export default function AboutUsProjects() {
         alt="About us projects background"
       />
       <div className="absolute w-full h-full -z-10 bg-blue3/70" />
-      <div className="text-white flex flex-col gap-3 items-center w-full py-28 px-4 max-w-[320px] md:max-w-[768px] lg:max-w-[1024px]">
-        <h1 className="text-4xl font-bold font-instrument-sans md:text-6xl">Projects</h1>
-        <p className="text-xs text-center font-instrument-sans md:text-xl">
+      <div className="text-white flex flex-col gap-3 items-center w-full py-28 px-4 max-w-[320px] md:max-w-[690px] lg:max-w-[1024px]">
+        <h1 className="text-4xl font-bold font-instrument-sans md:text-5xl">Projects</h1>
+        <p className="text-xs text-center font-instrument-sans md:text-lg">
           A curated collection of works built with modern tools, focused on performance and
           usability.
         </p>
