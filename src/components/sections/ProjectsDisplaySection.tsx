@@ -10,6 +10,7 @@ import ProjectsModal from '../ui/ProjectsModal';
 
 function ProjectsDisplaySection() {
     const [openedProject, setOpenedProject] = useState<Project | null>(null);
+    const [selectedFilter, setSelectedFilter] = useState<'SAMAHAN' | 'Other'>('SAMAHAN');
 
     // Disable body scroll when modal is open
     useEffect(() => {
@@ -25,10 +26,15 @@ function ProjectsDisplaySection() {
   return (
     <div className='w-full flex flex-col justify-center items-center py-28'>
         <div className='w-max'>
-            <ProjectsFilter></ProjectsFilter>
+            <ProjectsFilter selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter}></ProjectsFilter>
             <SortDropdown></SortDropdown>
             <div className="grid grid-cols-2 gap-x-5 gap-y-10">
-        {(projectsData as Project[]).map((project, idx) => (
+        {(projectsData as Project[])
+        .filter(project => 
+          ((selectedFilter === 'SAMAHAN' && (project.type == "internal")) || 
+           (selectedFilter === 'Other' && (project.type == "external" || project.type == "cross-orgs")))
+        )
+        .map((project, idx) => (
           <ProjectCard
             key={idx}
             project={project}
