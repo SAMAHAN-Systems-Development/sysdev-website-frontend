@@ -93,20 +93,6 @@ export function MemberCard({
           <span className="hidden md:inline">Proj. Man.</span>
         </span>
       );
-    // case "Front-End":
-    //   return (
-    //     <span>
-    //       <span className="inline md:hidden">FE</span>
-    //       <span className="hidden md:inline">Front-End</span>
-    //     </span>
-    //   );
-    // case "Back-End":
-    //   return (
-    //     <span>
-    //       <span className="inline md:hidden">BE</span>
-    //       <span className="hidden md:inline">Back-End</span>
-    //     </span>
-    //   );
     case "Full-Stack":
       return (
         <span>
