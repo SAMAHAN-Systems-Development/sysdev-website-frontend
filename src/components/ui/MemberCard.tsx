@@ -194,7 +194,7 @@ export function MemberCard({
       font-bold ${nameTextColor} 
       mb-0.5 sm:mb-1 md:mb-0 lg:mb-0
       text-left md:text-center lg:text-center
-      md:line-clamp-2 md:overflow-hidden md:text-ellipsis`}>  
+      line-clamp-2 overflow-hidden text-ellipsis`}>  
       {name}
     </h3>
   </div>
