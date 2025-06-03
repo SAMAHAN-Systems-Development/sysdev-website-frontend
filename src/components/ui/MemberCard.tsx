@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { inter, instrument_sans } from "@/styles/font";
+import { instrument_sans } from "@/styles/font";
 import Image from "next/image";
 import React from "react";
 import membersData from "@/data/members.json";
@@ -21,7 +21,7 @@ const cardVariants = cva(
 );
 
 const positionVariants = cva(
-  "py-1 px-5 rounded-full text-sm font-medium w-full text-center",
+   "py-1 px-5 rounded-full text-[10px] md:text-sm font-medium w-full text-center",
   {
     variants: {
       positionColor: {
@@ -83,83 +83,129 @@ export function MemberCard({
     ...(position4 ? [{ text: position4, color: getPositionColor(position4) }] : []),
   ];
 
-   const renderPositions = () => {
-    if (positions.length === 3) {
-      // for exactly 3 positions: first position on top, other two in a row below
+// only replace "Proj. Man." with "PM" when on mobile
+  const getResponsiveText = (text: string) => {
+  switch(text) {
+    case "Proj. Man.":
       return (
-        <>
-          <div className="w-full mb-3">
-            <div className={`
-              ${instrument_sans.className} 
-              ${positionVariants({ positionColor: positions[0].color })}
-            `}>
-              {positions[0].text}
-            </div>
-          </div>
-          <div className="w-full flex gap-2">
-            {positions.slice(1).map((pos, idx) => (
-              <div key={idx} className="flex-1">
-                <div className={`
-                  ${instrument_sans.className} 
-                  ${positionVariants({ positionColor: pos.color })}
-                `}>
-                  {pos.text}
-                </div>
-              </div>
-            ))}
-          </div>
-        </>
+        <span>
+          <span className="inline md:hidden">PM</span>
+          <span className="hidden md:inline">Proj. Man.</span>
+        </span>
       );
-       // for 1-4 positions, display in rows of 2
-    } else {
-      const rows = [];
-      for (let i = 0; i < positions.length; i += 2) {
-        rows.push(positions.slice(i, Math.min(i + 2, positions.length)));
-      }
-      
-      return rows.map((row, rowIndex) => (
-        <div key={rowIndex} className={`w-full flex gap-2 ${rowIndex > 0 ? "mt-3" : ""}`}>
-          {row.map((pos, colIndex) => (
-            <div key={`${rowIndex}-${colIndex}`} className="flex-1">
+    case "Full-Stack":
+      return (
+        <span>
+          <span className="inline md:hidden">FS</span>
+          <span className="hidden md:inline">Full-Stack</span>
+        </span>
+      );
+    default:
+      return text;
+  }
+};
+
+  const renderPositions = () => {
+  if (positions.length === 3) {
+    // for exactly 3 positions: first position on top, other two in a row below
+    return (
+      <>
+        <div className="w-full mb-3">
+          <div className={`
+            ${instrument_sans.className} 
+            ${positionVariants({ positionColor: positions[0].color })}
+          `}>
+            {getResponsiveText(positions[0].text)}
+          </div>
+        </div>
+        <div className="w-full flex gap-2">
+          {positions.slice(1).map((pos, idx) => (
+            <div key={idx} className="flex-1">
               <div className={`
                 ${instrument_sans.className} 
                 ${positionVariants({ positionColor: pos.color })}
               `}>
-                {pos.text}
+                {getResponsiveText(pos.text)}
               </div>
             </div>
           ))}
         </div>
-      ));
+      </>
+    );
+    // for 1-4 positions, display in rows of 2
+  } else {
+    const rows = [];
+    for (let i = 0; i < positions.length; i += 2) {
+      rows.push(positions.slice(i, Math.min(i + 2, positions.length)));
     }
-  };
-
+    
+    return rows.map((row, rowIndex) => (
+      <div key={rowIndex} className={`w-full flex gap-2 ${rowIndex > 0 ? "mt-3" : ""}`}>
+        {row.map((pos, colIndex) => (
+          <div
+            key={`${rowIndex}-${colIndex}`}
+            className={`flex-1 ${row.length === 1 ? "min-w-[120px] mx-auto" : ""}`}
+          >
+            <div className={`
+              ${instrument_sans.className} 
+              ${positionVariants({ positionColor: pos.color })}
+            `}>
+              {getResponsiveText(pos.text)}
+            </div>
+          </div>
+        ))}
+      </div>
+    ));
+  }
+};
   return (
-    <div className={`${cardVariants({ backgroundColor })} w-72 h-104 flex-shrink-0 `}>
-      <div className="relative w-52 h-52 rounded-full overflow-hidden bg-gray-300 mb-6">
-        <Image
-          src={imageUrl}
-          alt={`${name}'s profile`}
-          fill
-          style={{ objectFit: "cover" }}
-        />
-      </div>
+<div className={`${cardVariants({ backgroundColor })} 
+  flex-row md:flex-col
+  w-full max-w-[348px] md:w-72 lg:w-72 
+  h-auto min-h-[120px] md:h-[430px] lg:h-[430px]
+  flex-shrink-0 
+  p-3 sm:p-4 md:p-6 lg:p-6`}>
+    
+  <div className="relative 
+    w-20 h-20 sm:w-26 sm:h-26 md:w-52 md:h-52 lg:w-52 lg:h-52
+    rounded-full overflow-hidden bg-gray-300 
+    mb-0 md:mb-6 lg:mb-6 
+    ml-0 mr-3 sm:mr-4 md:mx-auto
+    flex-shrink-0">
+    <Image
+      src={imageUrl}
+      alt={`${name}'s profile`}
+      fill
+      style={{ objectFit: "cover" }}
+    />
+  </div>
 
-      <h3 className={`${instrument_sans.className} text-[19px] font-bold ${nameTextColor} mb-2`}>
-        {name}
-      </h3>
+  <div className="flex flex-col justify-center w-full min-w-0">
+    <h3 className={`${instrument_sans.className} 
+      text-xs sm:text-base md:text-[19px] lg:text-[19px] 
+      font-bold ${nameTextColor} 
+      mb-0.5 sm:mb-1 md:mb-2 lg:mb-2 
+      text-left md:text-center lg:text-center
+      truncate`}>  
+      {name}
+    </h3>
 
-      <p className={`${inter.className} text-sm ${positionColor === "officer" ? "text-gray-800" : "text-gray-300"} mb-4`}>
-        {email}
-      </p>
-
-      <div className="w-full h-17 flex flex-col justify-start">
-        {renderPositions()}
-      </div>
+    <p className={`${instrument_sans.className} 
+      text-xs md:text-sm lg:text-xs 
+      ${nameTextColor} opacity-80
+      mb-2 md:mb-4 lg:mb-4
+      text-left md:text-center lg:text-center
+      truncate`}>
+      {email}
+    </p>
+    
+    <div className="flex flex-wrap gap-1 sm:gap-2 md:gap-2 w-full">
+      {renderPositions()}
     </div>
-  );
+  </div>
+</div>
+);
 }
-
 // Helper to map position to positionColor variant
 function getPositionColor(position: string): MemberCardProps["positionColor"] {
   switch (position) {
@@ -210,7 +256,12 @@ export function MemberCardList() {
   const members = membersData as Member[];
 
   return (
-    <div className="flex flex-wrap gap-8">
+    <div className="flex 
+      flex-col md:flex-row md:flex-wrap lg:flex-row lg:flex-wrap 
+      justify-center 
+      gap-4 md:gap-6 lg:gap-8 
+      p-4 md:p-6 lg:p-8 
+      max-w-screen-2xl mx-auto">
       {members.map((member, idx) => (
         <MemberCard
           key={idx}

@@ -1,7 +1,7 @@
 {
   "tabletCompactMenuLinks": [
     { "href": "/", "label": "Home" },
-    { "href": "/about", "label": "About" },
+    { "href": "/about-us", "label": "About" },
     { "href": "/services", "label": "Services" },
     { "href": "/blog", "label": "Blog" },
     { "href": "/members", "label": "Members" },
@@ -9,7 +9,7 @@
   ],
   "mobileCompactMenuLinks": [
     { "href": "/", "label": "Home" },
-    { "href": "/about", "label": "About" },
+    { "href": "/about-us", "label": "About" },
     { "href": "/services", "label": "Services" },
     { "href": "/blog", "label": "Blog" },
     { "href": "/members", "label": "Members" },
