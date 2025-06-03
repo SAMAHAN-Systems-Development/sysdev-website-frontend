@@ -17,9 +17,7 @@ export default function MissionVision() {
     isReversed?: boolean;
   }) => (
    <div className="flex flex-col items-center mb-8">
-      {/* Fixed-width container for consistent mobile cards */}
       <div className="w-[280px] overflow-hidden">
-        {/* Image container with fixed height */}
         <div className="relative w-full h-[180px] rounded-t-3xl overflow-hidden">
           <Image
             src={image}
@@ -30,8 +28,7 @@ export default function MissionVision() {
             priority
           />
         </div>
-        
-        {/* Text content with fixed height to ensure equal card heights */}
+       
        <div className="p-4 bg-yellow2 rounded-b-3xl h-[190px] flex flex-col justify-center">
         <h2 className="font-instrument-sans text-2xl font-bold text-[32px] text-blue3 mt-[-20px] mb-2 text-center pt-1">
           {title}
@@ -44,7 +41,7 @@ export default function MissionVision() {
     </div>
   );
 
-  // Desktop version (hidden on mobile)
+  // desktop version (hidden on mobile)
   const DesktopLayout = () => (
     <div className="hidden md:block">
       <div className="flex items-center justify-center gap-8 lg:gap-12 mb-16">
@@ -80,7 +77,7 @@ export default function MissionVision() {
   return (
     <section className="w-full py-8 md:py-12 lg:py-16 bg-white">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
-        {/* Mobile-only view */}
+        {/* mbile-only view */}
         <div className="md:hidden space-y-8">
           <Card 
             image={mission}
@@ -95,7 +92,7 @@ export default function MissionVision() {
           />
         </div>
         
-        {/* Desktop view */}
+        {/* desktop view */}
         <DesktopLayout />
       </div>
     </section>
