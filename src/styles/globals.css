@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #ffffff;
   --font-inter: 'Inter', sans-serif;
   --font-instrument-sans: 'Instrument_Sans', sans-serif;
 }
@@ -24,6 +24,7 @@
   --color-pink2: #FF30FD;
   --color-pink3: #DF04DD;
   --color-maroon: #940512;
+  --color-black: #000000;
 }
 
 @theme inline {
@@ -33,15 +34,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
+  background: var(--foreground);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

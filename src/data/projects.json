@@ -1,0 +1,205 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "/images/AboutUsProjectsBAckground.png",
+    "projectName": "FYLP",
+    "type": "cross-orgs",
+    "description": "A platform for students to share their experiences and insights.",
+    "websiteUrl": "/",
+    "githubUrl": "/",
+    "clientName": "SAMAHAN",
+    "deploymentMonth": "August",
+    "deploymentYear": 2024,
+    "members": [
+      {
+        "name": "Celeste Navarro",
+        "category": "core",
+        "title": "Project Manager"
+      },
+      {
+        "name": "Darren Solis",
+        "category": "core",
+        "title": "Lead Developer"
+      },
+      {
+        "name": "Mira Alonzo",
+        "category": "core",
+        "title": "QA Lead"
+      },
+      {
+        "name": "Kenji Rivera",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Marian Cruz",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Lance Ocampo",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Kenji Rivera",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Marian Cruz",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Lance Ocampo",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Kenji Rivera",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Marian Cruz",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Lance Ocampo",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Kenji Rivera",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Marian Cruz",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Lance Ocampo",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Kenji Rivera",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Marian Cruz",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Lance Ocampo",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Tomas Delgado",
+        "category": "backend",
+         "title": ""
+      },
+      {
+        "name": "Rachel Buenavista",
+        "category": "backend",
+         "title": ""
+      },
+      {
+        "name": "Andre Pascual",
+        "category": "backend",
+         "title": ""
+      },
+      {
+        "name": "Nadine Velasco",
+        "category": "uiux",
+         "title": ""
+      },
+      {
+        "name": "Zeke Montano",
+        "category": "uiux",
+         "title": ""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "imageUrl": "/images/AboutUsProjectsBAckground.png",
+    "projectName": "THE SAMAHAN WEBSITE - '24-'25",
+    "type": "internal",
+    "description": "The SAMAHAN website showcases its advocacies, organizational structure, and various offices and departments. It highlights the organization's branding while providing comprehensive information about SAMAHAN and its initiatives.",
+    "websiteUrl": "/",
+    "githubUrl": "/",
+    "clientName": "SAMAHAN",
+    "deploymentMonth": "August",
+    "deploymentYear": 2024,
+    "members": [
+      {
+        "name": "Elijah Soriano",
+        "category": "core",
+        "title": "Project Manager"
+      },
+      {
+        "name": "Camille Torres",
+        "category": "core",
+        "title": "Scrum Master"
+      },
+      {
+        "name": "Noah Alcantara",
+        "category": "core",
+        "title": "Systems Analyst"
+      },
+      {
+        "name": "Jiro Castillo",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Clarisse Ramos",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Dexter Malabanan",
+        "category": "frontend",
+         "title": ""
+      },
+      {
+        "name": "Sofia Mendoza",
+        "category": "backend",
+         "title": ""
+      },
+      {
+        "name": "Rey Santiago",
+        "category": "backend",
+         "title": ""
+      },
+      {
+        "name": "Bianca Gutierrez",
+        "category": "backend",
+         "title": ""
+      },
+      {
+        "name": "Yana Salcedo",
+        "category": "uiux",
+         "title": ""
+      },
+      {
+        "name": "Myles Enriquez",
+        "category": "uiux",
+         "title": ""
+      },
+      {
+        "name": "Trixie Dominguez",
+        "category": "uiux",
+         "title": ""
+      }
+    ]
+  }
+]
