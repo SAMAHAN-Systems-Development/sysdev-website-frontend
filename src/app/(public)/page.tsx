@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import type { Metadata } from "next";
-import { ApplyCard } from '@/components/ui/ApplyCard';
-
 export const metadata: Metadata = {
   title: "SAMAHAN Systems Development",
   description: "The official website of SAMAHAN Systems Development",
@@ -31,7 +29,6 @@ export default function Home() {
       ></link>
     </Head>
     <main>
- <ApplyCard></ApplyCard>
     </main>
   </>);
 }
