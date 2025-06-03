@@ -9,7 +9,6 @@ export default function MissionVision() {
     image, 
     title, 
     text, 
-    isReversed = false 
   }: { 
     image: string; 
     title: string; 
