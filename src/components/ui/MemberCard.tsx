@@ -85,12 +85,31 @@ export function MemberCard({
 
 // only replace "Proj. Man." with "PM" when on mobile
   const getResponsiveText = (text: string) => {
-  return text === "Proj. Man." ? (
-    <span>
-      <span className="inline md:hidden">PM</span>
-      <span className="hidden md:inline">Proj. Man.</span>
-    </span>
-  ) : text;
+  switch(text) {
+    case "Proj. Man.":
+      return (
+        <span>
+          <span className="inline md:hidden">PM</span>
+          <span className="hidden md:inline">Proj. Man.</span>
+        </span>
+      );
+    case "Secretary-General":
+      return (
+        <span>
+          <span className="inline md:hidden">Sec-Gen</span>
+          <span className="hidden md:inline">Secretary-General</span>
+        </span>
+      );
+    case "Full-Stack":
+      return (
+        <span>
+          <span className="inline md:hidden">FS</span>
+          <span className="hidden md:inline">Full-Stack</span>
+        </span>
+      );
+    default:
+      return text;
+  }
 };
 
   const renderPositions = () => {
@@ -149,16 +168,16 @@ export function MemberCard({
   return (
 <div className={`${cardVariants({ backgroundColor })} 
   flex-row md:flex-col
-  w-full max-w-[3480px] md:w-72 lg:w-72 
-  h-48 md:h-[430px] lg:h-[430px]  // Increased heights here
+  w-full max-w-[348px] md:w-72 lg:w-72 
+  h-auto min-h-[120px] md:h-[430px] lg:h-[430px]
   flex-shrink-0 
-  p-4 md:p-6 lg:p-6`}>
+  p-3 sm:p-4 md:p-6 lg:p-6`}>
     
- <div className="relative 
-    w-26 h-26 md:w-52 md:h-52 lg:w-52 lg:h-52
+  <div className="relative 
+    w-20 h-20 sm:w-26 sm:h-26 md:w-52 md:h-52 lg:w-52 lg:h-52
     rounded-full overflow-hidden bg-gray-300 
     mb-0 md:mb-6 lg:mb-6 
-    ml-0 mr-4 md:mx-auto
+    ml-0 mr-3 sm:mr-4 md:mx-auto
     flex-shrink-0">
     <Image
       src={imageUrl}
@@ -168,30 +187,32 @@ export function MemberCard({
     />
   </div>
 
-  <div className="flex flex-col items-center justify-center w-full">
+  <div className="flex flex-col justify-center w-full min-w-0">
+  <div className="md:h-[56px] md:flex md:flex-col md:justify-center">
     <h3 className={`${instrument_sans.className} 
-      text-sm md:text-[19px] lg:text-[19px] 
+      text-xs sm:text-base md:text-[19px] lg:text-[19px] 
       font-bold ${nameTextColor} 
-      mb-1 md:mb-2 lg:mb-2 
-      text-center md:text-center lg:text-center
-      w-full`}>  
+      mb-0.5 sm:mb-1 md:mb-0 lg:mb-0
+      text-left md:text-center lg:text-center
+      md:line-clamp-2 md:overflow-hidden md:text-ellipsis`}>  
       {name}
     </h3>
+  </div>
 
-    <p className={`${inter.className} 
-     text-xs md:text-sm lg:text-xs
-     ${positionColor === "officer" ? "text-gray-800" : "text-gray-300"} 
-     mb-2 md:mb-4 lg:mb-4 
-     text-center md:text-center lg:text-center
-     w-full`}>  
-     {email}
-   </p>
-
-   <div className="mt-2 w-full flex flex-col items-center justify-center">
-   {renderPositions()}
+    <p className={`${instrument_sans.className} 
+      text-xs md:text-sm lg:text-xs 
+      ${nameTextColor} opacity-80
+      mb-2 md:mb-4 lg:mb-4
+      text-left md:text-center lg:text-center
+      truncate`}>
+      {email}
+    </p>
+    
+    <div className="flex flex-wrap gap-1 sm:gap-2 md:gap-2 w-full">
+      {renderPositions()}
+    </div>
   </div>
-  </div>
-  </div>
+</div>
 );
 }
 // Helper to map position to positionColor variant

@@ -9,12 +9,12 @@ export default function MissionVision() {
     image, 
     title, 
     text, 
-    isReversed = false 
+
   }: { 
     image: string; 
     title: string; 
     text: string; 
-    isReversed?: boolean;
+
   }) => (
    <div className="flex flex-col items-center mb-8">
       {/* Fixed-width container for consistent mobile cards */}
