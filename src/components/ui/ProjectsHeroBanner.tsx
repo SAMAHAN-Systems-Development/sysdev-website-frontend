@@ -7,30 +7,34 @@ import { useRouter } from "next/navigation";
 const ProjectsHeroBanner = () => {
   const navigator = useRouter();
   return (
-    <section className="">
-      <div className="relative w-full min-w-[100vw] min-h-[100vh]">
+    <section>
+      <div className="relative w-[100vw] h-[100vh]">
         <Image
           src="/images/AboutUsHeroBannerBackground.png"
           alt="Banner"
           fill
           className="object-cover"
         ></Image>
-        <div className="absolute inset-0 bg-black/30 flex justify-center items-center">
-          <div className="flex flex-col items-center">
-            <h1 className="text-[60px] font-bold">Projects</h1>
-            <p className="text-[32px] text-center mt-7">
-              Works throughout the years done by SYSDEV with<br></br>{" "}
-              collaboration, teamwork and hardwork.
-             </p>
-            <div className="mt-20 flex items-center h-17">
-              <Button size={'big'} onClick={() => navigator.push("/")}>
-                Let&apos;s{" "}
-                <i>
-                  <strong>Collaborate</strong>
-                </i>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0E2558]/100 to-[#0E255838] flex justify-center items-center">
+          <div className="flex flex-col items-center mb-24">
+            <h1 className="text-[#FFDF36] text-[50px] md:text-[60px] font-bold">
+              Projects
+            </h1>
+            <p className="text-[28px] md:text-[40px] text-center mt-7 mx-10 font-normal">
+              Works throughout the years done by SYSDEV with
+              <br className="hidden lg:inline"></br> collaboration, teamwork and
+              hardwork.
+            </p>
+            <div className="mt-10 md:mt-20 flex items-center h-17">
+              <Button size={"big"} onClick={() => navigator.push("/")}>
+                <p className="px-4">
+                  Let&apos;s{" "}
+                  <i>
+                    <strong>Collaborate</strong>
+                  </i>
+                </p>
               </Button>
             </div>
-            
           </div>
         </div>
       </div>
