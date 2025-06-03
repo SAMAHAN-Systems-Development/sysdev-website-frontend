@@ -1,7 +1,12 @@
 "use client";
 import React, { useRef, useState } from "react";
 import Image from "next/image";
-import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
+import {
+  FaArrowCircleRight,
+  FaArrowCircleLeft,
+  FaArrowLeft,
+  FaArrowRight,
+} from "react-icons/fa";
 const DevelopersCarousel = () => {
   const carouselItems = [
     {
@@ -63,10 +68,10 @@ const DevelopersCarousel = () => {
         {/* Overlay content */}
         <div className="absolute inset-0 bg-blue-950/50 flex justify-center items-center z-10">
           <div className="flex flex-col items-center text-yellow2">
-            <h1 className="text-[60px] font-bold">
+            <h1 className="text-3xl md:text-6xl font-bold">
               {carouselItems[currentIndex].title}
             </h1>
-            <p className="text-[32px] text-center max-w-xl text-white">
+            <p className="text-xl md:text-4xl text-center max-w-xl text-white">
               {carouselItems[currentIndex].desc}
             </p>
           </div>
@@ -75,15 +80,25 @@ const DevelopersCarousel = () => {
         {/* Navigation Buttons */}
         <button
           onClick={prevSlide}
-          className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
+          className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 text-white  hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
         >
-          <FaArrowCircleLeft size={30}></FaArrowCircleLeft>
+          <span className="hidden sm:block">
+            <FaArrowCircleLeft size={30}></FaArrowCircleLeft>
+          </span>
+          <span className="block sm:hidden">
+            <FaArrowLeft size={24}></FaArrowLeft>
+          </span>
         </button>
         <button
           onClick={nextSlide}
           className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 text-white  hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
         >
-          <FaArrowCircleRight size={30}></FaArrowCircleRight>
+          <span className="hidden sm:block">
+            <FaArrowCircleRight size={30}></FaArrowCircleRight>
+          </span>
+          <span className="block sm:hidden">
+            <FaArrowRight size={24}></FaArrowRight>
+          </span>
         </button>
         {/* Pagination Dots */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
