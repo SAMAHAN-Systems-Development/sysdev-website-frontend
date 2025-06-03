@@ -49,7 +49,7 @@ const ContactUs: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-[0.7fr_1fr] gap-0">
           {/* Left Side: Contact Information */}
           <div className="bg-[var(--color-blue3)] text-white p-0 rounded-none md:p-8 md:rounded-l-xl md:rounded-tr-none">
-            <div className="px-4 py-6 md:px-0 md:py-0">
+            <div className="px-4 py-6 mb-10 md:px-0 md:py-2">
               <h2 className="text-2xl font-semibold mt-8 mb-4">Contact Information</h2>
               <div className="border-t border-[var(--color-yellow2)] mb-6"></div>
               <div className="space-y-6">
@@ -80,7 +80,7 @@ const ContactUs: React.FC = () => {
 
                 {/* Social */}
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
+                  <div className="flex items-center gap-2 mb-1 ">
                     <IoIosPeople className="text-[var(--color-yellow2)] text-2xl" />
                     <span className="font-medium text-xl">Social</span>
                   </div>
@@ -225,7 +225,7 @@ const ContactUs: React.FC = () => {
                         multiple
                         accept="image/*, .pdf, .docx"
                         onChange={handleFileChange}
-                        className="absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer"
+                        className="absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer hidden"
                       />
                       <label
                         htmlFor="file-upload"
