@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { instrument_sans } from "@/styles/font";
+import { inter, instrument_sans } from "@/styles/font";
 import Image from "next/image";
 import React from "react";
 import membersData from "@/data/members.json";
@@ -93,6 +93,13 @@ export function MemberCard({
           <span className="hidden md:inline">Proj. Man.</span>
         </span>
       );
+    case "Secretary-General":
+      return (
+        <span>
+          <span className="inline md:hidden">Sec-Gen</span>
+          <span className="hidden md:inline">Secretary-General</span>
+        </span>
+      );
     case "Full-Stack":
       return (
         <span>
@@ -181,14 +188,16 @@ export function MemberCard({
   </div>
 
   <div className="flex flex-col justify-center w-full min-w-0">
+  <div className="md:h-[56px] md:flex md:flex-col md:justify-center">
     <h3 className={`${instrument_sans.className} 
       text-xs sm:text-base md:text-[19px] lg:text-[19px] 
       font-bold ${nameTextColor} 
-      mb-0.5 sm:mb-1 md:mb-2 lg:mb-2 
+      mb-0.5 sm:mb-1 md:mb-0 lg:mb-0
       text-left md:text-center lg:text-center
-      truncate`}>  
+      md:line-clamp-2 md:overflow-hidden md:text-ellipsis`}>  
       {name}
     </h3>
+  </div>
 
     <p className={`${instrument_sans.className} 
       text-xs md:text-sm lg:text-xs 
