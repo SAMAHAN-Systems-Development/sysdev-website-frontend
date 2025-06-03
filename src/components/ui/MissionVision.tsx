@@ -14,7 +14,6 @@ export default function MissionVision() {
     image: string; 
     title: string; 
     text: string; 
-    isReversed?: boolean;
   }) => (
    <div className="flex flex-col items-center mb-8">
       <div className="w-[280px] overflow-hidden">
