@@ -47,9 +47,9 @@ const prevSlide = () => {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-blue3/50 z-50">
-            <div className="w-[420px] h-[90vh] z-50 bg-white rounded-t-md">
+            <div className="w-[420px] h-[90vh]">
                 {/* white portion (fixed, not scrollable) */}
-                <div className="relative h-9 w-full">
+                <div className="relative h-9 w-full bg-white rounded-t-md flex items-center justify-between px-3">
                     <button 
                         onClick={() => setOpenedProject(null)}
                         className="absolute top-0 bottom-0 right-3 cursor-pointer hover:scale-105 transition duration-200 ease-in-out">
@@ -58,9 +58,9 @@ const prevSlide = () => {
                 </div>
 
                 {/* blue portion (scrollable) */}
-                <div className="bg-[#0E2558] rounded-b-md w-full p-8 flex flex-col items-center justify-start overflow-y-auto h-[calc(90vh-2.25rem)]">
+                <div className="bg-[#0E2558] rounded-b-md w-full p-8 flex flex-col items-center justify-start overflow-y-auto max-h-[calc(90vh-2.25rem)] pb-15">
       
-                    <div className="w-full h-36 relative rounded-lg overflow-hidden">
+                    <div className="w-full min-h-36 relative rounded-lg overflow-hidden">
                       
                       {/* Slides */}
                       <div
