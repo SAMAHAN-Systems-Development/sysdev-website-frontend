@@ -46,8 +46,8 @@ const prevSlide = () => {
     const [category, setCategory] = React.useState<string>("core");
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-blue3/50 z-50">
-            <div className="w-[420px] h-[90vh]">
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-blue3/50 z-50 ">
+            <div className="w-[420px] h-[90vh] flex flex-col justify-center">
                 {/* white portion (fixed, not scrollable) */}
                 <div className="relative h-9 w-full bg-white rounded-t-md flex items-center justify-between px-3">
                     <button 
