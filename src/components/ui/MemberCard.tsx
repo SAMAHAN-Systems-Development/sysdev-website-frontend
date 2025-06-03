@@ -189,7 +189,7 @@ export function MemberCard({
 
   <div className="flex flex-col justify-center w-full min-w-0">
   <div className="md:h-[56px] md:flex md:flex-col md:justify-center">
-    <h3 className={`${instrument_sans.className} 
+      <h3 className={`${instrument_sans.className} 
       text-xs sm:text-base md:text-[19px] lg:text-[19px] 
       font-bold ${nameTextColor} 
       mb-0.5 sm:mb-1 md:mb-0 lg:mb-0
@@ -197,7 +197,7 @@ export function MemberCard({
       line-clamp-2 overflow-hidden text-ellipsis`}>  
       {name}
     </h3>
-  </div>
+    </div>
 
     <p className={`${instrument_sans.className} 
       text-xs md:text-sm lg:text-xs 

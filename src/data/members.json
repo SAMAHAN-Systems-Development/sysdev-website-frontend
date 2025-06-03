@@ -1,8 +1,14 @@
 [
   {
+<<<<<<< HEAD
     "name": "Karl Justin Angelo Bea Arthur Bunjing Riadyn Natividad",
     "email": "kjanatividad@addu.edu.ph",
     "position": "External Affairs Head",
+=======
+    "name": "Mariel Mabano",
+    "email": "email@addu.edu.ph",
+    "position": "Secretary-General",
+>>>>>>> e804dd91ef84a65bcdc610c422be9840fe21c5ca
     "imageUrl": "/images/PlaceholderImage.png"
   },
   {
