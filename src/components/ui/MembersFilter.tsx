@@ -7,7 +7,7 @@ const departments = [
   'Full-Stack',
   'Front-End',
   'Back-End',
-  'QAS',
+  'QA',
   'DevOps',
   'Project Manager',
   'UI/UX',
