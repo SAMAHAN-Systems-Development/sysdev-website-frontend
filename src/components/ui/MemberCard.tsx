@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { inter, instrument_sans } from "@/styles/font";
+import { instrument_sans } from "@/styles/font";
 import Image from "next/image";
 import React from "react";
 import membersData from "@/data/members.json";
