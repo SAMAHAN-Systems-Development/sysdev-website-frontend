@@ -25,7 +25,7 @@ export function ApplyCard() {
           </div>
         </div>
         
-        {/* circle Image - Hidden on mobile and tablet, visible on desktop */}
+        {/* circle image - hidden on mobile and tablet, visible on desktop */}
         <div className="hidden lg:block w-1/3 relative">
             <div className="w-56 h-56 rounded-full border-2 border-white/30 ml-auto"></div>
         </div>
