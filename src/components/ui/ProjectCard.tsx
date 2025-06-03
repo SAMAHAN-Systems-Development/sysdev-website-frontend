@@ -21,15 +21,16 @@ export default function ProjectCard({ project, setOpenedProject }: ProjectCardPr
             onClick={() => setOpenedProject && setOpenedProject(project)}
         >
             {/* wrapper for img padding */}
-            <div className="p-2">
+            <div className="p-2 flex justify-center">
                 {/* project image */}
-                <div className="relative h-48 sm:h-52 md:h-56 w-full rounded-xl overflow-hidden">
+                <div className="relative h-48 sm:h-52 md:h-56 w-full max-w-80 sm:max-w-none rounded-xl overflow-hidden">
                     <Image src={project.imageUrl || "/placeholder.svg"} alt={project.projectName} fill className="object-cover" />
                 </div>
             </div>
 
             {/* card content */}
-            <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2">
+            <div className="flex justify-center">
+                <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 w-full max-w-80 sm:max-w-none">
                 {/* title */}
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-3 sm:mb-4 text-center leading-tight h-12 sm:h-14 md:h-16 flex items-center justify-center line-clamp-2">
                     {truncate(project.projectName, 45)}
@@ -49,6 +50,8 @@ export default function ProjectCard({ project, setOpenedProject }: ProjectCardPr
                     </span>
                 </div>
             </div>
+            </div>
+            
         </div>
     )
 }

@@ -25,14 +25,14 @@ function ProjectsDisplaySection() {
   }, [openedProject]);
   return (
     <div className='w-full flex flex-col items-center py-28'>
-      <div className='w-full max-w-5xl px-4 sm:px-6 lg:px-8'>
-        <div className="mb-6">
+      <div className='w-full max-w-4xl px-6 sm:px-10 lg:px-8'>
+        <div className="mb-2">
           <ProjectsFilter selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} />
         </div>
-        <div className="mb-8">
+        <div className="mb:3">
           <SortDropdown />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5">
           {(projectsData as Project[])
             .filter(project =>
             ((selectedFilter === 'SAMAHAN' && (project.type == "internal")) ||
