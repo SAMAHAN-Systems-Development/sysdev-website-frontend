@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import type { Metadata } from "next";
+import ProjectCard from '@/components/ui/ProjectCard';
 
 export const metadata: Metadata = {
   title: "SAMAHAN Systems Development",
@@ -31,6 +32,7 @@ export default function Home() {
     </Head>
     <main>
       {/* {"Insert your component here"} */}
+      <ProjectCard />
     </main>
   </>);
 }

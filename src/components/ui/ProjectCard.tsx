@@ -31,7 +31,7 @@ export default function ProjectCard({ project, setOpenedProject }: ProjectCardPr
             <div className="px-6 pb-6 pt-2">
                 {/* title */}
                 <div className="text-2xl font-bold text-black mb-4 text-center leading-tight h-16 flex items-center justify-center line-clamp-2">{truncate(project.projectName, 45)}</div>
-                
+
 
                 {/* client */}
                 <div className="flex items-center mb-3">
