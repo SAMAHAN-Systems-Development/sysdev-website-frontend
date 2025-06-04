@@ -47,10 +47,10 @@ const prevSlide = () => {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-blue3/50 z-50 ">
-            <div className="md:w-[420px] w-full md:h-[90vh] h-screen flex flex-col justify-center">
+            <div className="w-4/5 max-w-md md:w-[420px] md:h-[90vh] h-[60vh] flex flex-col justify-center">
               
                 {/* white portion (fixed, not scrollable) */}
-                <div className="relative h-9 w-full bg-white rounded-t-lg flex items-center justify-between px-3">
+                <div className="relative h-20 md:h-9 w-full bg-white rounded-t-lg flex items-center justify-between px-3">
                     <button 
                         onClick={() => setOpenedProject(null)}
                         className="absolute top-0 bottom-0 right-3 cursor-pointer hover:scale-105 transition duration-200 ease-in-out">
@@ -59,7 +59,7 @@ const prevSlide = () => {
                 </div>
 
                 {/* blue portion (scrollable) */}
-                <div className="bg-[#0E2558] rounded-b-lg w-full p-8 flex flex-col items-center justify-start overflow-y-auto md:max-h-[calc(90vh-2.25rem)] pb-15">
+                <div className="bg-[#0E2558] rounded-b-lg w-full p-6 md:p-8 flex flex-col items-center justify-start overflow-y-auto md:max-h-[calc(90vh-2.25rem)] pb-15">
       
                     <div className="w-full min-h-36 relative rounded-lg overflow-hidden">
                       
@@ -190,7 +190,7 @@ const prevSlide = () => {
                                     </button>
                                     <button
                                         onClick={() => setCategory("frontend")}
-                                        className={`cursor-pointer border border-[#F530FD] hover:scale-105 transition duration-200 p-0.5 px-2 rounded-full whitespace-nowrap col-span-4
+                                        className={`cursor-pointer border border-[#F530FD] px-3 md:px-2 max-w-fit md:max-w-none hover:scale-105 transition duration-200 p-0.5 rounded-full whitespace-nowrap col-span-4
                                         ${category === "frontend"
                                             ? "bg-transparent text-white"
                                             : "bg-[#F530FD] text-[#FDDF37]"}`}>
@@ -202,7 +202,7 @@ const prevSlide = () => {
                                     <span className="md:block hidden col-span-1 border border-[#BDFF30] bg-[#BDFF30] rounded-full"></span>
                                     <button
                                         onClick={() => setCategory("backend")}
-                                        className={`cursor-pointer border border-[#BDFF30] hover:scale-105 transition duration-200 ease-in-out p-0.5 px-1 rounded-full whitespace-nowrap col-span-4
+                                        className={`cursor-pointer border border-[#BDFF30] px-3 md:px-2 max-w-fit md:max-w-none hover:scale-105 transition duration-200 ease-in-out p-0.5 rounded-full whitespace-nowrap col-span-4
                                         ${category === "backend"
                                             ? "bg-transparent text-white"
                                             : "bg-[#BDFF30] text-black"}`}>
