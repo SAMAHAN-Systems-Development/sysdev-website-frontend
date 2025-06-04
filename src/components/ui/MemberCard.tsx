@@ -93,11 +93,11 @@ export function MemberCard({
           <span className="hidden md:inline">Proj. Man.</span>
         </span>
       );
-    case "Full-Stack":
+    case "Secretary-General":
       return (
         <span>
-          <span className="inline md:hidden">FS</span>
-          <span className="hidden md:inline">Full-Stack</span>
+          <span className="inline md:hidden">Sec-Gen</span>
+          <span className="hidden md:inline">Secretary-General</span>
         </span>
       );
     default:
@@ -181,14 +181,16 @@ export function MemberCard({
   </div>
 
   <div className="flex flex-col justify-center w-full min-w-0">
-    <h3 className={`${instrument_sans.className} 
+  <div className="md:h-[56px] md:flex md:flex-col md:justify-center">
+      <h3 className={`${instrument_sans.className} 
       text-xs sm:text-base md:text-[19px] lg:text-[19px] 
       font-bold ${nameTextColor} 
-      mb-0.5 sm:mb-1 md:mb-2 lg:mb-2 
+      mb-0.5 sm:mb-1 md:mb-0 lg:mb-0
       text-left md:text-center lg:text-center
-      truncate`}>  
+      line-clamp-2 overflow-hidden text-ellipsis`}>  
       {name}
     </h3>
+    </div>
 
     <p className={`${instrument_sans.className} 
       text-xs md:text-sm lg:text-xs 
@@ -217,7 +219,7 @@ function getPositionColor(position: string): MemberCardProps["positionColor"] {
       return "fullstack";
     case "DevOps":
       return "devops";
-    case "UI/UX":
+    case "UI/UX": 
       return "uiux";
     case "Creatives":
       return "creatives";
