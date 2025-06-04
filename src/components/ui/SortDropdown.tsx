@@ -26,32 +26,24 @@ const SortDropdown: React.FC = () => {
   return (
     <div className='w-full pt-5 pb-7'>
         <div className='relative w-max '>
-        <div onClick={handleClick} className="font-inter px-4 py-1.5 rounded-full border-[2.05px] border-[#F530FD]">
-            {!open ? 
-                <div className='flex flex-row items-center cursor-pointer'>
-                    <span className='text-gray-500'>Sort by:</span>
-                    <div className='w-1.5'></div>
-                    {/* <span className='text-[#F530FD] px-1 font-semibold'>{selected}</span> */}
-                    <div className='w-4 h-4 bg-[#727272] rounded-md ml-1 mr-1'>
-                        <RiArrowDropDownLine color='white'/>
-                    </div>
+        <div onClick={handleClick} className="font-inter lg:px-4 lg:py-1.5 md:px-3 md:py-1 px-2 py-0.5 rounded-full border-[2.05px] border-[#F530FD]">
+            <div className='flex flex-row items-center cursor-pointer lg:text-base md:text-[14px] text-[12px]'>
+                <span className='text-gray-500'>Sort by:</span>
+                <div className='w-1.5'></div>
+                <div className='lg:w-4 lg:h-4 md:w-3.5 md:h-3.5 w-3 h-3 bg-[#727272] rounded-sm lg:ml-1 lg:mr-1 ml-0.5 mr-0.5'>
+                    {!open ? 
+                    <RiArrowDropDownLine color='white'/>
+                    :
+                    <RiArrowDropUpLine color='white'/>
+                    }
                 </div>
-            :   
-                <div className='flex flex-row items-center cursor-pointer'>
-                    <span className='text-gray-500'>Sort by:</span>
-                    <div className='w-1.5'></div>
-                    {/* <span className='text-[#F530FD] px-1 font-semibold'>{selected}</span> */}
-                    <div className='w-4 h-4 bg-[#727272] rounded-md ml-1 mr-1'>
-                        <RiArrowDropUpLine color='white'/>
-                    </div>
-                </div>
-            }
+            </div>
         </div>
         {open && (
-            <div className="z-50 font-instrument-sans absolute w-40 bg-white text-[#727272] border border-gray-400 rounded-lg mt-2">
+            <div className="z-50 font-instrument-sans absolute lg:w-40 w-35 bg-white text-[#727272] border border-gray-400 rounded-lg mt-2">
                 <div className="flex flex-col">
                       {options.map(({ label, value }) => (
-                    <label key={value} className={`flex items-center cursor-pointer border-b border-gray-500 p-2 last:border-b-0 transition-discrete ${
+                    <label key={value} className={`flex items-center cursor-pointer border-b border-gray-500 lg:p-2 p-1 last:border-b-0 transition-discrete ${
                             selected === 'All' || selected === value ? 'text-[#F530FD] font-semibold' : ''
                         }`}>
                         <input
@@ -61,10 +53,10 @@ const SortDropdown: React.FC = () => {
                         onChange={handleChange}
                         className="hidden peer cursor-pointer"
                         />
-                        <div className="w-5 h-5 mr-2 mb-0.5 rounded-md flex items-center justify-center peer-checked:bg-[#F530FD]">
+                        <div className="lg:w-5 lg:h-5 w-3 h-3 mr-2 lg:ml-0 ml-1 mb-0.5 lg:rounded-md rounded-sm flex items-center justify-center peer-checked:bg-[#F530FD]">
                             {selected === value && (
                                 <svg
-                                className="w-3 h-3 text-white"
+                                className="lg:w-3 lg:h-3 w-2 h-2 text-white"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -73,8 +65,7 @@ const SortDropdown: React.FC = () => {
                                 </svg>
                             )}
                         </div>
-                        <div className='w-0.5'></div>
-                        {label}
+                        <div className='lg:text-base text-[13px]'>{label}</div>
                     </label>
                     ))}
                 </div>
