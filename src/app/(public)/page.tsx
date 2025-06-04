@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import type { Metadata } from "next";
-import WhatWeOfferSection from '@/components/sections/WhatWeOfferSection';
 export const metadata: Metadata = {
   title: "SAMAHAN Systems Development",
   description: "The official website of SAMAHAN Systems Development",
