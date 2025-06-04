@@ -31,7 +31,6 @@ export default function Home() {
     </Head>
     <main>
       {/* {"Insert your component here"} */}
-      <WhatWeOfferSection />
     </main>
   </>);
 }
