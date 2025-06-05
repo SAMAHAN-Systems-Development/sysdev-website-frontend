@@ -9,18 +9,10 @@ export default function MissionVision() {
     image, 
     title, 
     text, 
-<<<<<<< HEAD
-
-=======
->>>>>>> e804dd91ef84a65bcdc610c422be9840fe21c5ca
   }: { 
     image: string; 
     title: string; 
     text: string; 
-<<<<<<< HEAD
-
-=======
->>>>>>> e804dd91ef84a65bcdc610c422be9840fe21c5ca
   }) => (
    <div className="flex flex-col items-center mb-8">
       <div className="w-[250px] sm:w-[300px] overflow-hidden">
