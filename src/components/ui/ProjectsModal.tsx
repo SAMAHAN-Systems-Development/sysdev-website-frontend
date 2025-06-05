@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { IoCalendar } from "react-icons/io5";
 import { MdArrowOutward } from "react-icons/md";
 import { FaCircleXmark } from "react-icons/fa6";
-import { Project } from "@/lib/types/projects";
+import { Project } from "@/lib/features/projects/types/projects";
 import Image from "next/image";
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 

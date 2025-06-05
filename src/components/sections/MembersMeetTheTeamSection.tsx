@@ -1,5 +1,5 @@
 import members from "@/data/members.json";
-import { Member } from "@/lib/types/members";
+import { Member } from "@/lib/features/members/types/members";
 import { MemberCard } from "../ui/MemberCard";
 
 export default function MembersMeetTheTeamSection() {
