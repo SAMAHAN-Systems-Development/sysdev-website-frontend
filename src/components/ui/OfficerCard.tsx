@@ -1,46 +1,13 @@
-import { cva } from "class-variance-authority";
 import { instrument_sans } from "@/styles/font";
 import Image from "next/image";
 import React from "react";
 import type { Member } from "@/lib/types/members";
-import membersData from "@/data/members.json";
-
-const cardVariants = cva(
-  "flex flex-col items-center p-6 rounded-3xl",
-  {
-    variants: {
-      backgroundColor: {
-        blue3: "bg-blue3",
-        transparent: "bg-transparent",
-      },
-    },
-    defaultVariants: {
-      backgroundColor: "transparent",
-    },
-  }
-);
-
-const positionVariants = cva(
-  "py-1 px-5 rounded-full text-[10px] md:text-sm font-medium w-full text-center",
-  {
-    variants: {
-      positionColor: {
-        officer: "bg-blue3 text-yellow3", 
-      },
-    },
-    defaultVariants: {
-      positionColor: "officer",
-    },
-  }
-);
 
 export interface OfficerCardProps {
   member: Member;
-  backgroundColor?: "blue3" | "transparent";
 }
 export function OfficerCard({
   member,
-  backgroundColor = "transparent",
 }: OfficerCardProps) {
   const {
     name,
@@ -54,35 +21,35 @@ export function OfficerCard({
     case "External Affairs Head":
       return (
         <span>
-          <span className="inline md:hidden">Ext. Affairs</span>
+          <span className="inline md:hidden">Ext. Affairs Head</span>
           <span className="hidden md:inline">External Affairs Head</span>
         </span>
       );
       case "Front-End Head":
       return (
         <span>
-          <span className="inline md:hidden">FE Head</span>
+          <span className="inline md:hidden">Front-End Head</span>
           <span className="hidden md:inline">Front-End Head</span>
         </span>
       );
         case "Back-End Head":
       return (
         <span>
-          <span className="inline md:hidden">BE Head</span>
+          <span className="inline md:hidden">Back-End Head</span>
           <span className="hidden md:inline">Back-End Head</span>
         </span>
       );
       case "Full-Stack Head":
       return (
         <span>
-          <span className="inline md:hidden">FS Head</span>
+          <span className="inline md:hidden">Full-Stack Head</span>
           <span className="hidden md:inline">Full-Stack Head</span>
         </span>
       );
       case "Secretary-General":
       return (
         <span>
-          <span className="inline md:hidden">Sec-Gen</span>
+          <span className="inline md:hidden">Secretary-General</span>
           <span className="hidden md:inline">Secretary-General</span>
         </span>
       );
@@ -96,9 +63,10 @@ export function OfficerCard({
   const nameTextColor = "text-black";
 
   return (
-    <div className={`${cardVariants({ backgroundColor })} 
-      flex-col
-      w-full max-w-[150px] sm:max-w-[180px] md:max-w-[250px] 
+    <div className={`
+    flex  items-center rounded-3xl  
+    flex-col
+      w-[150px] sm:w-[180px] md:w-[250px] 
       h-auto min-h-[220px] sm:min-h-[260px] md:min-h-[350px]
       flex-shrink-0 
       p-3 sm:p-4 md:p-5`}>
@@ -144,10 +112,10 @@ export function OfficerCard({
   <div className="flex justify-center w-full">
   <div className={`
     ${instrument_sans.className} 
-    ${positionVariants({ positionColor: "officer" })}
+    rounded-full  font-medium w-full bg-blue3 text-yellow3
     min-w-[110px] sm:min-w-[130px] md:min-w-[140px]
     mx-auto
-    text-[8px] sm:text-[9px] md:text-xs
+    text-[10px] sm:text-[11px] md:text-[13px]
     py-1 px-2 sm:px-3 md:px-4
     whitespace-nowrap
     text-center
@@ -159,56 +127,57 @@ export function OfficerCard({
     </div>
   );
 }
-// officerCardList component
-export function OfficerCardList() {
-  const officers = (membersData as Member[]).filter(member => 
-    member.position === "Treasurer" ||
-    member.position === "Director" ||
-    member.position === "Deputy Director" ||
-    member.position === "Secretary-General" ||
-    member.position === "Auditor" ||
-    member.position === "External Affairs Head" ||
-    member.position === "Front-End Head" ||
-    member.position === "Back-End Head" ||
-    member.position === "UI/UX Head" ||
-    member.position === "Creatives Head"
-  );
 
-  const director = officers.find(member => member.position === "Director");
+// // officerCardList component
+// export function OfficerCardList() {
+//   const officers = (membersData as Member[]).filter(member => 
+//     member.position === "Treasurer" ||
+//     member.position === "Director" ||
+//     member.position === "Deputy Director" ||
+//     member.position === "Secretary-General" ||
+//     member.position === "Auditor" ||
+//     member.position === "External Affairs Head" ||
+//     member.position === "Front-End Head" ||
+//     member.position === "Back-End Head" ||
+//     member.position === "UI/UX Head" ||
+//     member.position === "Creatives Head"
+//   );
 
-  const otherOfficers = officers.filter(member => 
-    member.position !== "Director" 
-  );
+//   const director = officers.find(member => member.position === "Director");
 
-  return (
-    <div className="w-full">
-      <h2 className="text-center text-2xl text-blue3 font-bold mb-8">Officers</h2>
+//   const otherOfficers = officers.filter(member => 
+//     member.position !== "Director" 
+//   );
+
+//   return (
+//     <div className="w-full">
+//       <h2 className="text-center text-2xl text-blue3 font-bold mb-8">Officers</h2>
       
       
-      <div className="flex flex-col items-center gap-6 p-4 max-w-screen-2xl mx-auto">
+//       <div className="flex flex-col items-center gap-6 p-4 max-w-screen-2xl mx-auto">
         
-        {/* director - full width on mobile */}
-        {director && (
-          <div className="w-full flex justify-center">
-            <OfficerCard
-              member={director}
-              backgroundColor="transparent"
-            />
-          </div>
-        )}
+//         {/* director - full width on mobile */}
+//         {director && (
+//           <div className="w-full flex justify-center">
+//             <OfficerCard
+//               member={director}
+//               backgroundColor="transparent"
+//             />
+//           </div>
+//         )}
         
-        {/* other officers - two per row on mobile, more on larger screens */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 w-full">
-          {otherOfficers.map((member, idx) => (
-            <div key={idx} className="flex justify-center">
-              <OfficerCard
-                member={member}
-                backgroundColor="transparent"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+//         {/* other officers - two per row on mobile, more on larger screens */}
+//         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 w-full">
+//           {otherOfficers.map((member, idx) => (
+//             <div key={idx} className="flex justify-center">
+//               <OfficerCard
+//                 member={member}
+//                 backgroundColor="transparent"
+//               />
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

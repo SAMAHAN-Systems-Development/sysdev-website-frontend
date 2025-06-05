@@ -28,5 +28,35 @@
     "email": "email@addu.edu.ph",
     "position": "Creatives Head",
     "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Mark Lyod Carin",
+    "email": "email@addu.edu.ph",
+    "position": "Secretary-General",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Mark Lyod Carin",
+    "email": "email@addu.edu.ph",
+    "position": "Front-End Head",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Mark Lyod Carin",
+    "email": "email@addu.edu.ph",
+    "position": "Back-End Head",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Mark Lyod Carin",
+    "email": "email@addu.edu.ph",
+    "position": "UI/UX Head",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Mark Lyod Carin",
+    "email": "email@addu.edu.ph",
+    "position": "Full-Stack Head",
+    "imageUrl": "/images/PlaceholderImage.png"
   }
 ]

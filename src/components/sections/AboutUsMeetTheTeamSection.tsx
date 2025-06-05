@@ -3,8 +3,8 @@ import Link from "next/link";
 
 import members from "@/data/members.json";
 import { Member } from "@/lib/types/members";
-import { MemberCard } from "../ui/MemberCard";
 import Button from "../ui/Button";
+import { OfficerCard } from "../ui/OfficerCard";
 
 export default function AboutUsMeetTheTeamSection() {
   const membersData = members as Member[];
@@ -24,9 +24,7 @@ export default function AboutUsMeetTheTeamSection() {
             if (member.position.toLowerCase() === "director") {
               return (
                 <li key={idx} className="order-1 md:col-span-2 xl:col-span-4">
-                  <MemberCard
-                    backgroundColor="transparent"
-                    positionColor="officer"
+                  <OfficerCard
                     member={{ ...member }}
                   />
                 </li>
@@ -34,9 +32,7 @@ export default function AboutUsMeetTheTeamSection() {
             } else if (member.position.toLowerCase() === "deputy director") {
               return (
                 <li key={idx} className="order-2 md:col-span-2 xl:col-span-4">
-                  <MemberCard
-                    backgroundColor="transparent"
-                    positionColor="officer"
+                  <OfficerCard
                     member={{ ...member }}
                   />
                 </li>
@@ -44,9 +40,7 @@ export default function AboutUsMeetTheTeamSection() {
             } else if (member.position.toLowerCase() === "secretary-general") {
               return (
                 <li key={idx} className="order-3">
-                  <MemberCard
-                    backgroundColor="transparent"
-                    positionColor="officer"
+                  <OfficerCard
                     member={{ ...member }}
                   />
                 </li>
@@ -54,9 +48,7 @@ export default function AboutUsMeetTheTeamSection() {
             } else if (member.position.toLowerCase() === "treasurer") {
               return (
                 <li key={idx} className="order-4">
-                  <MemberCard
-                    backgroundColor="transparent"
-                    positionColor="officer"
+                  <OfficerCard
                     member={{ ...member }}
                   />
                 </li>
@@ -64,9 +56,7 @@ export default function AboutUsMeetTheTeamSection() {
             } else if (member.position.toLowerCase() === "auditor") {
               return (
                 <li key={idx} className="order-5">
-                  <MemberCard
-                    backgroundColor="transparent"
-                    positionColor="officer"
+                  <OfficerCard
                     member={{ ...member }}
                   />
                 </li>
@@ -74,9 +64,7 @@ export default function AboutUsMeetTheTeamSection() {
             } else if (member.position.toLowerCase() === "external affairs head") {
               return (
                 <li key={idx} className="order-6">
-                  <MemberCard
-                    backgroundColor="transparent"
-                    positionColor="officer"
+                  <OfficerCard
                     member={{ ...member }}
                   />
                 </li>
@@ -84,9 +72,7 @@ export default function AboutUsMeetTheTeamSection() {
             } else if (member.position.toLowerCase() === "front-end head") {
               return (
                 <li key={idx} className="order-7">
-                  <MemberCard
-                    backgroundColor="transparent"
-                    positionColor="officer"
+                  <OfficerCard
                     member={{ ...member }}
                   />
                 </li>
@@ -94,9 +80,7 @@ export default function AboutUsMeetTheTeamSection() {
             } else if (member.position.toLowerCase() === "back-end head") {
               return (
                 <li key={idx} className="order-8">
-                  <MemberCard
-                    backgroundColor="transparent"
-                    positionColor="officer"
+                  <OfficerCard
                     member={{ ...member }}
                   />
                 </li>
@@ -104,9 +88,7 @@ export default function AboutUsMeetTheTeamSection() {
             } else if (member.position.toLowerCase() === "ui/ux head") {
               return (
                 <li key={idx} className="order-9">
-                  <MemberCard
-                    backgroundColor="transparent"
-                    positionColor="officer"
+                  <OfficerCard
                     member={{ ...member }}
                   />
                 </li>
@@ -114,9 +96,7 @@ export default function AboutUsMeetTheTeamSection() {
             } else if (member.position.toLowerCase() === "creatives head") {
               return (
                 <li key={idx} className="order-10">
-                  <MemberCard
-                    backgroundColor="transparent"
-                    positionColor="officer"
+                  <OfficerCard
                     member={{ ...member }}
                   />
                 </li>
