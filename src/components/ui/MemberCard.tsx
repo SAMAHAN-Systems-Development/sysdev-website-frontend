@@ -91,6 +91,13 @@ export function MemberCard({
           <span className="hidden md:inline">Proj. Man.</span>
         </span>
       );
+    case "Secretary-General":
+      return (
+        <span>
+          <span className="inline md:hidden">Sec-Gen</span>
+          <span className="hidden md:inline">Secretary-General</span>
+        </span>
+      );
     default:
       return text;
   }

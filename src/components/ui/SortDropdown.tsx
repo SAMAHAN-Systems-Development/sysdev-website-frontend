@@ -26,10 +26,10 @@ const SortDropdown: React.FC = () => {
   return (
     <div className='w-full pt-5 pb-7'>
         <div className='relative w-max '>
-        <div onClick={handleClick} className="font-inter px-4 py-1.5 rounded-full border-[2.05px] border-[#F530FD]">
+        <div onClick={handleClick} className="font-inter px-3 md:px-4 py-1.5 rounded-full border-[2.05px] border-[#F530FD]">
             {!open ? 
                 <div className='flex flex-row items-center cursor-pointer'>
-                    <span className='text-gray-500'>Sort by:</span>
+                    <span className='text-gray-500 text-sm md:text-base'>Sort by:</span>
                     <div className='w-1.5'></div>
                     {/* <span className='text-[#F530FD] px-1 font-semibold'>{selected}</span> */}
                     <div className='w-4 h-4 bg-[#727272] rounded-md ml-1 mr-1'>
@@ -38,7 +38,7 @@ const SortDropdown: React.FC = () => {
                 </div>
             :   
                 <div className='flex flex-row items-center cursor-pointer'>
-                    <span className='text-gray-500'>Sort by:</span>
+                    <span className='text-gray-500 text-sm md:text-base'>Sort by:</span>
                     <div className='w-1.5'></div>
                     {/* <span className='text-[#F530FD] px-1 font-semibold'>{selected}</span> */}
                     <div className='w-4 h-4 bg-[#727272] rounded-md ml-1 mr-1'>
@@ -48,10 +48,10 @@ const SortDropdown: React.FC = () => {
             }
         </div>
         {open && (
-            <div className="z-50 font-instrument-sans absolute w-40 bg-white text-[#727272] border border-gray-400 rounded-lg mt-2">
+            <div className="z-50 font-instrument-sans absolute w-32 md:w-40 bg-white text-[#727272] border border-gray-400 rounded-lg mt-2">
                 <div className="flex flex-col">
                       {options.map(({ label, value }) => (
-                    <label key={value} className={`flex items-center cursor-pointer border-b border-gray-500 p-2 last:border-b-0 transition-discrete ${
+                    <label key={value} className={`text-sm md:text-base flex items-center cursor-pointer border-b border-gray-500 p-2 last:border-b-0 transition-discrete ${
                             selected === 'All' || selected === value ? 'text-[#F530FD] font-semibold' : ''
                         }`}>
                         <input

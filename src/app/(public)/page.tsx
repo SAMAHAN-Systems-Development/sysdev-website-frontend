@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import type { Metadata } from "next";
-import { OfficerCardList } from "@/components/ui/OfficerCard";
 export const metadata: Metadata = {
   title: "SAMAHAN Systems Development",
   description: "The official website of SAMAHAN Systems Development",
@@ -30,7 +29,7 @@ export default function Home() {
       ></link>
     </Head>
     <main>
-      <OfficerCardList></OfficerCardList>
+      {/* {"Insert your component here"} */}
     </main>
   </>);
 }

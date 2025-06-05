@@ -23,7 +23,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${instrument_sans.variable} antialiased`}
       >
-        {children}
+        <main>
+          {children}
+        </main>
       </body>
       <Footer />
     </html>
