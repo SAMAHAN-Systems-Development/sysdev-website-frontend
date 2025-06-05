@@ -61,7 +61,6 @@ export default function MembersMeetTheTeamSection() {
             {fullStackHead && (
         <div className="mb-8 flex justify-center w-full max-w-xs mx-auto">
             <MemberCard
-            backgroundColor="blue3"
             positionColor="fullstack"
             member={fullStackHead}
             />
@@ -72,7 +71,6 @@ export default function MembersMeetTheTeamSection() {
           {fullStackMembers.map((member, idx) => (
             <li key={idx} className="flex justify-center">
               <MemberCard
-                backgroundColor="blue3"
                 positionColor="fullstack"
                 member={member}
               />
@@ -89,7 +87,6 @@ export default function MembersMeetTheTeamSection() {
             {frontEndHead && (
         <div className="mb-8 flex justify-center w-full max-w-xs mx-auto">
             <MemberCard
-            backgroundColor="blue3"
             positionColor="frontend"
             member={frontEndHead}
             />
@@ -100,7 +97,6 @@ export default function MembersMeetTheTeamSection() {
           {frontEndMembers.map((member, idx) => (
             <li key={idx} className="flex justify-center">
               <MemberCard
-                backgroundColor="blue3"
                 positionColor="frontend"
                 member={member}
               />
@@ -117,7 +113,6 @@ export default function MembersMeetTheTeamSection() {
         {backEndHead && (
         <div className="mb-8 flex justify-center w-full max-w-xs mx-auto">
             <MemberCard
-            backgroundColor="blue3"
             positionColor="backend"
             member={backEndHead}
             />
@@ -128,7 +123,6 @@ export default function MembersMeetTheTeamSection() {
           {backEndMembers.map((member, idx) => (
             <li key={idx} className="flex justify-center">
               <MemberCard
-                backgroundColor="blue3"
                 positionColor="backend"
                 member={member}
               />
@@ -145,7 +139,7 @@ export default function MembersMeetTheTeamSection() {
         {uiUxHead && (
         <div className="mb-8 flex justify-center w-full max-w-xs mx-auto">
             <MemberCard
-            backgroundColor="blue3"
+            
             positionColor="uiux"
             member={uiUxHead}
             />
@@ -155,7 +149,6 @@ export default function MembersMeetTheTeamSection() {
           {uiUxMembers.map((member, idx) => (
             <li key={idx} className="flex justify-center">
               <MemberCard
-                backgroundColor="blue3"
                 positionColor="uiux"
                 member={member}
               />
@@ -172,7 +165,6 @@ export default function MembersMeetTheTeamSection() {
         {creativesHead && (
         <div className="mb-8 flex justify-center w-full max-w-xs mx-auto">
             <MemberCard
-            backgroundColor="blue3"
             positionColor="creatives"
             member={creativesHead}
             />
@@ -182,7 +174,6 @@ export default function MembersMeetTheTeamSection() {
           {creativesMembers.map((member, idx) => (
             <li key={idx} className="flex justify-center">
               <MemberCard
-                backgroundColor="blue3"
                 positionColor="creatives"
                 member={member}
               />
@@ -199,7 +190,6 @@ export default function MembersMeetTheTeamSection() {
           {projManMembers.map((member, idx) => (
             <li key={idx} className="flex justify-center">
               <MemberCard
-                backgroundColor="blue3"
                 positionColor="projmngr"
                 member={member}
               />
@@ -214,7 +204,6 @@ export default function MembersMeetTheTeamSection() {
           {devOpsMembers.map((member, idx) => (
             <li key={idx} className="flex justify-center">
               <MemberCard
-                backgroundColor="blue3"
                 positionColor="devops"
                 member={member}
               />
