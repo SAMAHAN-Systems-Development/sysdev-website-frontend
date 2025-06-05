@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { IoCalendar } from "react-icons/io5"
 import { FaUser } from "react-icons/fa"
-import type { Project } from "@/lib/types/projects"
+import type { Project } from "@/lib/features/projects/types/projects"
 
 interface ProjectCardProps {
     project: Project

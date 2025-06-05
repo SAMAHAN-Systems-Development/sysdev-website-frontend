@@ -1,7 +1,7 @@
 import { instrument_sans } from "@/styles/font";
 import Image from "next/image";
 import React from "react";
-import type { Member } from "@/lib/types/members";
+import type { Member } from "@/lib/features/members/types/members";
 
 export interface OfficerCardProps {
   member: Member;
