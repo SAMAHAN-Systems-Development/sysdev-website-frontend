@@ -45,12 +45,6 @@ export default function MembersMeetTheTeamSection() {
     member.position === "Creatives" || 
     member.position2 === "Creatives"
   );
-
-  const QAMembers = membersData.filter(member =>
-    member.position === "QA" || 
-    member.position2 === "QA"
-  );
-
   return (
   <section className="font-inter w-full flex flex-col items-center px-7 pt-7 pb-4 md:p-14 xl:p-24 mt-10">
     <div className="flex flex-col items-center text-blue3 text-center gap-2.5">
