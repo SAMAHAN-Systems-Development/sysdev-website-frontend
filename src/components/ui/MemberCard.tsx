@@ -34,18 +34,17 @@ const positionVariants = cva(
         alumni: "bg-maroon text-white",
         projmngr: "bg-purple text-white",
         qa: "bg-white text-black",
-        officer: "bg-blue3 text-yellow1",
       },
     },
     defaultVariants: {
-      positionColor: "officer",
+      positionColor: "frontend",
     },
   }
 );
 
 export interface MemberCardProps {
   member: Member;
-  backgroundColor: "blue3" | "transparent";
+  backgroundColor: "blue3";
   positionColor: 
     | "frontend"
     | "backend"
@@ -56,7 +55,6 @@ export interface MemberCardProps {
     | "alumni"
     | "projmngr"
     | "qa"
-    | "officer";
 }
 
 export function MemberCard({
@@ -74,7 +72,7 @@ export function MemberCard({
     imageUrl = "/placeholder-profile.png",
   } = member;
 
-  const nameTextColor = positionColor === "officer" ? "text-black" : "text-white";
+  const nameTextColor = "text-white";
 
   const positions = [
     { text: position, color: positionColor },
@@ -91,20 +89,6 @@ export function MemberCard({
         <span>
           <span className="inline md:hidden">PM</span>
           <span className="hidden md:inline">Proj. Man.</span>
-        </span>
-      );
-    case "Secretary-General":
-      return (
-        <span>
-          <span className="inline md:hidden">Sec-Gen</span>
-          <span className="hidden md:inline">Secretary-General</span>
-        </span>
-      );
-    case "Full-Stack":
-      return (
-        <span>
-          <span className="inline md:hidden">FS</span>
-          <span className="hidden md:inline">Full-Stack</span>
         </span>
       );
     default:
@@ -226,7 +210,7 @@ function getPositionColor(position: string): MemberCardProps["positionColor"] {
       return "fullstack";
     case "DevOps":
       return "devops";
-    case "UI/UX":
+    case "UI/UX": 
       return "uiux";
     case "Creatives":
       return "creatives";
@@ -237,7 +221,7 @@ function getPositionColor(position: string): MemberCardProps["positionColor"] {
     case "QA":
       return "qa";
     default:
-      return "officer";
+      return "frontend";
   }
 }
 
@@ -255,7 +239,7 @@ function getCardBackground(position: string): MemberCardProps["backgroundColor"]
     case "Project Manager":
       return "blue3";
     default:
-      return "transparent";
+      return "blue3";
   }
 }
 
