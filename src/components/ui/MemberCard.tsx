@@ -28,21 +28,10 @@ const positionVariants = cva(
 
 export interface MemberCardProps {
   member: Member;
-  positionColor: 
-    | "frontend"
-    | "backend"
-    | "fullstack"
-    | "devops"
-    | "uiux"
-    | "creatives"
-    | "alumni"
-    | "projmngr"
-    | "qa"
 }
 
 export function MemberCard({
   member,
-  positionColor,
 }: MemberCardProps) {
   const {
     name,
@@ -57,7 +46,7 @@ export function MemberCard({
   const nameTextColor = "text-white";
 
   const positions = [
-    { text: position, color: positionColor },
+     { text: position, color: getPositionColor(position) },
     ...(position2 ? [{ text: position2, color: getPositionColor(position2) }] : []),
     ...(position3 ? [{ text: position3, color: getPositionColor(position3) }] : []),
     ...(position4 ? [{ text: position4, color: getPositionColor(position4) }] : []),
@@ -73,6 +62,7 @@ export function MemberCard({
           <span className="hidden md:inline">Proj. Man.</span>
         </span>
       );
+      default:
       return text;
   }
 };
@@ -133,10 +123,10 @@ export function MemberCard({
   return (
 <div className={`flex items-center rounded-3xl md:rounded-2xl bg-blue3
   flex-row md:flex-col
-  w-[250px] sm:w-[348px] md:w-48 
-  h-[150px] sm:h-[200px] md:h-[285px]
+  w-full sm:w-[250px] md:w-48 
+  h-[120px] sm:h-[150px] md:h-[285px]
   flex-shrink-0 
-  p-4 sm:px-6 md:p-5`}>
+  p-3 sm:p-4 md:p-5`}>
     
   <div className="relative 
     w-20 h-20 sm:w-26 sm:h-26 md:w-32 md:h-32 
@@ -184,8 +174,21 @@ export function MemberCard({
 );
 }
 // Helper to map position to positionColor variant
-function getPositionColor(position: string): MemberCardProps["positionColor"] {
-  switch (position) {
+type PositionColorVariant = 
+  | "frontend" 
+  | "backend" 
+  | "fullstack" 
+  | "devops" 
+  | "uiux" 
+  | "creatives" 
+  | "alumni" 
+  | "projmngr" 
+  | "qa";
+
+function getPositionColor(position: string): PositionColorVariant {
+  const basePosition = position.replace(" Head", "");
+  
+  switch (basePosition) {
     case "Front-End":
       return "frontend";
     case "Back-End":
