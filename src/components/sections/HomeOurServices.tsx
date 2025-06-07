@@ -44,8 +44,8 @@ export default function HomeOurServices() {
   ];
 
   return (
-    <section className="font-inter mx-auto flex w-full max-w-[320px] flex-col px-2 py-18 text-black md:max-w-[768px] md:px-14 lg:max-w-[1024px] lg:px-20">
-      <div className="flex flex-col gap-2 text-center">
+    <section className="font-inter mx-auto flex w-full max-w-lg flex-col px-2 py-18 text-black md:max-w-[768px] md:px-14 lg:max-w-[1024px] lg:px-20">
+      <div className="flex flex-col gap-2 text-center lg:mb-3">
         <h1 className="text-xl font-bold italic md:text-3xl lg:text-4xl">
           Our Services
         </h1>
@@ -53,14 +53,14 @@ export default function HomeOurServices() {
           See how SYSDEV empowers the community through technology&#46;
         </p>
       </div>
-      <ul className="mt-6 flex flex-col gap-2 md:gap-4">
+      <ul className="mt-6 flex flex-col gap-2 md:gap-4 items-center lg:mb-3">
         {servicesList.map((service, idx) => (
           <li
             key={idx}
-            className="nth-[1]:border-green2 nth-[2]:border-pink2 nth-[3]:border-yellow2 flex h-[79px] flex-col justify-center gap-1 rounded-2xl border-2 px-4 md:h-[130px] md:rounded-4xl md:px-8 lg:h-[100px] lg:rounded-3xl"
+            className="nth-[1]:border-green2 nth-[2]:border-pink2 nth-[3]:border-yellow2 flex flex-col justify-center gap-1 rounded-2xl border-2 md:rounded-3xl py-3 px-4 md:py-4 md:px-6 lg:h-[100px] lg:rounded-3xl w-9/10"
           >
-            <p className="text-sm font-bold md:text-xl">{service.title}</p>
-            <p className="line-clamp-2 text-xs md:text-lg">
+            <p className="text-xs sm:text-sm font-bold md:text-xl">{service.title}</p>
+            <p className="text-xs md:text-lg">
               {service.description}
             </p>
           </li>
@@ -81,7 +81,7 @@ export default function HomeOurServices() {
           </div>
         ))}
       </div>
-      <div className="flex flex-col text-center">
+      <div className="flex flex-col text-center lg:mt-5">
         <p className="text-sm md:text-xl lg:text-2xl">
           Have a project or idea in mind?
         </p>
