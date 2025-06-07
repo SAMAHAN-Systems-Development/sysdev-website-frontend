@@ -12,23 +12,23 @@ export default function AboutUsMeetTheTeamSection() {
     <section className="font-inter mx-auto flex w-full max-w-[320px] flex-col items-center px-4 py-20 sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px]">
       <div className="text-blue3 flex flex-col items-center gap-2.5 text-center">
         <h1 className="text-3xl font-bold md:text-4xl">Meet the Team</h1>
-        <p className="text-xs md:text-xl">
+        <p className="text-xs md:text-xl max-w-[260px] sm:max-w-none ">
           The minds behind SYSDEV &#8212; building solution for a better AdDU.
         </p>
       </div>
       <div className="mt-10 flex flex-col items-center gap-y-4">
         <h2 className="text-2xl font-bold text-black">Officers</h2>
-        <ul className="grid grid-cols-2 justify-items-center lg:grid-cols-4">
+        <ul className="grid grid-cols-2 justify-items-center xl:grid-cols-4 gap-y-5 [@media(min-width:360px)]:gap-x-6 [@media(min-width:400px)]:gap-x-12">
           {membersData.map((member, idx) => {
             if (member.position.toLowerCase() === "director") {
               return (
-                <li key={idx} className="order-1 col-span-2 lg:col-span-4">
+                <li key={idx} className="order-1 col-span-2 xl:col-span-4">
                   <OfficerCard member={{ ...member }} />
                 </li>
               );
             } else if (member.position.toLowerCase() === "deputy director") {
               return (
-                <li key={idx} className="order-2 col-span-2 lg:col-span-4">
+                <li key={idx} className="order-2 col-span-2 xl:col-span-4">
                   <OfficerCard member={{ ...member }} />
                 </li>
               );
@@ -86,9 +86,9 @@ export default function AboutUsMeetTheTeamSection() {
           })}
         </ul>
       </div>
-      <div className="mt-14 flex h-13 w-full items-center justify-center">
+      <div className="mt-14 lg:mt-20 flex h-13 w-full items-center justify-center">
         <Link
-          className="w-full max-w-[320px] md:max-w-[350px] lg:max-w-[450px]"
+          className="w-full max-w-[230px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px]"
           href="/"
         >
           <Button className="w-full font-bold" variant={"pink"} size={"big"}>
