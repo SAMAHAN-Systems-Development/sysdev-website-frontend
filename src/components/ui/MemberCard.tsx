@@ -5,7 +5,7 @@ import React from "react";
 import type { Member } from "@/lib/types/members";
 
 const positionVariants = cva(
-   "py-1 px-5 rounded-full text-[10px] md:text-sm font-medium w-full text-center",
+   "md:py-1 w-full rounded-full text-[10px] md:text-xs font-medium text-center",
   {
     variants: {
       positionColor: {
@@ -102,7 +102,7 @@ export function MemberCard({
     }
     
     return rows.map((row, rowIndex) => (
-      <div key={rowIndex} className={`w-full flex gap-2 ${rowIndex > 0 ? "mt-3" : ""}`}>
+      <div key={rowIndex} className={`w-full flex gap-x-2 ${rowIndex > 0 ? "mt-1" : ""}`}>
         {row.map((pos, colIndex) => (
           <div
             key={`${rowIndex}-${colIndex}`}
@@ -123,16 +123,16 @@ export function MemberCard({
   return (
 <div className={`flex items-center rounded-3xl md:rounded-2xl bg-blue3
   flex-row md:flex-col
-  w-full sm:w-[250px] md:w-48 
-  h-[120px] sm:h-[150px] md:h-[285px]
+  w-full max-w-9/10 md:max-w-none md:w-56 
+  h-[135px] md:h-80
   flex-shrink-0 
-  p-3 sm:p-4 md:p-5`}>
+  py-3 px-4 md:p-5`}>
     
   <div className="relative 
-    w-20 h-20 sm:w-26 sm:h-26 md:w-32 md:h-32 
+    w-20 h-20 md:w-[150px] md:h-[150px] 
     rounded-full overflow-hidden bg-gray-300 
     mb-0 md:mb-3
-    ml-0 mr-3 sm:mr-4 md:mx-auto
+    ml-0 mr-3 md:mx-auto
     flex-shrink-0">
     <Image
       src={imageUrl}
@@ -142,23 +142,23 @@ export function MemberCard({
     />
   </div>
 
-  <div className="flex flex-col justify-between w-full min-w-0 h-4/5">
+  <div className="flex flex-col w-full min-w-0 h-full gap-y-1 justify-center md:justify-between">
     <div className="">
-      <div className="md:h-[44px] md:flex md:flex-col md:justify-center">
-      <h3 className={`${instrument_sans.className} 
-      text-xs sm:text-base md:text-sm 
-      font-bold ${nameTextColor} 
-      mb-1.5 sm:mb-2 md:mb-0 
-      text-left md:text-center 
-      line-clamp-2 overflow-hidden text-ellipsis`}>  
-      {name}
-      </h3>
+      <div className="md:mb-1 md:flex md:flex-col md:justify-center">
+        <h3 className={`${instrument_sans.className} 
+        text-xs  md:text-sm 
+        font-bold ${nameTextColor} 
+        mb-1.5  md:mb-0 
+        text-left md:text-center 
+        line-clamp-2 overflow-hidden text-ellipsis`}>  
+        {name}
+        </h3>
       </div>
 
       <p className={`${instrument_sans.className} 
         text-xs 
         ${nameTextColor} opacity-80
-        mb-3 md:mb-4 
+        mb-3 
         text-left md:text-center 
         truncate`}>
         {email}
@@ -166,7 +166,7 @@ export function MemberCard({
     </div>
     
     
-    <div className="flex flex-wrap gap-1 sm:gap-2 md:gap-2 w-full">
+    <div className="flex flex-wrap gap-1 md:gap-2 w-full">
       {renderPositions()}
     </div>
   </div>
