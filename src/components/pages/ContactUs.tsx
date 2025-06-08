@@ -13,10 +13,11 @@ import Image from "next/image";
 declare global {
   interface Window {
     uploadcare: any;
+    UPLOADCARE_PUBLIC_KEY?: string;
   }
 }
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwpblekr";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwpblekr"; //change to formspree endpoint
 const UPLOADCARE_PUBLIC_KEY = "8255a91f9d7670dacc0c"; // change to your Uploadcare public key
 
 const ContactUs: React.FC = () => {
