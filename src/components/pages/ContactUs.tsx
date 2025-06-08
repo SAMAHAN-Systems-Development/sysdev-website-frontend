@@ -133,7 +133,7 @@ const ContactUs: React.FC = () => {
       data.append("message", message);
 
       // Add Uploadcare URLs to Formspree submission
-      uploadedFileUrls.forEach((url, idx) => {
+      uploadedFileUrls.forEach((url) => {
         data.append("my_file[]", url);
       });
 
@@ -160,7 +160,7 @@ const ContactUs: React.FC = () => {
         const result = await res.json();
         setFormError(result?.errors?.[0]?.message || "Something went wrong, please try again.");
       }
-    } catch (err) {
+    } catch {
       setFormError("Something went wrong, please try again.");
       setFormState("error");
     }
