@@ -11,17 +11,18 @@ const HomeGetStartedBanner = () => {
         >
             <div className="absolute inset-0 bg-blue3 opacity-70"></div>
 
-            <div className="relative z-10">
-                <h1 className='font-instrument-sans font-bold text-white text-3xl sm:text-4xl lg:text-5xl mt-10 mb-4'>
+            <div className="relative z-10 flex flex-col items-center">
+                <h1 className='font-instrument-sans font-bold text-white text-xl sm:text-2xl lg:text-3xl mt-10 mb-1 md:mb-3'>
                     <i>Get Started with SysDev</i>
                 </h1>
-                <p className='font-instrument-sans text-white text-base sm:text-lg max-w-2xl mb-8'>
+                <p className='font-instrument-sans text-white text-sm sm:text-base max-w-sm sm:max-w-md  md:max-w-2xl mb-8 md:mb-14 lg:mb-15'>
                     <i>Download our Starter Guide to know learn about our mission, roles, and how we collaborate.</i>
                 </p>
-                <div className='flex justify-center w-full'>
+                <div className='flex items-center h-20'>
                     <Button
                         variant={"yellow"}
-                        className="font-bold w-full max-w-[12rem] sm:max-w-xs md:w-96 mb-10"
+                        className="font-bold w-[12rem] sm:w-72 md:w-96 mb-10"
+                        size={"big"}
                     >
                         Download Primer
                     </Button>
