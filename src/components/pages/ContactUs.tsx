@@ -9,10 +9,19 @@ import { HiMiniMapPin } from "react-icons/hi2";
 import { IoIosPeople } from "react-icons/io";
 import Image from "next/image";
 
+type UploadcareFileInfo = {
+  cdnUrl: string;
+};
 // Uploadcare Widget global
 declare global {
   interface Window {
-    uploadcare: any;
+    uploadcare: {
+      fileFrom: (
+        source: string,
+        file: File,
+        options?: { filename?: string; contentType?: string }
+      ) => { promise: () => Promise<UploadcareFileInfo> };
+    };
     UPLOADCARE_PUBLIC_KEY?: string;
   }
 }
@@ -88,12 +97,12 @@ const ContactUs: React.FC = () => {
       const uploadPromises = files.map((file) =>
         window.uploadcare.fileFrom("object", file, { filename: file.name, contentType: file.type }).promise()
       );
-      const fileInfos = await Promise.all(uploadPromises);
+      const fileInfos: UploadcareFileInfo[] = await Promise.all(uploadPromises);
+      return fileInfos.map((fileInfo) => fileInfo.cdnUrl);
       
       // Log file details
       // console.log("Uploaded file info:", fileInfos);
 
-      return fileInfos.map((fileInfo: any) => fileInfo.cdnUrl);
     } catch (error) {
       console.error("Uploadcare error:", error); // See error in your browser's dev console
       throw error;
