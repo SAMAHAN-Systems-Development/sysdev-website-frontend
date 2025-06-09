@@ -107,8 +107,22 @@ export default function MembersMeetTheTeamSection() {
       )
     )
   },
-  // ... rest of the teams
-];
+  {
+      id: "Proj. Man.",
+      title: "Project Managers",
+      members: filterMembersByPosition("Proj. Man.")
+    },
+    {
+      id: "DevOps",
+      title: "DevOps",
+      members: filterMembersByPosition("DevOps")
+    },
+    {
+      id: "QA",
+      title: "QA",
+      members: filterMembersByPosition("QA")
+    }
+  ];
   
   useEffect(() => {
     const handleFilterButtonClick = (e: MouseEvent) => {
