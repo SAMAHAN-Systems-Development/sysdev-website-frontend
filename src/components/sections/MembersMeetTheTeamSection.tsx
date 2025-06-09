@@ -7,22 +7,19 @@ import React, { useState, useEffect } from "react";
 
 // helper component for team sections
 const TeamSection = ({ 
-  title, 
   head, 
   members 
 }: { 
-  title: string; 
   head?: Member; 
   members: Member[];
 }) => (
-  <div className="flex flex-col items-center mt-8 sm:mt-16 gap-y-4 sm:gap-y-8">
-  <h2 className="text-xl sm:text-2xl text-blue3 font-bold text-center">{title}</h2>
+  <div className="flex flex-col items-center mt-8 sm:mt-16 gap-y-3 sm:gap-y-6 md:gap-y-9 lg:gap-y-10">
   {head && (
-    <div className="mb-4 sm:mb-8 flex justify-center w-full max-w-xs mx-auto">
+    <div className="flex justify-center w-full max-w-xs mx-auto">
       <MemberCard member={head} />
     </div>
   )}
-    <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-4 md:gap-6 w-full max-w-6xl">
+    <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-6 md:gap-9 lg:gap-10 w-full max-w-6xl">
   {members.map((member, idx) => (
     <li key={idx} className="flex justify-center">
       <MemberCard member={member} />
@@ -147,14 +144,14 @@ export default function MembersMeetTheTeamSection() {
 
   return (
     <section className="font-inter w-full flex flex-col items-center px-4 sm:px-7 pt-4 sm:pt-7 pb-4 sm:pb-4 md:p-14 xl:p-24 mt-5 sm:mt-10">
-      <div className="flex flex-col items-center text-blue3 text-center gap-2.5">
-        <h1 className="font-bold text-4xl">Meet the Team</h1>
-        <p className="text-xl">
+      <div className="flex flex-col items-center text-black text-center gap-2.5">
+        <h1 className="font-bold text-3xl sm:text-4xl">Meet the Team</h1>
+        <p className="text-base sm:text-xl">
           The minds behind SYSDEV &#8212; building solution for a better AdDU.
         </p>
       </div>
 
-      <div className="mt-10 w-full max-w-2xl">
+      <div className="mt-10 w-full">
         <MembersFilter />
       </div>
 
@@ -164,7 +161,6 @@ export default function MembersMeetTheTeamSection() {
         .map(team => (
           <TeamSection 
             key={team.id}
-            title={team.title}
             head={team.head}
             members={team.members}
           />

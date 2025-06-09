@@ -58,5 +58,32 @@
     "email": "email@addu.edu.ph",
     "position": "Auditor",
     "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Mark Lyod Carin",
+    "email": "email@addu.edu.ph",
+    "position": "Full-Stack",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Mark Lyod Carin",
+    "email": "email@addu.edu.ph",
+    "position": "Full-Stack",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Mark Lyod Carin",
+    "email": "email@addu.edu.ph",
+    "position": "Full-Stack",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Mark Lyod Carin",
+    "email": "email@addu.edu.ph",
+    "position": "Full-Stack",
+    "position2": "Creatives",
+    "position3": "Front-End",
+    "position4": "Proj. Man.",
+    "imageUrl": "/images/PlaceholderImage.png"
   }
 ]
