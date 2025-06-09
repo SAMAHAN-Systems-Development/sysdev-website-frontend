@@ -1,89 +1,26 @@
 [
-  {
-    "name": "Paolo Luis Ramirez",
-    "email": "email@addu.edu.ph",
-    "position": "Front-End Head",
-    "imageUrl": "/images/PlaceholderImage.png"
+ {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "roles": ["Full-Stack", "DevOps"],
+    "imageUrl": "/images/john.jpg"
   },
   {
-    "name": "Ivan Sam Wabina",
-    "email": "email@addu.edu.ph",
-    "position": "Back-End Head",
-    "imageUrl": "/images/PlaceholderImage.png"
+    "name": "John Dee",
+    "email": "john@example.com",
+    "roles": ["Full-Stack", "Creatives"],
+    "imageUrl": "/images/john.jpg"
+  },
+   {
+    "name": "Johnn Dee",
+    "email": "john@example.com",
+    "roles": ["Full-Stack Head"],
+    "imageUrl": "/images/john.jpg"
   },
   {
-    "name": "Jan Patrick Matayabas",
-    "email": "email@addu.edu.ph",
-    "position": "External Affairs Head",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Maverick Pigao",
-    "email": "email@addu.edu.ph",
-    "position": "UI/UX Head",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Mariel Mabano",
-    "email": "email@addu.edu.ph",
-    "position": "Secretary-General",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Jiyo Seth Valmoria",
-    "email": "email@addu.edu.ph",
-    "position": "Director",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Aaron Justin Macias",
-    "email": "email@addu.edu.ph",
-    "position": "Treasurer",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Arabella Grace Mejorada",
-    "email": "email@example.com",
-    "position": "Deputy Director",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Mark Lyod Carin",
-    "email": "email@addu.edu.ph",
-    "position": "Creatives Head",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Isabelle Faith Labuguen",
-    "email": "email@addu.edu.ph",
-    "position": "Auditor",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Mark Lyod Carin",
-    "email": "email@addu.edu.ph",
-    "position": "Full-Stack",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Mark Lyod Carin",
-    "email": "email@addu.edu.ph",
-    "position": "Full-Stack",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Mark Lyod Carin",
-    "email": "email@addu.edu.ph",
-    "position": "Full-Stack",
-    "imageUrl": "/images/PlaceholderImage.png"
-  },
-  {
-    "name": "Mark Lyod Carin",
-    "email": "email@addu.edu.ph",
-    "position": "Full-Stack",
-    "position2": "Creatives",
-    "position3": "Front-End",
-    "position4": "Proj. Man.",
-    "imageUrl": "/images/PlaceholderImage.png"
+    "name": "Johnnn Dee",
+    "email": "john@example.com",
+    "roles": ["Full-Stack", "DevOps", "Creatives", "UI/UX"],
+    "imageUrl": "/images/john.jpg"
   }
 ]

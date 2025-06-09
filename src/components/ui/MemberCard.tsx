@@ -5,7 +5,7 @@ import React from "react";
 import type { Member } from "@/lib/types/members";
 
 const positionVariants = cva(
-   "md:py-1 w-full rounded-full text-[10px] md:text-xs font-medium text-center",
+   "py-1 px-3 rounded-full text-[9px] md:text-[10px] font-medium text-center whitespace-nowrap",
   {
     variants: {
       positionColor: {
@@ -36,21 +36,16 @@ export function MemberCard({
   const {
     name,
     email,
-    position,
-    position2,
-    position3,
-    position4,
+    roles: positionStrings,
     imageUrl = "/placeholder-profile.png",
   } = member;
 
   const nameTextColor = "text-white";
 
-  const positions = [
-     { text: position, color: getPositionColor(position) },
-    ...(position2 ? [{ text: position2, color: getPositionColor(position2) }] : []),
-    ...(position3 ? [{ text: position3, color: getPositionColor(position3) }] : []),
-    ...(position4 ? [{ text: position4, color: getPositionColor(position4) }] : []),
-  ];
+    const positions = positionStrings.map(pos => ({
+    text: pos,
+    color: getPositionColor(pos)
+  }));
 
 // only replace "Proj. Man." with "PM" when on mobile
   const getResponsiveText = (text: string) => {
@@ -102,7 +97,7 @@ export function MemberCard({
     }
     
     return rows.map((row, rowIndex) => (
-      <div key={rowIndex} className={`w-full flex gap-x-2 ${rowIndex > 0 ? "mt-1" : ""}`}>
+      <div key={rowIndex} className={`w-full flex gap-2 ${rowIndex > 0 ? "mt-1" : ""}`}>
         {row.map((pos, colIndex) => (
           <div
             key={`${rowIndex}-${colIndex}`}
