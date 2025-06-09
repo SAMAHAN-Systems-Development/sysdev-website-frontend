@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { instrument_sans, inter } from '@/styles/font';
+import { instrument_sans, inter } from "@/styles/font";
 import NavigationBar from "@/components/ui/NavigationBar";
 import Footer from "@/components/ui/Footer";
 
@@ -23,9 +23,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${instrument_sans.variable} antialiased`}
       >
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
       </body>
       <Footer />
     </html>
