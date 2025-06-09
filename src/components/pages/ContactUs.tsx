@@ -45,6 +45,9 @@ const ContactUs: React.FC = () => {
   const [formError, setFormError] = useState<string>("");
   const [emailTouched, setEmailTouched] = useState(false);
 
+  // dummy useEffect for uploadcareUrls build error
+  React.useEffect(() => {}, [uploadcareUrls]);
+
   // Store input values for controlled components
   const [formData, setFormData] = useState({
     "first-name": "",
