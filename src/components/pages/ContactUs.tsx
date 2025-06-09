@@ -32,8 +32,8 @@ const UPLOADCARE_PUBLIC_KEY = "8255a91f9d7670dacc0c"; // change to your Uploadca
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// 1MB = 1000000 bytes
-const FILE_SIZE_LIMIT = 1000000; // in bytes
+// 2MB = 2000000 bytes
+const FILE_SIZE_LIMIT = 2000000; // in bytes
 
 const ContactUs: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
@@ -166,7 +166,7 @@ const ContactUs: React.FC = () => {
 
     // Check again for file size before submission
     if (files.some(file => file.size > FILE_SIZE_LIMIT)) {
-      setFormError("Each file must be 1MB or less.");
+      setFormError("Each file must be 2MB or less.");
       setFormState("error");
       return;
     }
@@ -430,7 +430,7 @@ const ContactUs: React.FC = () => {
                         ref={fileInputRef}
                         type="file"
                         multiple
-                        accept="image/*, .pdf, .docx, .xlsx, .txt"
+                        accept=".jpg, .png, .pdf, .docx"
                         onChange={handleFileChange}
                         className="absolute left-0 top-0 w-full h-full opacity-0 cursor-pointer hidden"
                       />
@@ -443,14 +443,14 @@ const ContactUs: React.FC = () => {
                       </label>
                     </div>
                     <span className="text-[10px] md:text-sm lg:text-base text-gray-500">
-                      JPEG, PNG, PDF, DOCX formats up to 1MB each
+                      JPG, PNG, PDF, DOCX formats up to 2MB each
                     </span>
                   </div>
                   {isFileOverLimit && (
                     <p className="text-red-500 mt-2">You can only upload up to 5 files.</p>
                   )}
                   {isFileSizeOverLimit && (
-                    <p className="text-red-500 mt-2">Each file must be 1MB or less.</p>
+                    <p className="text-red-500 mt-2">Each file must be 2MB or less.</p>
                   )}
                 </div>
                 {/* File Thumbnails */}
