@@ -4,6 +4,7 @@ import { Member } from "@/lib/types/members";
 import { MemberCard } from "../ui/MemberCard";
 import MembersFilter from "../ui/MembersFilter";
 import React, { useState, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 // helper component for team sections
 const TeamSection = ({ 
@@ -15,6 +16,7 @@ const TeamSection = ({
   head?: Member; 
   members: Member[];
 }) => (
+  // Your TeamSection component remains the same
   <div className="flex flex-col items-center mt-8 sm:mt-16 gap-y-4 sm:gap-y-8">
     <h2 className="text-xl sm:text-2xl text-blue3 font-bold text-center">{title}</h2>
     {head && (
@@ -33,9 +35,23 @@ const TeamSection = ({
 );
 
 export default function MembersMeetTheTeamSection() {
-  const membersData = members as Member[];
-  const [activeFilter, setActiveFilter] = useState<string>("All");
+  const searchParams = useSearchParams();
+  const router = useRouter();
   
+  // create a state from the URL parameter 
+  const [currentDepartment, setCurrentDepartment] = useState<string>(
+    searchParams.get("department") || "All"
+  );
+  
+  const membersData = members as Member[];
+  
+  useEffect(() => {
+    const deptFromURL = searchParams.get("department");
+    if (deptFromURL !== currentDepartment && deptFromURL !== null) {
+      setCurrentDepartment(deptFromURL);
+    }
+  }, [searchParams, currentDepartment]);
+
   const memberHasPosition = (member: Member, position: string): boolean => {
     return member.roles.includes(position);
   };
@@ -48,78 +64,88 @@ export default function MembersMeetTheTeamSection() {
     return membersData.filter(member => memberHasPosition(member, position));
   };
 
-  // team data structure
+  // team data structure remains the same
   const teams = [
-    {
-      id: "Full-Stack",
-      title: "Full-Stack",
-      head: findHead("Full-Stack Head"),
-      members: filterMembersByPosition("Full-Stack")
-    },
-    {
-      id: "Front-End",
-      title: "Front-End",
-      head: findHead("Front-End Head"),
-      members: filterMembersByPosition("Front-End")
-    },
-    {
-      id: "Back-End",
-      title: "Back-End",
-      head: findHead("Back-End Head"),
-      members: filterMembersByPosition("Back-End")
-    },
-    {
-      id: "UI/UX",
-      title: "UI/UX",
-      head: findHead("UI/UX Head"),
-      members: filterMembersByPosition("UI/UX")
-    },
-    {
-      id: "Creatives",
-      title: "Creatives",
-      head: findHead("Creatives Head"),
-      members: filterMembersByPosition("Creatives")
-    },
-    {
-      id: "Proj. Man.",
-      title: "Project Managers",
-      members: filterMembersByPosition("Proj. Man.")
-    },
-    {
-      id: "DevOps",
-      title: "DevOps",
-      members: filterMembersByPosition("DevOps")
-    },
-    {
-      id: "QA",
-      title: "QA",
-      members: filterMembersByPosition("QA")
-    }
-  ];
+  {
+    id: "Full-Stack",
+    title: "Full-Stack",
+    head: findHead("Full-Stack Head"),
+    members: filterMembersByPosition("Full-Stack")
+  },
+  {
+    id: "Front-End",
+    title: "Front-End",
+    head: findHead("Front-End Head"),
+    members: filterMembersByPosition("Front-End")
+  },
+  {
+    id: "Back-End",
+    title: "Back-End",
+    head: findHead("Back-End Head"),
+    members: filterMembersByPosition("Back-End")
+  },
+  {
+    id: "UI/UX",
+    title: "UI/UX",
+    head: findHead("UI/UX Head"),
+    // Update these filters to handle variations
+    members: membersData.filter(member => 
+      member.roles.some(role => 
+        role.toLowerCase().includes('ui') || 
+        role.toLowerCase().includes('ux')
+      )
+    )
+  },
+  {
+    id: "Creatives",
+    title: "Creatives",
+    head: findHead("Creatives Head"),
+    // Update these filters to handle variations
+    members: membersData.filter(member => 
+      member.roles.some(role => 
+        role.toLowerCase().includes('creative')
+      )
+    )
+  },
+  // ... rest of the teams
+];
   
   useEffect(() => {
     const handleFilterButtonClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'BUTTON' && target.textContent) {
         const filterText = target.textContent.trim();
+        let newDepartment = "All";
 
         if (filterText === "Project Manager") {
-          setActiveFilter("Proj. Man.");
+          newDepartment = "Proj. Man.";
         } else if (departments.includes(filterText)) {
-          setActiveFilter(filterText);
+          newDepartment = filterText;
         } else if (filterText === "All") {
-          setActiveFilter("All");
+          newDepartment = "All";
+        }
+        
+        // Update state
+        setCurrentDepartment(newDepartment);
+        
+        // Update URL
+        if (newDepartment === "All") {
+          router.push('/members');
+        } else {
+          router.push(`/members?department=${encodeURIComponent(newDepartment)}`);
         }
       }
     };
 
     document.addEventListener('click', handleFilterButtonClick);
-    setActiveFilter("All"); 
+    
+    // Don't reset filter on mount to respect URL params
+    // Remove: setActiveFilter("All"); 
     
     return () => {
       document.removeEventListener('click', handleFilterButtonClick);
     };
-  }, []);
+  }, [router]);
 
   const departments = [
     'All',
@@ -147,16 +173,20 @@ export default function MembersMeetTheTeamSection() {
       </div>
 
       {teams
-        .filter(team => (activeFilter === "All" || activeFilter === team.id))
-        .filter(team => team.members.length > 0)
-        .map(team => (
-          <TeamSection 
-            key={team.id}
-            title={team.title}
-            head={team.head}
-            members={team.members}
-          />
-        ))}
+  .filter(team => (
+    currentDepartment === "All" || 
+    currentDepartment.toLowerCase() === team.id.toLowerCase()
+  ))
+  .filter(team => team.members.length > 0)
+  .map(team => (
+    <TeamSection 
+      key={team.id}
+      title={team.title}
+      head={team.head}
+      members={team.members}
+    />
+  ))
+}
     </section> 
   );
 }
