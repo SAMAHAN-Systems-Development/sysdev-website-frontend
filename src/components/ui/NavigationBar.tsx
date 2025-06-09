@@ -115,7 +115,7 @@ const NavigationBar = () => {
               </Link>
               {link.subLinks && openDropdownLabel === link.label && (
                 <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-max bg-blue3 rounded-lg shadow-lg z-10 overflow-hidden"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-max bg-blue3 rounded-lg shadow-lg z-50 overflow-hidden"
                   onMouseEnter={() => handleDropdownMouseEnter(link.label)}
                   onMouseLeave={handleDropdownMouseLeave}
                 >
@@ -161,7 +161,7 @@ const NavigationBar = () => {
       </div>
 
       {compactMenuOpen && (
-        <div className="absolute top-full right-4 md:right-14 mt-2 w-max max-w-[220px] bg-blue3 rounded-lg shadow-lg z-20 overflow-hidden">
+        <div className="absolute top-full right-4 md:right-14 mt-2 w-max max-w-[220px] bg-blue3 rounded-lg shadow-lg z-50 overflow-hidden">
           <div className="hidden md:block lg:hidden">
             {tabletCompactMenuLinks.map((link) => (
               <Link
