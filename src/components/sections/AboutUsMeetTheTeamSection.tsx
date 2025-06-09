@@ -20,62 +20,62 @@ export default function AboutUsMeetTheTeamSection() {
         <h2 className="text-2xl font-bold text-black">Officers</h2>
         <ul className="grid grid-cols-2 justify-items-center xl:grid-cols-4 gap-y-5 [@media(min-width:360px)]:gap-x-6 [@media(min-width:400px)]:gap-x-12">
           {membersData.map((member, idx) => {
-            if (member.position.toLowerCase() === "director") {
+            if (member.roles[0]?.toLowerCase() === "director") {
               return (
                 <li key={idx} className="order-1 col-span-2 xl:col-span-4">
                   <OfficerCard member={{ ...member }} />
                 </li>
               );
-            } else if (member.position.toLowerCase() === "deputy director") {
+            } else if (member.roles[0]?.toLowerCase() === "deputy director") {
               return (
                 <li key={idx} className="order-2 col-span-2 xl:col-span-4">
                   <OfficerCard member={{ ...member }} />
                 </li>
               );
-            } else if (member.position.toLowerCase() === "front-end head") {
+            } else if (member.roles[0]?.toLowerCase() === "front-end head") {
               return (
                 <li key={idx} className="order-3">
                   <OfficerCard member={{ ...member }} />
                 </li>
               );
-            } else if (member.position.toLowerCase() === "back-end head") {
+            } else if (member.roles[0]?.toLowerCase() === "back-end head") {
               return (
                 <li key={idx} className="order-4">
                   <OfficerCard member={{ ...member }} />
                 </li>
               );
-            } else if (member.position.toLowerCase() === "ui/ux head") {
+            } else if (member.roles[0]?.toLowerCase() === "ui/ux head") {
               return (
                 <li key={idx} className="order-5">
                   <OfficerCard member={{ ...member }} />
                 </li>
               );
-            } else if (member.position.toLowerCase() === "creatives head") {
+            } else if (member.roles[0]?.toLowerCase() === "creatives head") {
               return (
                 <li key={idx} className="order-6">
                   <OfficerCard member={{ ...member }} />
                 </li>
               );
-            } else if (member.position.toLowerCase() === "secretary-general") {
+            } else if (member.roles[0]?.toLowerCase() === "secretary-general") {
               return (
                 <li key={idx} className="order-7">
                   <OfficerCard member={{ ...member }} />
                 </li>
               );
-            } else if (member.position.toLowerCase() === "treasurer") {
+            } else if (member.roles[0]?.toLowerCase() === "treasurer") {
               return (
                 <li key={idx} className="order-8">
                   <OfficerCard member={{ ...member }} />
                 </li>
               );
-            } else if (member.position.toLowerCase() === "auditor") {
+            } else if (member.roles[0]?.toLowerCase() === "auditor") {
               return (
                 <li key={idx} className="order-9">
                   <OfficerCard member={{ ...member }} />
                 </li>
               );
             } else if (
-              member.position.toLowerCase() === "external affairs head"
+              member.roles[0]?.toLowerCase() === "external affairs head"
             ) {
               return (
                 <li key={idx} className="order-10">
