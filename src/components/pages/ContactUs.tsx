@@ -450,7 +450,7 @@ const ContactUs: React.FC = () => {
                     <p className="text-red-500 mt-2">You can only upload up to 5 files.</p>
                   )}
                   {isFileSizeOverLimit && (
-                    <p className="text-red-500 mt-2">Each file must be 0.2MB or less.</p>
+                    <p className="text-red-500 mt-2">Each file must be 1MB or less.</p>
                   )}
                 </div>
                 {/* File Thumbnails */}
