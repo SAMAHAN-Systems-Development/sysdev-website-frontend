@@ -1,8 +1,32 @@
 [
   {
-    "name": "Karl Justin Angelo Bea Arthur Bunjing Riadyn Natividad",
-    "email": "kjanatividad@addu.edu.ph",
+    "name": "Paolo Luis Ramirez",
+    "email": "email@addu.edu.ph",
+    "position": "Front-End Head",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Ivan Sam Wabina",
+    "email": "email@addu.edu.ph",
+    "position": "Back-End Head",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Jan Patrick Matayabas",
+    "email": "email@addu.edu.ph",
     "position": "External Affairs Head",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Maverick Pigao",
+    "email": "email@addu.edu.ph",
+    "position": "UI/UX Head",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Mariel Mabano",
+    "email": "email@addu.edu.ph",
+    "position": "Secretary-General",
     "imageUrl": "/images/PlaceholderImage.png"
   },
   {
@@ -19,7 +43,7 @@
   },
   {
     "name": "Arabella Grace Mejorada",
-    "email": "maria.santos@example.com",
+    "email": "email@example.com",
     "position": "Deputy Director",
     "imageUrl": "/images/PlaceholderImage.png"
   },
@@ -27,6 +51,12 @@
     "name": "Mark Lyod Carin",
     "email": "email@addu.edu.ph",
     "position": "Creatives Head",
+    "imageUrl": "/images/PlaceholderImage.png"
+  },
+  {
+    "name": "Isabelle Faith Labuguen",
+    "email": "email@addu.edu.ph",
+    "position": "Auditor",
     "imageUrl": "/images/PlaceholderImage.png"
   }
 ]

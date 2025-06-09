@@ -1,5 +1,6 @@
-import Head from 'next/head';
+import Head from "next/head";
 import type { Metadata } from "next";
+import HomeWhoWeAre from "@/components/sections/HomeWhoWeAre";
 export const metadata: Metadata = {
   title: "SAMAHAN Systems Development",
   description: "The official website of SAMAHAN Systems Development",

@@ -2,23 +2,7 @@ import { cva } from "class-variance-authority";
 import { instrument_sans } from "@/styles/font";
 import Image from "next/image";
 import React from "react";
-import membersData from "@/data/members.json";
 import type { Member } from "@/lib/types/members";
-
-const cardVariants = cva(
-  "flex flex-col items-center p-6 rounded-3xl",
-  {
-    variants: {
-      backgroundColor: {
-        blue3: "bg-blue3",
-        transparent: "bg-transparent",
-      },
-    },
-    defaultVariants: {
-      backgroundColor: "transparent",
-    },
-  }
-);
 
 const positionVariants = cva(
    "py-1 px-5 rounded-full text-[10px] md:text-sm font-medium w-full text-center",
@@ -34,18 +18,16 @@ const positionVariants = cva(
         alumni: "bg-maroon text-white",
         projmngr: "bg-purple text-white",
         qa: "bg-white text-black",
-        officer: "bg-blue3 text-yellow1",
       },
     },
     defaultVariants: {
-      positionColor: "officer",
+      positionColor: "frontend",
     },
   }
 );
 
 export interface MemberCardProps {
   member: Member;
-  backgroundColor: "blue3" | "transparent";
   positionColor: 
     | "frontend"
     | "backend"
@@ -56,12 +38,10 @@ export interface MemberCardProps {
     | "alumni"
     | "projmngr"
     | "qa"
-    | "officer";
 }
 
 export function MemberCard({
   member,
-  backgroundColor,
   positionColor,
 }: MemberCardProps) {
   const {
@@ -74,7 +54,7 @@ export function MemberCard({
     imageUrl = "/placeholder-profile.png",
   } = member;
 
-  const nameTextColor = positionColor === "officer" ? "text-black" : "text-white";
+  const nameTextColor = "text-white";
 
   const positions = [
     { text: position, color: positionColor },
@@ -93,14 +73,6 @@ export function MemberCard({
           <span className="hidden md:inline">Proj. Man.</span>
         </span>
       );
-    case "Secretary-General":
-      return (
-        <span>
-          <span className="inline md:hidden">Sec-Gen</span>
-          <span className="hidden md:inline">Secretary-General</span>
-        </span>
-      );
-    default:
       return text;
   }
 };
@@ -159,17 +131,17 @@ export function MemberCard({
   }
 };
   return (
-<div className={`${cardVariants({ backgroundColor })} 
+<div className={`flex items-center rounded-3xl md:rounded-2xl bg-blue3
   flex-row md:flex-col
-  w-full max-w-[348px] md:w-72 lg:w-72 
-  h-auto min-h-[120px] md:h-[430px] lg:h-[430px]
+  w-[250px] sm:w-[348px] md:w-48 
+  h-[150px] sm:h-[200px] md:h-[285px]
   flex-shrink-0 
-  p-3 sm:p-4 md:p-6 lg:p-6`}>
+  p-4 sm:px-6 md:p-5`}>
     
   <div className="relative 
-    w-20 h-20 sm:w-26 sm:h-26 md:w-52 md:h-52 lg:w-52 lg:h-52
+    w-20 h-20 sm:w-26 sm:h-26 md:w-32 md:h-32 
     rounded-full overflow-hidden bg-gray-300 
-    mb-0 md:mb-6 lg:mb-6 
+    mb-0 md:mb-3
     ml-0 mr-3 sm:mr-4 md:mx-auto
     flex-shrink-0">
     <Image
@@ -180,26 +152,29 @@ export function MemberCard({
     />
   </div>
 
-  <div className="flex flex-col justify-center w-full min-w-0">
-  <div className="md:h-[56px] md:flex md:flex-col md:justify-center">
+  <div className="flex flex-col justify-between w-full min-w-0 h-4/5">
+    <div className="">
+      <div className="md:h-[44px] md:flex md:flex-col md:justify-center">
       <h3 className={`${instrument_sans.className} 
-      text-xs sm:text-base md:text-[19px] lg:text-[19px] 
+      text-xs sm:text-base md:text-sm 
       font-bold ${nameTextColor} 
-      mb-0.5 sm:mb-1 md:mb-0 lg:mb-0
-      text-left md:text-center lg:text-center
+      mb-1.5 sm:mb-2 md:mb-0 
+      text-left md:text-center 
       line-clamp-2 overflow-hidden text-ellipsis`}>  
       {name}
-    </h3>
-    </div>
+      </h3>
+      </div>
 
-    <p className={`${instrument_sans.className} 
-      text-xs md:text-sm lg:text-xs 
-      ${nameTextColor} opacity-80
-      mb-2 md:mb-4 lg:mb-4
-      text-left md:text-center lg:text-center
-      truncate`}>
-      {email}
-    </p>
+      <p className={`${instrument_sans.className} 
+        text-xs 
+        ${nameTextColor} opacity-80
+        mb-3 md:mb-4 
+        text-left md:text-center 
+        truncate`}>
+        {email}
+      </p>
+    </div>
+    
     
     <div className="flex flex-wrap gap-1 sm:gap-2 md:gap-2 w-full">
       {renderPositions()}
@@ -230,48 +205,48 @@ function getPositionColor(position: string): MemberCardProps["positionColor"] {
     case "QA":
       return "qa";
     default:
-      return "officer";
+      return "frontend";
   }
 }
 
-// Helper to map position to card background variant
-function getCardBackground(position: string): MemberCardProps["backgroundColor"] {
-  switch (position) {
-    case "Full-Stack":
-    case "Front-End":
-    case "Back-End":
-    case "QA":
-    case "DevOps":
-    case "UI/UX":
-    case "Creatives":
-    case "Alumni":
-    case "Project Manager":
-      return "blue3";
-    default:
-      return "transparent";
-  }
-}
+// // Helper to map position to card background variant
+// function getCardBackground(position: string): MemberCardProps["backgroundColor"] {
+//   switch (position) {
+//     case "Full-Stack":
+//     case "Front-End":
+//     case "Back-End":
+//     case "QA":
+//     case "DevOps":
+//     case "UI/UX":
+//     case "Creatives":
+//     case "Alumni":
+//     case "Project Manager":
+//       return "blue3";
+//     default:
+//       return "blue3";
+//   }
+// }
 
-// MemberCardList component
-export function MemberCardList() {
-  // Type assertion to ensure membersData is Member[]
-  const members = membersData as Member[];
+// // MemberCardList component
+// export function MemberCardList() {
+//   // Type assertion to ensure membersData is Member[]
+//   const members = membersData as Member[];
 
-  return (
-    <div className="flex 
-      flex-col md:flex-row md:flex-wrap lg:flex-row lg:flex-wrap 
-      justify-center 
-      gap-4 md:gap-6 lg:gap-8 
-      p-4 md:p-6 lg:p-8 
-      max-w-screen-2xl mx-auto">
-      {members.map((member, idx) => (
-        <MemberCard
-          key={idx}
-          member={member}
-          backgroundColor={getCardBackground(member.position)}
-          positionColor={getPositionColor(member.position)}
-        />
-      ))}
-    </div>
-  );
-}
+//   return (
+//     <div className="flex 
+//       flex-col md:flex-row md:flex-wrap lg:flex-row lg:flex-wrap 
+//       justify-center 
+//       gap-4 md:gap-6 lg:gap-8 
+//        
+//       max-w-screen-2xl mx-auto">
+//       {members.map((member, idx) => (
+//         <MemberCard
+//           key={idx}
+//           member={member}
+//           backgroundColor={getCardBackground(member.position)}
+//           positionColor={getPositionColor(member.position)}
+//         />
+//       ))}
+//     </div>
+//   );
+// }

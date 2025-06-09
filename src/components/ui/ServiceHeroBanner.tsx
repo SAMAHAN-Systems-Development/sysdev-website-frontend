@@ -21,7 +21,7 @@ const ServiceHeroBanner = () => {
                 priority
             />
 
-            <div className="relative z-10 flex flex-col justify-between text-center">
+            <div className="relative flex flex-col justify-between text-center">
                 <div className="flex-1 flex flex-col items-center justify-center px-4 pt-8  md:pt-12 lg:pt-16 xl:pt-20">
                     <h1 className="font-instrument-sans font-bold text-2xl  md:text-4xl lg:text-6xl xl:text-7xl text-white leading-tight">
                         Services
