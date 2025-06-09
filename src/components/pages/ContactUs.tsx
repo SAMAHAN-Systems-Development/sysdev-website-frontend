@@ -29,6 +29,8 @@ declare global {
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwpblekr"; //change to formspree endpoint
 const UPLOADCARE_PUBLIC_KEY = "8255a91f9d7670dacc0c"; // change to your Uploadcare public key
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const ContactUs: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [uploadcareUrls, setUploadcareUrls] = useState<string[]>([]);
@@ -36,6 +38,7 @@ const ContactUs: React.FC = () => {
   const [isFileOverLimit, setIsFileOverLimit] = useState(false);
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [formError, setFormError] = useState<string>("");
+  const [emailTouched, setEmailTouched] = useState(false);
 
   // Store input values for controlled components
   const [formData, setFormData] = useState({
@@ -65,13 +68,23 @@ const ContactUs: React.FC = () => {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = event.target.files;
     if (selectedFiles) {
+      // Combine existing and new files
       const newFiles = Array.from(selectedFiles);
-      if (newFiles.length > 5) {
+      const allFiles = [...files, ...newFiles];
+      // Remove duplicates by name + size
+      const uniqueFiles = allFiles.filter(
+        (file, idx, arr) =>
+          arr.findIndex(f => f.name === file.name && f.size === file.size) === idx
+      );
+      if (uniqueFiles.length > 5) {
         setIsFileOverLimit(true);
+        setFiles(uniqueFiles.slice(0, 5));
       } else {
         setIsFileOverLimit(false);
-        setFiles(newFiles);
+        setFiles(uniqueFiles);
       }
+      // Reset input value so same file can be added again if removed
+      if (fileInputRef.current) fileInputRef.current.value = "";
     }
   };
 
@@ -79,6 +92,12 @@ const ContactUs: React.FC = () => {
     const { name, value } = e.target;
     if (name === "message") {
       setMessage(value);
+    } else if (name === "email") {
+      setFormData(prev => ({
+        ...prev,
+        email: value,
+      }));
+      setEmailTouched(true);
     } else {
       setFormData(prev => ({
         ...prev,
@@ -114,6 +133,13 @@ const ContactUs: React.FC = () => {
     event.preventDefault();
     setFormError("");
     setFormState("submitting");
+
+    // Email validation
+    if (!emailRegex.test(formData.email)) {
+      setFormError("Please enter a valid email address.");
+      setFormState("error");
+      return;
+    }
 
     try {
       let uploadedFileUrls: string[] = [];
@@ -155,6 +181,7 @@ const ContactUs: React.FC = () => {
           organization: "",
           position: "",
         });
+        setEmailTouched(false);
       } else {
         setFormState("error");
         const result = await res.json();
@@ -307,8 +334,12 @@ const ContactUs: React.FC = () => {
                     required
                     value={formData["email"]}
                     onChange={handleChange}
-                    className="w-full p-1 lg:p-2 text-sm text-[var(--color-blue3)] border border-[var(--color-blue3)] focus:outline-none focus:ring-2 focus:ring-[var(--color-blue2)]"
+                    onBlur={() => setEmailTouched(true)}
+                    className={`w-full p-1 lg:p-2 text-sm text-[var(--color-blue3)] border border-[var(--color-blue3)] focus:outline-none focus:ring-2 focus:ring-[var(--color-blue2)] ${emailTouched && !emailRegex.test(formData.email) ? "border-red-500" : ""}`}
                   />
+                  {emailTouched && !emailRegex.test(formData.email) && (
+                    <p className="text-red-500 text-xs mt-1">Please enter a valid email address.</p>
+                  )}
                 </div>
                 {/* Name Inputs: 2 columns */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-3">
