@@ -1,9 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
-import MembersPage from "@/components/pages/Members";
 
-function Page() {
+import React, { useState, useEffect, Suspense } from "react";
+import MembersPage from "@/components/pages/Members";
+import { useSearchParams } from "next/navigation";
+
+// Extract logic that uses `useSearchParams()` into a separate client component
+function MembersWrapper() {
   const searchParams = useSearchParams();
   const [currentDepartment, setCurrentDepartment] = useState("Officers");
 
@@ -13,10 +15,18 @@ function Page() {
   }, [searchParams]);
 
   return (
-    <div>
-      <MembersPage currentDepartment={currentDepartment} setCurrentDepartment={setCurrentDepartment} />
-    </div>
+    <MembersPage
+      currentDepartment={currentDepartment}
+      setCurrentDepartment={setCurrentDepartment}
+    />
   );
 }
 
-export default Page;
+// Main page component
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading members...</div>}>
+      <MembersWrapper />
+    </Suspense>
+  );
+}
