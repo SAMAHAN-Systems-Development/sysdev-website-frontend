@@ -48,7 +48,6 @@ const getSocialIcon = (type: string) => {
 export default function Footer({ className = "" }: FooterProps) {
     const {
         mainNavigation: navigationLinks,
-        footerExplore: exploreLinks,
         socialMedia: socialMediaData
     } = allLinksData as AllLinks;
 
@@ -78,7 +77,7 @@ export default function Footer({ className = "" }: FooterProps) {
     );
 
     return (
-        <footer className={`bg-blue3 text-white py-16 px-4 sm:px-6 md:px-8 lg:px-17 ${className}`}>
+        <footer className={`bg-blue3 text-white py-16 px-4 sm:px-6 md:px-17 ${className}`}>
             <div className="container mx-auto max-w-7xl">
 
                 <div className="block md:hidden space-y-10">
@@ -118,19 +117,19 @@ export default function Footer({ className = "" }: FooterProps) {
                     </div>
 
                     <div className="flex justify-center">
-                        <div className="grid grid-cols-2 gap-x-25 text-sm">
-                            <div className="text-left">
+                        <div className="grid gap-x-25 text-sm">
+                            <div className="text-center">
                                 {renderLinkList(navigationLinks, "Navigation")}
                             </div>
-                            <div className="text-left">
+                            {/* <div className="text-left">
                                 {renderLinkList(exploreLinks, "Explore")}
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
 
-                <div className="hidden md:grid md:grid-cols-4 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
-                    <div className="md:col-span-1 lg:col-span-2">
+                <div className="hidden md:grid md:grid-cols-7 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
+                    <div className="md:col-span-2 lg:col-span-3">
                         <Image
                             src="/images/SysDevLogo.svg"
                             alt="SAMAHAN Systems Development Logo"
@@ -140,7 +139,7 @@ export default function Footer({ className = "" }: FooterProps) {
                         />
                     </div>
 
-                    <div className="md:col-span-1 lg:col-span-4 lg:col-start-4 space-y-2">
+                    <div className="md:col-span-3 lg:col-span-4 lg:col-start-5 space-y-2">
                         <p className="text-white md:text-sm lg:text-lg max-w-xs font-inter mb-2">Meet the developers behind the website.</p>
                         <Link href={"/"}>
                             <TbCircleArrowRightFilled className="text-white hover:text-yellow2 transition-colors md:w-5 md:h-5 lg:w-6 lg:h-6" />
@@ -164,12 +163,12 @@ export default function Footer({ className = "" }: FooterProps) {
                             })}
                         </div>
                     </div>
-                    <div className="md:col-span-1 lg:col-span-2 lg:col-start-9 space-y-4">
+                    <div className="md:col-span-1 lg:col-span-4 lg:col-start-10 space-y-4">
                         {renderLinkList(navigationLinks, "Navigation")}
                     </div>
-                    <div className="md:col-span-1 lg:col-span-2 lg:col-start-11 space-y-4">
+                    {/* <div className="md:col-span-1 lg:col-span-2 lg:col-start-11 space-y-4">
                         {renderLinkList(exploreLinks, "Explore")}
-                    </div>
+                    </div> */}
                 </div>
             </div >
         </footer >

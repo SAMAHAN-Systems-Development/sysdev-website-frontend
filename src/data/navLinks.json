@@ -3,28 +3,22 @@
     { "href": "/", "label": "Home" },
     { "href": "/about-us", "label": "About" },
     { "href": "/services", "label": "Services" },
-    { "href": "/blog", "label": "Blog" },
     {
       "href": "/members",
       "label": "Members",
       "subLinks": [
-        { "href": "/members/alumni", "label": "Alumni" },
-        { "href": "/members/officers", "label": "Officers" },
-        { "href": "/members/front-end", "label": "Front-End" },
-        { "href": "/members/back-end", "label": "Back-End" },
-        { "href": "/members/full-stack", "label": "Full-Stack" },
-        { "href": "/members/ui-ux", "label": "UI/UX" },
-        { "href": "/members/dev-ops", "label": "DevOps" },
-        { "href": "/members/qa", "label": "QA" },
-        { "href": "/members/creatives", "label": "Creatives" }
+        { "href": "/members?department=Officers", "label": "Officers" },
+        { "href": "/members?department=Front-End", "label": "Front-End" },
+        { "href": "/members?department=Back-End", "label": "Back-End" },
+        { "href": "/members?department=Full-Stack", "label": "Full-Stack" },
+        { "href": "/members?department=UI%2FUX", "label": "UI/UX" },
+        { "href": "/members?department=DevOps", "label": "DevOps" },
+        { "href": "/members?department=QA", "label": "QA" },
+        { "href": "/members?department=Creatives", "label": "Creatives" }
       ]
     },
     { "href": "/contact-us", "label": "Contact" },
     { "href": "/projects", "label": "Projects" }
-  ],
-  "footerExplore": [
-    { "label": "Resources", "href": "/resources" },
-    { "label": "Documents", "href": "/documents" }
   ],
   "socialMedia": [
     { "type": "email", "href": "mailto:samahan.sd@addu.edu.ph", "label": "Email" },

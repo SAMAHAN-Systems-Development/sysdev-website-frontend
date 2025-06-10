@@ -12,9 +12,11 @@ export function OfficerCard({
   const {
     name,
     email,
-    position,
+    roles: positionStrings,
     imageUrl = "/placeholder-profile.png",
   } = member;
+
+   const role = positionStrings[0] || "";
 
   const getResponsiveText = (text: string) => {
   switch(text) {
@@ -120,7 +122,7 @@ export function OfficerCard({
     whitespace-nowrap
     text-center
   `}>
-    {getResponsiveText(position)}
+    {getResponsiveText(role)}
   </div>
 </div>
 </div>
