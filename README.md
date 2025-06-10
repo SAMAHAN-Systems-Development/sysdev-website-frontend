@@ -34,6 +34,22 @@ EXAMPLE:
 - `src/data` will contain json files or the like
 - `src/lib/types` will contain custom data types/interfaces/classes
 
+## Testing the Contact Us page
+
+Duplicate `.env.sample` file and rename it to `.env`
+
+You can accomplish this manually or run this command:
+
+```markdown
+For Windows:
+copy .env.sample .env
+
+For Linux:
+cp .env.sample .env
+```
+
+Then ask Kyle Lampa for the values. Replace the values in the .env file
+
 ## Learn More
 
 To learn more, take a look at the following resources:
