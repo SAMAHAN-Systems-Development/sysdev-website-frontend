@@ -27,8 +27,8 @@ declare global {
   }
 }
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwpblekr"; //change to formspree endpoint
-const UPLOADCARE_PUBLIC_KEY = "8255a91f9d7670dacc0c"; // change to your Uploadcare public key
+const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "";
+const UPLOADCARE_PUBLIC_KEY = process.env.NEXT_PUBLIC_UPLOADCARE_PUBLIC_KEY || ""; 
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
