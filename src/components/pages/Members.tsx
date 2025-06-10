@@ -1,13 +1,22 @@
-// call dito ang membersmeettheteam
-import React from 'react'
-import MembersMeetTheTeamSection from '../sections/MembersMeetTheTeamSection'
-
-function MembersPage() {
-  return (
-    <div>
-        <MembersMeetTheTeamSection/>
-    </div>
-  )
+import React from "react";
+import { MembersMeetTheTeamSection } from "../sections/MembersMeetTheTeamSection";
+export interface MembersPageProps {
+  currentDepartment: string;
+  setCurrentDepartment: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default MembersPage
+const MembersPage: React.FC<MembersPageProps> = ({
+  currentDepartment,
+  setCurrentDepartment,
+}) => {
+  return (
+    <div>
+      <MembersMeetTheTeamSection
+        currentDepartment={currentDepartment}
+        setCurrentDepartment={setCurrentDepartment}
+      />
+    </div>
+  );
+};
+
+export default MembersPage;

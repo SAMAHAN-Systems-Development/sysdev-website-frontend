@@ -9,7 +9,7 @@ export default function AboutUsMeetTheTeamSection() {
   const membersData = members as Member[];
 
   return (
-    <section className="font-inter mx-auto flex w-full max-w-[320px] flex-col items-center px-4 py-20 sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px]">
+    <section id="Officers" className="font-inter mx-auto flex w-full max-w-[320px] flex-col items-center px-4 py-20 sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px]">
       <div className="text-blue3 flex flex-col items-center gap-2.5 text-center">
         <h1 className="text-3xl font-bold md:text-4xl">Meet the Team</h1>
         <p className="text-xs md:text-xl max-w-[260px] sm:max-w-none ">

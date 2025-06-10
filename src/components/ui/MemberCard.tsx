@@ -5,7 +5,7 @@ import React from "react";
 import type { Member } from "@/lib/types/members";
 
 const positionVariants = cva(
-   "py-1 px-3 rounded-full text-[9px] md:text-[10px] font-medium text-center whitespace-nowrap",
+   "md:py-1 w-full rounded-full text-[10px] md:text-xs font-medium text-center",
   {
     variants: {
       positionColor: {
@@ -50,7 +50,7 @@ export function MemberCard({
 // only replace "Proj. Man." with "PM" when on mobile
   const getResponsiveText = (text: string) => {
   switch(text) {
-    case "Proj. Man.":
+    case "Project Manager":
       return (
         <span>
           <span className="inline md:hidden">PM</span>
@@ -97,7 +97,7 @@ export function MemberCard({
     }
     
     return rows.map((row, rowIndex) => (
-      <div key={rowIndex} className={`w-full flex gap-2 ${rowIndex > 0 ? "mt-1" : ""}`}>
+      <div key={rowIndex} className={`w-full flex gap-x-2 ${rowIndex > 0 ? "mt-1" : ""}`}>
         {row.map((pos, colIndex) => (
           <div
             key={`${rowIndex}-${colIndex}`}
@@ -198,7 +198,7 @@ function getPositionColor(position: string): PositionColorVariant {
       return "creatives";
     case "Alumni":
       return "alumni";
-    case "Proj. Man.":
+    case "Project Manager":
       return "projmngr";
     case "QA":
       return "qa";

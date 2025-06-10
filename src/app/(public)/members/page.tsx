@@ -1,14 +1,22 @@
-//dito ang useParams
-
-//ng maisip ko is gawa ka useState to put the current department selected sa useState from the useParams then yan ipass mo to the components
-
-import MemebersPage from '@/components/pages/Members'
-import React from 'react'
+"use client";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import MembersPage from "@/components/pages/Members";
 
 function Page() {
+  const searchParams = useSearchParams();
+  const [currentDepartment, setCurrentDepartment] = useState("Officers");
+
+  useEffect(() => {
+    const dept = searchParams.get("department");
+    setCurrentDepartment(dept || "Officers");
+  }, [searchParams]);
+
   return (
-    <div><MemebersPage/></div>
-  )
+    <div>
+      <MembersPage currentDepartment={currentDepartment} setCurrentDepartment={setCurrentDepartment} />
+    </div>
+  );
 }
 
-export default Page
+export default Page;
