@@ -38,19 +38,6 @@ const NavigationBar = () => {
 
   const router = useRouter();
 
-  const handleDropdownMouseEnter = (label: string) => {
-    if (leaveTimeoutRef.current) {
-      clearTimeout(leaveTimeoutRef.current);
-    }
-    setOpenDropdownLabel(label);
-  };
-
-  const handleDropdownMouseLeave = () => {
-    leaveTimeoutRef.current = setTimeout(() => {
-      setOpenDropdownLabel(null);
-    }, 200);
-  };
-
   const handleDesktopDropdownToggleClick = (event: React.MouseEvent, label: string, href: string, hasSubLinks?: boolean) => {
     if (hasSubLinks) {
       event.preventDefault();
@@ -91,8 +78,6 @@ const NavigationBar = () => {
             <div
               key={link.label}
               className="relative"
-              onMouseEnter={link.subLinks ? () => handleDropdownMouseEnter(link.label) : undefined}
-              onMouseLeave={link.subLinks ? handleDropdownMouseLeave : undefined}
             >
               <Link
                 href={link.href}
@@ -115,9 +100,7 @@ const NavigationBar = () => {
               </Link>
               {link.subLinks && openDropdownLabel === link.label && (
                 <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-max bg-blue3 rounded-lg shadow-lg z-50 overflow-hidden"
-                  onMouseEnter={() => handleDropdownMouseEnter(link.label)}
-                  onMouseLeave={handleDropdownMouseLeave}
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-10 w-max bg-blue3 rounded-lg shadow-lg z-50 overflow-hidden"
                 >
                   {link.subLinks.map((subLink) => (
                     <Link

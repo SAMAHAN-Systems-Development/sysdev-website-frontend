@@ -3,16 +3,14 @@
     { "href": "/", "label": "Home" },
     { "href": "/about-us", "label": "About" },
     { "href": "/services", "label": "Services" },
-    { "href": "/blog", "label": "Blog" },
-    { "href": "/members", "label": "Members" },
+    { "href": "/members?department=Officers", "label": "Members" },
     { "href": "/contact", "label": "Contact" }
   ],
   "mobileCompactMenuLinks": [
     { "href": "/", "label": "Home" },
     { "href": "/about-us", "label": "About" },
     { "href": "/services", "label": "Services" },
-    { "href": "/blog", "label": "Blog" },
-    { "href": "/members", "label": "Members" },
+    { "href": "/members?department=Officers", "label": "Members" },
     { "href": "/contact", "label": "Contact" },
     { "href": "/projects", "label": "Projects" }
   ]
