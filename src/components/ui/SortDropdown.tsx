@@ -2,13 +2,20 @@
 import React, { useState } from 'react';
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 
-const SortDropdown: React.FC = () => {
-    const [selected, setSelected] = useState('All');
+interface SortDropdownProps {
+    selectedSorting: string;
+    setSelectedSorting: (value: 'All' | 'A2Z' | 'Z2A' | 'yearDesc' | 'yearAsc') => void;
+}
+
+const SortDropdown: React.FC<SortDropdownProps> = ({
+    selectedSorting,
+    setSelectedSorting,
+}) => {
     const [open, setOpen] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        setSelected(value);
+        const value = e.target.value as 'All' | 'A2Z' | 'Z2A' | 'yearDesc' | 'yearAsc';
+        setSelectedSorting(value);
     };
 
     const handleClick = () => {
@@ -19,8 +26,8 @@ const SortDropdown: React.FC = () => {
         { label: 'All', value: 'All' },
         { label: 'A > Z', value: 'A2Z' },
         { label: 'Z > A', value: 'Z2A' },
-        { label: 'Newest', value: 'Newest' },
-        { label: 'Oldest', value: 'Oldest' },
+        { label: 'Newest', value: 'yearDesc' },
+        { label: 'Oldest', value: 'yearAsc' },
     ];
 
   return (
@@ -52,17 +59,17 @@ const SortDropdown: React.FC = () => {
                 <div className="flex flex-col">
                       {options.map(({ label, value }) => (
                     <label key={value} className={`text-sm md:text-base flex items-center cursor-pointer border-b border-gray-500 p-2 last:border-b-0 transition-discrete ${
-                            selected === 'All' || selected === value ? 'text-[#F530FD] font-semibold' : ''
+                            selectedSorting === 'All' || selectedSorting === value ? 'text-[#F530FD] font-semibold' : ''
                         }`}>
                         <input
                         type="checkbox"
                         value={value}
-                        checked={selected === value}
+                        checked={selectedSorting === value}
                         onChange={handleChange}
                         className="hidden peer cursor-pointer"
                         />
                         <div className="w-5 h-5 mr-2 mb-0.5 rounded-md flex items-center justify-center peer-checked:bg-[#F530FD]">
-                            {selected === value && (
+                            {selectedSorting === value && (
                                 <svg
                                 className="w-3 h-3 text-white"
                                 fill="none"

@@ -11,22 +11,24 @@ import { GetProjects } from '@/lib/features/projects/service/GetProjects.api';
 function ProjectsDisplaySection() {
   const [openedProjectId, setOpenedProjectId] = useState<number | null>(null);
   const [selectedFilter, setSelectedFilter] = useState<'SAMAHAN' | 'Other'>('SAMAHAN');
+  const [selectedSorting, setSelectedSorting] = useState<'All' | 'A2Z' | 'Z2A' | 'yearDesc' | 'yearAsc'>('All');
 
   const [projectsData, setProjectsData] = useState<Project[]>([]);
   
     useEffect(() => {
       async function fetchData() {
-        const res = await GetProjects();
-        // If res is an array of arrays, flatten it
-        console.log(res);
+        let res;
+        if (selectedSorting === "yearDesc" || selectedSorting === "yearAsc") {
+          res = await GetProjects(undefined, selectedSorting);
+        } else {
+          res = await GetProjects();
+        }
         if (Array.isArray(res)) {
           setProjectsData(res.flat());
         }
-  
-        
       }
       fetchData();
-    }, []);
+    }, [selectedSorting]);
 
   // Disable body scroll when modal is open
   useEffect(() => {
@@ -46,7 +48,10 @@ function ProjectsDisplaySection() {
           <ProjectsFilter selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} />
         </div>
         <div className="mb:3">
-          <SortDropdown />
+          <SortDropdown 
+            selectedSorting={selectedSorting}
+            setSelectedSorting={setSelectedSorting}
+          />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5">
           {(projectsData as Project[])
