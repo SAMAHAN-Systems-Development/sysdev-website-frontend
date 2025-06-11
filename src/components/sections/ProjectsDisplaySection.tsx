@@ -3,33 +3,34 @@
 import React, { useEffect, useState } from 'react'
 import ProjectsFilter from '../ui/ProjectsFilter'
 import SortDropdown from '../ui/SortDropdown'
-import projectsData from '@/data/projects.json';
 import { Project } from '@/lib/features/projects/types/projects';
 import ProjectCard from '../ui/ProjectCard';
 import ProjectsModal from '../ui/ProjectsModal';
-import { GetMembers } from '@/lib/features/members/service/GetMembers.api';
 import { GetProjects } from '@/lib/features/projects/service/GetProjects.api';
 
 function ProjectsDisplaySection() {
-  const [openedProject, setOpenedProject] = useState<Project | null>(null);
+  const [openedProjectId, setOpenedProjectId] = useState<number | null>(null);
   const [selectedFilter, setSelectedFilter] = useState<'SAMAHAN' | 'Other'>('SAMAHAN');
 
-  useEffect(() => {
-    // async function fetchData() {
-    //   const res = await GetMembers();
-    //   console.log(res);
-    // }
-    async function fetchData2() {
-      const res = await GetProjects();
-      console.log(res);
-    }
-    // fetchData();
-    fetchData2();
-  }, [])
+  const [projectsData, setProjectsData] = useState<Project[]>([]);
+  
+    useEffect(() => {
+      async function fetchData() {
+        const res = await GetProjects();
+        // If res is an array of arrays, flatten it
+        console.log(res);
+        if (Array.isArray(res)) {
+          setProjectsData(res.flat());
+        }
+  
+        
+      }
+      fetchData();
+    }, []);
 
   // Disable body scroll when modal is open
   useEffect(() => {
-    if (openedProject) {
+    if (openedProjectId) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -37,7 +38,7 @@ function ProjectsDisplaySection() {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [openedProject]);
+  }, [openedProjectId]);
   return (
     <div className='w-full flex flex-col items-center py-28'>
       <div className='w-full max-w-4xl px-6 sm:px-10 lg:px-8'>
@@ -57,15 +58,15 @@ function ProjectsDisplaySection() {
               <ProjectCard
                 key={idx}
                 project={project}
-                setOpenedProject={setOpenedProject}
+                setOpenedProjectId={setOpenedProjectId}
               />
             ))}
         </div>
       </div>
-      {openedProject && (
+      {openedProjectId && (
         <ProjectsModal
-          project={openedProject}
-          setOpenedProject={setOpenedProject}
+          openedProjectId={openedProjectId}
+          setOpenedProjectId={setOpenedProjectId}
         />
       )}
     </div>

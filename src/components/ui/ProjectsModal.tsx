@@ -1,21 +1,35 @@
 "use client"
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { IoCalendar } from "react-icons/io5";
 import { MdArrowOutward } from "react-icons/md";
 import { FaCircleXmark } from "react-icons/fa6";
+import { DetailedProject } from "@/lib/features/projects/types/projects";
 import Image from "next/image";
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
-import { Project } from "@/lib/features/projects/types/projects";
+import { GetProjectById } from "@/lib/features/projects/service/GetProjectById.api";
 
 
 type ProjectsModalProps = {
-  project: Project;
-  setOpenedProject: (project: Project | null) => void;
+  openedProjectId: number;
+  setOpenedProjectId: (projectId: number | null) => void;
 };
 
-const ProjectsModal: React.FC<ProjectsModalProps> = ({ project, setOpenedProject }) => {
+const ProjectsModal: React.FC<ProjectsModalProps> = ({ openedProjectId, setOpenedProjectId }) => {
+  const [detailedProject, setDetailedProject] = useState<DetailedProject>();
+  
+      useEffect(() => {
+  async function fetchData() {
+    const res = await GetProjectById(openedProjectId);
+    console.log("GetProjectById response:", res);
+    // If your API returns an object, not an array:
+    if (res && typeof res === "object") {
+      setDetailedProject(res);
+    }
+  }
+  fetchData();
+}, [openedProjectId]);
 
 const carouselItems = [
   {
@@ -33,17 +47,18 @@ const carouselItems = [
 ];
 
 const [currentIndex, setCurrentIndex] = React.useState(0);
+const [category, setCategory] = React.useState<string>("core");
+
+if (!detailedProject) return null;
 
 const nextSlide = () => {
-  setCurrentIndex((prev) => (prev + 1) % carouselItems.length);
+  setCurrentIndex((prev) => (prev + 1) % detailedProject.images.length);
 };
 const prevSlide = () => {
   setCurrentIndex(
-    (prev) => (prev - 1 + carouselItems.length) % carouselItems.length
+    (prev) => (prev - 1 + detailedProject.images.length) % detailedProject.images.length
   );
 };
-
-    const [category, setCategory] = React.useState<string>("core");
 
     return (
         <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-blue3/50 z-50 ">
@@ -52,7 +67,7 @@ const prevSlide = () => {
                 {/* white portion (fixed, not scrollable) */}
                 <div className="relative h-20 md:h-9 w-full bg-white rounded-t-lg flex items-center justify-between px-3">
                     <button 
-                        onClick={() => setOpenedProject(null)}
+                        onClick={() => setOpenedProjectId(null)}
                         className="absolute top-0 bottom-0 right-3 cursor-pointer hover:scale-105 transition duration-200 ease-in-out">
                         <FaCircleXmark color="#292D32" size={20} />
                     </button>
@@ -119,20 +134,20 @@ const prevSlide = () => {
                         <div className="flex flex-row gap-3 w-full items-center justify-between mt-3">
                             <div
                                 className={`border-[2px] w-fit border-[#BDFF30] ${
-                                    project.projectName.length > 30 ? 'rounded-2xl' : 'sm:rounded-full rounded-lg'
+                                    detailedProject.title.length > 30 ? 'rounded-2xl' : 'sm:rounded-full rounded-lg'
                                 }`}
                                 >
                                 <span className={`font-inter text-[#FDDF37] py-1 flex justify-start font-extrabold text-[15px] leading-tight break-words ${
-                                    project.projectName.length > 30 ? 'px-3' : 'px-2'
+                                    detailedProject.title.length > 30 ? 'px-3' : 'px-2'
                                 }`}>
-                                    {project.projectName}
+                                    {detailedProject.title}
                                 </span>
                             </div>
                             <div className="flex flex-row gap-2 items-center">
-                                <button onClick={() => window.open(project.githubUrl, "_blank")} className="text-gray-600 transition hover:scale-105">
+                                <button onClick={() => window.open(detailedProject.links[1].link, "_blank")} className="text-gray-600 transition hover:scale-105">
                                     <FaGithub size={25} color="white" className="cursor-pointer" />
                                 </button>
-                                <button onClick={() => window.open(project.websiteUrl, "_blank")} className="text-gray-600 bg-[#FDDF37] rounded-lg hover:scale-105 transition">   
+                                <button onClick={() => window.open(detailedProject.links[0].link, "_blank")} className="text-gray-600 bg-[#FDDF37] rounded-lg hover:scale-105 transition">   
                                     <MdArrowOutward size={25} color="#0E2558" className="cursor-pointer" />
                                 </button>
                             </div>
@@ -140,7 +155,7 @@ const prevSlide = () => {
 
                         {/* launch date / partnered with */}
                         <div className="flex md:flex-row flex-col md:gap-0 gap-4 justify-between w-full">
-                            <div className="flex h-18 flex-row items-center">
+                            <div className="flex min-h-18 h-auto md:h-full  flex-row items-center">
                                 <div className="w-2 h-full rounded-l-md bg-[#FDDF37]"></div>
                                 <div className="md:w-[155px] w-[200px] h-full flex flex-col gap-1 p-2 rounded-r-md bg-[#324153]">
                                     <span className="text-white font-semibold text-sm px-2 py-1 flex flex-col gap-1">
@@ -149,12 +164,15 @@ const prevSlide = () => {
                                             Launch Date
                                         </span>
                                         <span className="font-light text-[11px]">
-                                            {`${project.deploymentMonth} ${project.deploymentYear}`}
+                                            {new Date(detailedProject.dateLaunched).toLocaleDateString("en-US", {
+                                                month: "long",
+                                                year: "numeric",
+                                            })}
                                         </span>
                                     </span>
                                 </div>  
                             </div>
-                            <div className="flex h-18 flex-row items-center">
+                            <div className="flex min-h-18 h-auto flex-row items-center">
                                 <div className="w-2 h-full rounded-l-md bg-[#FDDF37]"></div>
                                 <div className="md:w-[155px] w-[200px] h-full flex flex-col gap-1 p-2 rounded-r-md bg-[#324153]">
                                     <span className="text-white font-semibold text-sm px-2 py-1 flex flex-col gap-1">
@@ -162,17 +180,21 @@ const prevSlide = () => {
                                             <IoCalendar className="inline-block mr-1" color="#BDFF30" />
                                             Partnered with
                                         </span>
-                                        <span className="font-light text-[11px]">
-                                            {project.clientName}
-                                        </span>
+                                        {detailedProject?.clients && (
+                                          <span className="font-light text-[11px]">
+                                            {Object.values(detailedProject.clients)
+                                              .map(client => client.name)
+                                              .join(', ')}
+                                          </span>
+                                        )}
                                     </span>
-                                </div>  
-                            </div>
+                                  </div>  
+                              </div>
                         </div>
                     
                         {/* description */}
                         <p className="font-inter text-white text-md text-[13px] font-light leading-[17px] text-justify hyphens-auto pb-5 pt-2">
-                            {project.description}
+                            {detailedProject.fullDesc}
                         </p>
                         
                         {/* members */}
@@ -219,7 +241,7 @@ const prevSlide = () => {
                                 </div>
                             </div>
                             {/* list */}
-                            <div className="flex flex-col justify-start items-start gap-2 w-full">
+                            {/* <div className="flex flex-col justify-start items-start gap-2 w-full">
                                 {project.members?.map((member, index) =>
                                     category.toLowerCase() === member.category.toLowerCase() ? (
                                         <div key={index} className="flex flex-col items-start">
@@ -228,7 +250,7 @@ const prevSlide = () => {
                                         </div>
                                     ) : null
                                 )}
-                            </div>
+                            </div> */}
                         </div>
 
                     </div>
