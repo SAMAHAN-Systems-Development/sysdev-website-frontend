@@ -31,23 +31,8 @@ const ProjectsModal: React.FC<ProjectsModalProps> = ({ openedProjectId, setOpene
   fetchData();
 }, [openedProjectId]);
 
-const carouselItems = [
-  {
-    img: "AboutUsHeroBannerBackground.png",
-  },
-  {
-    img: "AboutUsHeroBannerBackground.png",
-  },
-  {
-    img: "AboutUsHeroBannerBackground.png",
-  },
-  {
-    img: "AboutUsHeroBannerBackground.png",
-  },
-];
-
 const [currentIndex, setCurrentIndex] = React.useState(0);
-const [category, setCategory] = React.useState<string>("core");
+const [category, setCategory] = React.useState<string>("Core");
 
 if (!detailedProject) return null;
 
@@ -77,17 +62,16 @@ const prevSlide = () => {
                 <div className="bg-[#0E2558] rounded-b-lg w-full p-6 md:p-8 flex flex-col items-center justify-start overflow-y-auto md:max-h-[calc(90vh-2.25rem)] pb-15">
       
                     <div className="w-full min-h-36 relative rounded-lg overflow-hidden">
-                      
                       {/* Carousel */}
                       <div
                         className="w-full h-36 flex transition-transform duration-500 ease-in-out"
                         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                       >
-                        {carouselItems.map((item, index) => (
+                        {detailedProject?.images?.map((image, index) => (
                           <div key={index} className="relative w-full flex-shrink-0 h-36">
                             <Image
-                              src={`/images/${item.img}`}
-                              alt={item.img}
+                              src={"/images/PlaceholderImage.png"} // Placeholder image
+                              alt={image.caption || `Image ${index + 1}`}
                               fill
                               className="object-cover"
                               priority={index === 0}
@@ -111,22 +95,22 @@ const prevSlide = () => {
                       >
                         <FaArrowCircleRight size={22} />
                       </button>
+
                       {/* Pagination Dots */}
                       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20 flex gap-1">
-                        {carouselItems.map((_, index) => (
+                        {detailedProject?.images?.map((_, index) => (
                           <button
                             key={index}
                             onClick={() => setCurrentIndex(index)}
                             className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                              index === currentIndex
-                                ? "bg-[#FFDF36] scale-125"
-                                : "bg-white/50"
+                              index === currentIndex ? "bg-[#FFDF36] scale-125" : "bg-white/50"
                             }`}
                             aria-label={`Go to slide ${index + 1}`}
                           />
                         ))}
                       </div>
                     </div>
+
 
                     <div className="p-1 flex flex-col gap-5 items-center justify-start w-full">
 
@@ -203,17 +187,17 @@ const prevSlide = () => {
                             <div className="flex flex-col gap-2">
                                 <div className="md:grid flex flex-col grid-cols-7 gap-2 text-[15px] font-medium font-inter text-white">
                                     <button
-                                        onClick={() => setCategory("core")}
+                                        onClick={() => setCategory("Core")}
                                         className={`cursor-pointer border md:max-w-full max-w-fit md:px-0.5 px-12 border-[#FDDF37] hover:scale-105 transition duration-200 ease-in-out rounded-full py-0.5 col-span-2
-                                        ${category === "core"
+                                        ${category === "Core"
                                             ? "bg-transparent text-white"
                                             : "bg-[#FDDF37] text-[#0E2558]"}`}>
                                         Core
                                     </button>
                                     <button
-                                        onClick={() => setCategory("frontend")}
+                                        onClick={() => setCategory("Developer")}
                                         className={`cursor-pointer border border-[#F530FD] px-3 md:px-2 max-w-fit md:max-w-none hover:scale-105 transition duration-200 p-0.5 rounded-full whitespace-nowrap col-span-4
-                                        ${category === "frontend"
+                                        ${category === "Developer"
                                             ? "bg-transparent text-white"
                                             : "bg-[#F530FD] text-[#FDDF37]"}`}>
                                         Front-End Developers
@@ -223,17 +207,17 @@ const prevSlide = () => {
                                 <div className="md:grid flex flex-col grid-cols-7 gap-2 text-[15px] font-medium font-inter text-white">
                                     <span className="md:block hidden col-span-1 border border-[#BDFF30] bg-[#BDFF30] rounded-full"></span>
                                     <button
-                                        onClick={() => setCategory("backend")}
+                                        onClick={() => setCategory("Back-end")}
                                         className={`cursor-pointer border border-[#BDFF30] px-3 md:px-2 max-w-fit md:max-w-none hover:scale-105 transition duration-200 ease-in-out p-0.5 rounded-full whitespace-nowrap col-span-4
-                                        ${category === "backend"
+                                        ${category === "Back-end"
                                             ? "bg-transparent text-white"
                                             : "bg-[#BDFF30] text-black"}`}>
                                         Back-End Developers
                                     </button>
                                     <button
-                                        onClick={() => setCategory("uiux")}
+                                        onClick={() => setCategory("Designer")}
                                         className={`cursor-pointer border border-[#FEFFFE]  md:max-w-full max-w-fit md:px-0.5 px-12 hover:scale-105 transition duration-200 ease-in-out rounded-full p-0.5 col-span-2 italic
-                                        ${category === "uiux"
+                                        ${category === "Designer"
                                             ? "bg-transparent text-white"
                                             : "bg-[#FEFFFE] text-[#F530FD]"}`}>
                                         UI/UX
@@ -241,16 +225,19 @@ const prevSlide = () => {
                                 </div>
                             </div>
                             {/* list */}
-                            {/* <div className="flex flex-col justify-start items-start gap-2 w-full">
-                                {project.members?.map((member, index) =>
-                                    category.toLowerCase() === member.category.toLowerCase() ? (
-                                        <div key={index} className="flex flex-col items-start">
-                                            <span className="text-white font-medium">{member.name}</span>
-                                            {member.title && <span className="text-gray-400 text-sm">{member.title}</span>}
-                                        </div>
-                                    ) : null
-                                )}
-                            </div> */}
+                            <div className="flex flex-col justify-start items-start gap-2 w-full">
+                              {detailedProject.collaboratorsByRole?.[category]?.members?.map((member, index) => (
+                                <div key={`member-${index}`} className="flex flex-col items-start">
+                                  <span className="text-white font-medium">{member.name}</span>
+                                </div>
+                              ))}
+
+                              {detailedProject.collaboratorsByRole?.[category]?.organizations?.map((org, index) => (
+                                <div key={`org-${index}`} className="flex flex-col items-start">
+                                  <span className="text-white font-medium">{org.name}</span>
+                                </div>
+                              ))}
+                            </div>
                         </div>
 
                     </div>
