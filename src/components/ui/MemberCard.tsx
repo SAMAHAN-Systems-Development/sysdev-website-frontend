@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 import { instrument_sans } from "@/styles/font";
 import Image from "next/image";
 import React from "react";
-import type { Member } from "@/lib/types/members";
+import type { Member } from "@/lib/features/members/types/members";
 
 const positionVariants = cva(
    "md:py-1 w-full rounded-full text-[10px] md:text-xs font-medium text-center",

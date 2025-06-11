@@ -1,6 +1,6 @@
 "use client"
 import members from "@/data/members.json";
-import { Member } from "@/lib/types/members";
+import { Member } from "@/lib/features/members/types/members";
 import { MemberCard } from "../ui/MemberCard";
 import MembersFilter from "../ui/MembersFilter";
 import React, { useEffect } from "react";

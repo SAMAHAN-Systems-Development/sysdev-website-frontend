@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import members from "@/data/members.json";
-import { Member } from "@/lib/types/members";
+import { Member } from "@/lib/features/members/types/members";
 import Button from "../ui/Button";
 import { OfficerCard } from "../ui/OfficerCard";
 

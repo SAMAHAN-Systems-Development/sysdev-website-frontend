@@ -4,13 +4,28 @@ import React, { useEffect, useState } from 'react'
 import ProjectsFilter from '../ui/ProjectsFilter'
 import SortDropdown from '../ui/SortDropdown'
 import projectsData from '@/data/projects.json';
-import { Project } from '@/lib/types/projects';
+import { Project } from '@/lib/features/projects/types/projects';
 import ProjectCard from '../ui/ProjectCard';
 import ProjectsModal from '../ui/ProjectsModal';
+import { GetMembers } from '@/lib/features/members/service/GetMembers.api';
+import { GetProjects } from '@/lib/features/projects/service/GetProjects.api';
 
 function ProjectsDisplaySection() {
   const [openedProject, setOpenedProject] = useState<Project | null>(null);
   const [selectedFilter, setSelectedFilter] = useState<'SAMAHAN' | 'Other'>('SAMAHAN');
+
+  useEffect(() => {
+    // async function fetchData() {
+    //   const res = await GetMembers();
+    //   console.log(res);
+    // }
+    async function fetchData2() {
+      const res = await GetProjects();
+      console.log(res);
+    }
+    // fetchData();
+    fetchData2();
+  }, [])
 
   // Disable body scroll when modal is open
   useEffect(() => {
