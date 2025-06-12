@@ -108,12 +108,14 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
         />
       </div>
 
-      <div className="flex flex-col items-center mt-8 sm:mt-16 gap-y-3 sm:gap-y-6 md:gap-y-9 lg:gap-y-10">
+      <div className="flex flex-col items-center mt-8 sm:mt-16 gap-y-3 sm:gap-y-6 md:gap-y-9 lg:gap-y-10 w-full md:w-auto">
         <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-6 md:gap-9 lg:gap-10 w-full max-w-6xl">
           {members
-          .filter(member => !officerRoles.includes(member.roles[0]))
-          .map((member, idx) => (
-            <MemberCard key={idx} member={member} />
+            .filter(member => !member.roles.some(role => officerRoles.includes(role)))
+            .map((member, idx) => (
+              <li key={idx} className="flex justify-center"> {/* center the card in the grid cell */}
+                <MemberCard member={member} />
+              </li>
           ))}
         </ul>
       </div>

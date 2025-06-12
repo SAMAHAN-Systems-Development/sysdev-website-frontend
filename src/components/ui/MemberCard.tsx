@@ -5,7 +5,7 @@ import React from "react";
 import type { Member } from "@/lib/features/members/types/members";
 
 const positionVariants = cva(
-   "md:py-1 w-full rounded-full text-[10px] md:text-xs font-medium text-center",
+   "md:py-1 w-full min-w-[58px] rounded-full text-[10px] md:text-xs font-medium text-center",
   {
     variants: {
       positionColor: {
@@ -168,7 +168,7 @@ export function MemberCard({
   return (
   <div className={`flex items-center rounded-3xl md:rounded-2xl bg-blue3
     flex-row md:flex-col
-    w-full max-w-9/10 md:max-w-none md:w-56 
+    max-w-9/10 md:max-w-none w-64 md:w-56 
     h-[135px] md:h-80
     flex-shrink-0 
     py-3 px-4 md:p-5`}>

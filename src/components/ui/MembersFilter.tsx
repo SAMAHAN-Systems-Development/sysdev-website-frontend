@@ -52,7 +52,7 @@ const MembersFilter: React.FC<MembersFilterProps> = ({
             onClick={moveLeft}
             className="text-black w-4 h-4 cursor-pointer hover:scale-105 transition-transform duration-200"
         />
-        <div className="px-4 pb-1 py-1.5 text-black text-nowrap min-w-30 flex justify-center -mt-0.5">
+        <div className="px-4 pb-1 py-1.5 text-black text-nowrap w-36 flex justify-center -mt-0.5">
             {currentDepartment}
         </div>
         <FaArrowCircleRight

@@ -4,14 +4,16 @@ import { AxiosError } from "axios";
 
 export const GetProjects = async (
   status: 'active' | 'not_active' | 'upcoming' | 'ongoing' | undefined = undefined,
-  sort: 'yearDesc' | 'yearAsc' = 'yearDesc',
+  sortByName: 'desc' | 'asc' = 'desc',
+  sortByYear: 'yearDesc' | 'yearAsc' = 'yearDesc',
   type: 'internal' | 'external' | 'cross_orgs' | undefined = undefined,
   page: number = 1,
   limit: number = 100,
 ) => {
   try {
     const url = `/api/projects?page=${page}&limit=${limit}` +
-      (sort ? `&sort=${sort}` : '') +
+      (sortByName ? `&sortByName=${sortByName}` : '') +
+      (sortByYear ? `&sortByYear=${sortByYear}` : '') +
       (type ? `&type=${type}` : '') +
       (status ? `&status=${status}` : '');
     const res = await request<ApiArrayRequest<Project[]>>('GET', url);
