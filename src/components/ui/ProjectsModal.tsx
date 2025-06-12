@@ -81,34 +81,37 @@ const prevSlide = () => {
                       </div>
 
                       {/* Navigation Buttons */}
-                      <button
-                        onClick={prevSlide}
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
-                        aria-label="Previous"
-                      >
-                        <FaArrowCircleLeft size={22} />
-                      </button>
-                      <button
-                        onClick={nextSlide}
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
-                        aria-label="Next"
-                      >
-                        <FaArrowCircleRight size={22} />
-                      </button>
-
-                      {/* Pagination Dots */}
-                      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20 flex gap-1">
-                        {detailedProject?.images?.map((_, index) => (
+                      {detailedProject?.images?.length > 1 && (
+                        <>
                           <button
-                            key={index}
-                            onClick={() => setCurrentIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                              index === currentIndex ? "bg-[#FFDF36] scale-125" : "bg-white/50"
-                            }`}
-                            aria-label={`Go to slide ${index + 1}`}
-                          />
-                        ))}
-                      </div>
+                            onClick={prevSlide}
+                            className="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
+                            aria-label="Previous"
+                          >
+                            <FaArrowCircleLeft size={22} />
+                          </button>
+                          <button
+                            onClick={nextSlide}
+                            className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-[#FFDF36] active:text-[#F8D000] cursor-pointer transition-all"
+                            aria-label="Next"
+                          >
+                            <FaArrowCircleRight size={22} />
+                          </button>
+                          {/* Pagination Dots */}
+                          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20 flex gap-1">
+                            {detailedProject.images.map((_, index) => (
+                              <button
+                                key={index}
+                                onClick={() => setCurrentIndex(index)}
+                                className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                                  index === currentIndex ? "bg-[#FFDF36] scale-125" : "bg-white/50"
+                                }`}
+                                aria-label={`Go to slide ${index + 1}`}
+                              />
+                            ))}
+                          </div>
+                        </>
+                      )}
                     </div>
 
 
