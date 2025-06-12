@@ -31,7 +31,7 @@ export const MemberSchema = z.object({
   id: z.number(),
   name: z.string(),
   email: z.string(),
-  roleIds: z.array(z.number()).min(1),
+  roles: z.array(z.string()).min(1),
   photo: z.string().optional(),
 });
 

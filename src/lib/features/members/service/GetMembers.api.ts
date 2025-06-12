@@ -27,14 +27,14 @@ export const GetMembers = async (
       status: number;
       message: string;
       data: RawMember[];
-    }>('GET', `/api/members${roleId ? `?roleIds=${roleId}` : ''}`);
+    }>('GET', `/api/members${roleId ? `?role=${roleId}` : ''}`);
 
     const transformed: Member[] = res.data.map((member) => ({
       id: member.id,
       name: member.name,
       email: member.email,
       photo: member.photo,
-      roleIds: member.roles.map((r) => r.roles.id),
+      roles: member.roles.map((r) => r.roles.name),
     }));
 
     return transformed;
