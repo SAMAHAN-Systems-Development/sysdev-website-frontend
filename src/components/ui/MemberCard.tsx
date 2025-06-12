@@ -154,15 +154,20 @@ export function MemberCard({
     | "projmngr" 
     | "qa";
 
-  // Fix: Only pass string or StaticImport to Image
   let photoSrc: string;
+
+  const isFile = (value: unknown): value is File =>
+    typeof File !== "undefined" && value instanceof File;
+
   if (typeof photo === "string") {
     photoSrc = photo;
-  } else if (photo instanceof File) {
+  } else if (isFile(photo)) {
     photoSrc = URL.createObjectURL(photo);
   } else {
     photoSrc = "/placeholder-profile.png";
   }
+
+
   
 
   return (

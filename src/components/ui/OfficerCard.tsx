@@ -74,13 +74,14 @@ export function OfficerCard({
     }
   };
 
-  const nameTextColor = "text-black";
-
-  // Fix: Only pass string or StaticImport to Image
   let photoSrc: string;
+
+    const isFile = (value: unknown): value is File =>
+    typeof File !== "undefined" && value instanceof File;
+
   if (typeof photo === "string") {
     photoSrc = photo;
-  } else if (photo instanceof File) {
+  } else if (isFile(photo)) {
     photoSrc = URL.createObjectURL(photo);
   } else {
     photoSrc = "/placeholder-profile.png";
@@ -116,7 +117,7 @@ export function OfficerCard({
         <div className="h-[48px] sm:h-[48px] md:h-[56px] flex flex-col justify-center items-center">
           <h3 className={`${instrument_sans.className} 
             text-[14px] sm:text-[15px] md:text-[17px]
-            font-bold ${nameTextColor} 
+            font-bold text-black
             mb-0
             text-center w-full
             line-clamp-2 overflow-hidden text-ellipsis`}>  

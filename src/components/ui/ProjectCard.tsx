@@ -28,7 +28,7 @@ export default function ProjectCard({ project, setOpenedProjectId }: ProjectCard
             }
         }
         fetchData();
-        }, []);
+        }, [project.id]);
 
 
     return (

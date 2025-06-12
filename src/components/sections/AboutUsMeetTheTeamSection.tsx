@@ -5,7 +5,7 @@ import { GetMembers } from '@/lib/features/members/service/GetMembers.api';
 import { Member } from "@/lib/features/members/types/members";
 import Button from "../ui/Button";
 import { OfficerCard } from "../ui/OfficerCard";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function AboutUsMeetTheTeamSection() {
   const [members, setMembers] = useState<Member[]>([]);
@@ -22,25 +22,28 @@ export default function AboutUsMeetTheTeamSection() {
     fetchData();
 }, []);
 
-  const officerRoles = [
-        "Director",
-        "Deputy Director",
-        "Secretary-General",
-        "Treasurer",
-        "Auditor",
-        "External Affairs Head",
-        "Front-End Head",
-        "Back-End Head",
-        "UI/UX Head",
-        "Creatives Head"
-      ];
+  const officerRoles = useMemo(
+  () => [
+    "Director",
+    "Deputy Director",
+    "Secretary-General",
+    "Treasurer",
+    "Auditor",
+    "External Affairs Head",
+    "Front-End Head",
+    "Back-End Head",
+    "UI/UX Head",
+    "Creatives Head"
+  ],
+  []
+);
 
     useEffect(() => {
     const filteredOfficers = members.filter(member =>
       member.roles.some(role => officerRoles.includes(role))
     );
     setOfficers(filteredOfficers);
-  }, [members]);
+  }, [members, officerRoles]);
 
 
   return (
@@ -139,9 +142,12 @@ export default function AboutUsMeetTheTeamSection() {
           })}
         </ul>
       </div>
-      <div className="w-fit flex items-center justify-center h-13 mt-28">
-        <Link href="/">
-          <Button variant={"pink"} size={"big"} className="font-bold w-[600px]">
+      <div className="mt-14 lg:mt-20 flex h-13 w-full items-center justify-center">
+        <Link
+          className="w-full max-w-[230px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px]"
+          href="/"
+        >
+          <Button className="w-full font-bold" variant={"pink"} size={"big"}>
             Meet the Team
           </Button>
         </Link>

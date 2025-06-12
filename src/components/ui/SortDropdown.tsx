@@ -31,13 +31,14 @@ const SortDropdown: React.FC<SortDropdownProps> = ({
         }
     };
 
-    const options = [
+    const options: { label: string; value: 'Default' | 'A2Z' | 'Z2A' | 'yearDesc' | 'yearAsc' }[] = [
         { label: 'Default', value: 'Default' },
         { label: 'A > Z', value: 'A2Z' },
         { label: 'Z > A', value: 'Z2A' },
         { label: 'Newest', value: 'yearDesc' },
         { label: 'Oldest', value: 'yearAsc' },
     ];
+
 
     // Determine selected label for display
     const selectedLabel =
@@ -72,7 +73,7 @@ const SortDropdown: React.FC<SortDropdownProps> = ({
                                 return (
                                     <button
                                     key={value}
-                                    onClick={() => handleSelect(value as any)}
+                                    onClick={() => handleSelect(value)}
                                     className={`text-sm md:text-base flex items-center cursor-pointer border-b border-gray-500 p-2 last:border-b-0 transition-discrete ${
                                         selectedLabel === label ? 'text-[#F530FD] font-semibold' : ''
                                     }`}
