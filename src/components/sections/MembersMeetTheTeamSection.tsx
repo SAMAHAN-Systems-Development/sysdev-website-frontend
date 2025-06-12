@@ -1,35 +1,28 @@
 "use client"
-import members from "@/data/members.json";
-import { Member } from "@/lib/types/members";
+import { Member } from "@/lib/features/members/types/members";
 import { MemberCard } from "../ui/MemberCard";
 import MembersFilter from "../ui/MembersFilter";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { GetMembers } from '@/lib/features/members/service/GetMembers.api';
 
-// helper component for team sections
-const TeamSection = ({ 
-  head, 
-  members 
-}: { 
-  head?: Member; 
-  members: Member[];
-}) => (
-  // Your TeamSection component remains the same
-  <div className="flex flex-col items-center mt-8 sm:mt-16 gap-y-3 sm:gap-y-6 md:gap-y-9 lg:gap-y-10">
-    {head && (
-      <div className="flex justify-center w-full max-w-xs mx-auto">
-        <MemberCard member={head} />
-      </div>
-    )}
-    <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-6 md:gap-9 lg:gap-10 w-full max-w-6xl">
-      {members.map((member, idx) => (
-        <li key={idx} className="flex justify-center">
-          <MemberCard member={member} />
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+// // helper component for team sections
+// const TeamSection = ({ 
+//   members 
+// }: { 
+//   members: Member[];
+// }) => (
+//   // Your TeamSection component remains the same
+//   <div className="flex flex-col items-center mt-8 sm:mt-16 gap-y-3 sm:gap-y-6 md:gap-y-9 lg:gap-y-10">
+//     <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-6 md:gap-9 lg:gap-10 w-full max-w-6xl">
+//       {members.map((member, idx) => (
+//         <li key={idx} className="flex justify-center">
+//           <MemberCard member={member} />
+//         </li>
+//       ))}
+//     </ul>
+//   </div>
+// );
 
 export interface MembersMeetTheTeamSectionProps {
   currentDepartment: string;
@@ -41,80 +34,58 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
   setCurrentDepartment,
 }) => {
   const router = useRouter();
-  
-  const membersData = members as Member[];
+  const [members, setMembers] = React.useState<Member[]>([]);
 
-
-  const memberHasPosition = (member: Member, position: string): boolean => {
-    return member.roles.includes(position);
-  };
-
-  const findHead = (headPosition: string): Member | undefined => {
-    return membersData.find(member => memberHasPosition(member, headPosition));
-  };
-
-  const filterMembersByPosition = (position: string): Member[] => {
-    return membersData.filter(member => memberHasPosition(member, position));
-  };
-
-  // team data structure remains the same
-  const teams = [
-  {
-    id: "Full-Stack",
-    title: "Full-Stack",
-    head: findHead("Full-Stack Head"),
-    members: filterMembersByPosition("Full-Stack")
-  },
-  {
-    id: "Front-End",
-    title: "Front-End",
-    head: findHead("Front-End Head"),
-    members: filterMembersByPosition("Front-End")
-  },
-  {
-    id: "Back-End",
-    title: "Back-End",
-    head: findHead("Back-End Head"),
-    members: filterMembersByPosition("Back-End")
-  },
-  {
-    id: "UI/UX",
-    title: "UI/UX",
-    head: findHead("UI/UX Head"),
-    // Update these filters to handle variations
-    members: membersData.filter(member => 
-      member.roles.some(role => 
-        role.toLowerCase().includes('ui') || 
-        role.toLowerCase().includes('ux')
-      )
-    )
-  },
-  {
-    id: "Creatives",
-    title: "Creatives",
-    head: findHead("Creatives Head"),
-    // Update these filters to handle variations
-    members: membersData.filter(member => 
-      member.roles.some(role => 
-        role.toLowerCase().includes('creative')
-      )
-    )
-  },
-  {
-      id: "Project Manager",
-      title: "Project Managers",
-      members: filterMembersByPosition("Project Manager")
-    },
-    {
-      id: "DevOps",
-      title: "DevOps",
-      members: filterMembersByPosition("DevOps")
-    },
-    {
-      id: "QA",
-      title: "QA",
-      members: filterMembersByPosition("QA")
+  useEffect(() => {
+    async function fetchData() {
+      let res;
+      switch (currentDepartment) {
+        case "Full-Stack":
+          res = await GetMembers(18);
+          break;
+        case "Front-End":
+          res = await GetMembers(19);
+          break;
+        case "Back-End":
+          res = await GetMembers(20);
+          break;
+        case "QA":
+          res = await GetMembers(21);
+          break;
+        case "DevOps":
+          res = await GetMembers(22);
+          break;
+        case "Project Manager":
+          res = await GetMembers(23);
+          break;
+        case "UI/UX":
+          res = await GetMembers(24);
+          break;
+        case "Creatives":
+          res = await GetMembers(25);
+          break;
+        default:
+          res = await GetMembers();
+      }
+      if (Array.isArray(res)) {
+        setMembers(res.flat());
+        console.log("Members fetched:", res.flat());
+      }
     }
+    fetchData();
+  }, [currentDepartment]);
+
+  const officerRoles = [
+    "Director",
+    "Deputy Director",
+    "Secretary-General",
+    "Treasurer",
+    "Auditor",
+    "External Affairs Head",
+    "Front-End Head",
+    "Back-End Head",
+    "UI/UX Head",
+    "Creatives Head"
   ];
   
   useEffect(() => {
@@ -137,33 +108,17 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
         />
       </div>
 
-      {(() => {
-        const filteredTeams = teams
-          .filter(team => currentDepartment.toLowerCase() === team.id.toLowerCase());
-
-        // If no team matches or the only matching team has no members
-        if (
-          filteredTeams.length === 0 ||
-          filteredTeams.every(team => team.members.length === 0)
-        ) {
-          return (
-            <div className="w-full text-center text-blue3 py-15 font-bold">
-              No members found for this department.
-            </div>
-          );
-        }
-
-        // Otherwise, render the teams with members
-        return filteredTeams
-          .filter(team => team.members.length > 0)
-          .map(team => (
-            <TeamSection
-              key={team.id}
-              head={team.head}
-              members={team.members}
-            />
-          ));
-      })()}
+      <div className="flex flex-col items-center mt-8 sm:mt-16 gap-y-3 sm:gap-y-6 md:gap-y-9 lg:gap-y-10 w-full md:w-auto">
+        <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-6 md:gap-9 lg:gap-10 w-full max-w-6xl">
+          {members
+            .filter(member => !member.roles.some(role => officerRoles.includes(role)))
+            .map((member, idx) => (
+              <li key={idx} className="flex justify-center"> {/* center the card in the grid cell */}
+                <MemberCard member={member} />
+              </li>
+          ))}
+        </ul>
+      </div>
     </section> 
   );
 }

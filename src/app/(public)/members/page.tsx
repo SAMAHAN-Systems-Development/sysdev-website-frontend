@@ -4,11 +4,12 @@ import React, { useState, useEffect, Suspense } from "react";
 import MembersPage from "@/components/pages/Members";
 import { useSearchParams } from "next/navigation";
 
-// Extract logic that uses `useSearchParams()` into a separate client component
 function MembersWrapper() {
   const searchParams = useSearchParams();
-  const [currentDepartment, setCurrentDepartment] = useState("Officers");
+  const departmentParam = searchParams.get("department");
+  const [currentDepartment, setCurrentDepartment] = useState(departmentParam || "Officers");
 
+  // Optional: if URL changes during client-side navigation, update state
   useEffect(() => {
     const dept = searchParams.get("department");
     setCurrentDepartment(dept || "Officers");
@@ -22,7 +23,6 @@ function MembersWrapper() {
   );
 }
 
-// Main page component
 export default function Page() {
   return (
     <Suspense fallback={<div>Loading members...</div>}>

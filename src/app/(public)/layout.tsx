@@ -19,13 +19,13 @@ export default function RootLayout({
         ></link>
         <meta property="og:image" content="/images/SysDevLogo.png"></meta>
       </head>
-      <NavigationBar />
       <body
         className={`${inter.variable} ${instrument_sans.variable} antialiased`}
       >
+        <NavigationBar />
         <main>{children}</main>
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }

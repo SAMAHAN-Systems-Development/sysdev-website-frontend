@@ -7,7 +7,7 @@
       "href": "/members",
       "label": "Members",
       "subLinks": [
-        { "href": "/members?department=Officers", "label": "Officers" },
+        { "href": "/about-us#Officers", "label": "Officers" },
         { "href": "/members?department=Front-End", "label": "Front-End" },
         { "href": "/members?department=Back-End", "label": "Back-End" },
         { "href": "/members?department=Full-Stack", "label": "Full-Stack" },
