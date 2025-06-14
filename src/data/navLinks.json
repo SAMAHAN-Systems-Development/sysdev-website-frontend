@@ -7,13 +7,13 @@
       "href": "/members",
       "label": "Members",
       "subLinks": [
-        { "href": "/about-us#Officers", "label": "Officers" },
+        { "href": "/members?department=Full-Stack", "label": "Full-Stack" },
         { "href": "/members?department=Front-End", "label": "Front-End" },
         { "href": "/members?department=Back-End", "label": "Back-End" },
-        { "href": "/members?department=Full-Stack", "label": "Full-Stack" },
-        { "href": "/members?department=UI%2FUX", "label": "UI/UX" },
-        { "href": "/members?department=DevOps", "label": "DevOps" },
         { "href": "/members?department=QA", "label": "QA" },
+        { "href": "/members?department=DevOps", "label": "DevOps" },
+        { "href": "/members?department=UI%2FUX", "label": "UI/UX" },
+        { "href": "/members?department=Project%20Manager", "label": "Proj. Manager" },
         { "href": "/members?department=Creatives", "label": "Creatives" }
       ]
     },

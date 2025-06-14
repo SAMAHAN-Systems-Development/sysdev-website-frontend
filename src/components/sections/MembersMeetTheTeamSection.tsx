@@ -93,10 +93,10 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
   }, [currentDepartment, router]);
 
   return (
-    <section className="font-inter w-full flex flex-col items-center px-4 sm:px-7 pt-4 sm:pt-7 pb-4 sm:pb-4 md:p-14 xl:p-24 mt-5 sm:mt-10">
+    <section className="font-inter w-full flex flex-col items-center px-4 sm:px-7 pt-4 sm:pt-7 pb-4 sm:pb-4 md:pt-10 mt-5 sm:mt-10">
       <div className="flex flex-col items-center text-black text-center gap-2.5">
         <h1 className="font-bold text-3xl sm:text-4xl">Meet the Team</h1>
-        <p className="text-base sm:text-xl">
+        <p className="text-base sm:text-lg">
           The minds behind SYSDEV &#8212; building solution for a better AdDU.
         </p>
       </div>
@@ -108,8 +108,8 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
         />
       </div>
 
-      <div className="flex flex-col items-center mt-8 sm:mt-16 gap-y-3 sm:gap-y-6 md:gap-y-9 lg:gap-y-10 w-full md:w-auto">
-        <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-6 md:gap-9 lg:gap-10 w-full max-w-6xl">
+      <div className="flex flex-col items-center mt-12 sm:mt-16 gap-y-3 sm:gap-y-6 md:gap-y-9 lg:gap-y-10 w-full md:w-auto">
+        <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 md:gap-10 w-full max-w-6xl">
           {members
             .filter(member => !member.roles.some(role => officerRoles.includes(role)))
             .map((member, idx) => (
