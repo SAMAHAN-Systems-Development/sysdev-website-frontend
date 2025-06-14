@@ -445,7 +445,7 @@ const ContactUs: React.FC = () => {
                         Choose File
                       </label>
                     </div>
-                    <span className="text-[10px] md:text-sm lg:text-base text-gray-500">
+                    <span className="text-[10px] md:text-sm lg:text-base text-gray-500 pl-2">
                       JPG, PNG, PDF, DOCX formats up to 2MB each
                     </span>
                   </div>
