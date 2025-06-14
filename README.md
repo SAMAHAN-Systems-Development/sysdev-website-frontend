@@ -38,7 +38,7 @@ EXAMPLE:
 
 Project is already partially connected with backend.
 
-1. Clone the backend [repository](https://github.com/SAMAHAN-Systems-Development/sysdev-website-backend)).
+1. Clone the backend [repository](https://github.com/SAMAHAN-Systems-Development/sysdev-website-backend).
 2. Follow the instructions in the "Production and Frontend Use setup" in the repo's documentation. Note that you'll have to install Docker.
 3. You have to run the backend and frontend project at the same time.
 
