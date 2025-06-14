@@ -49,18 +49,18 @@ export default function AboutUsMeetTheTeamSection() {
   return (
     <section id="Officers" className="font-inter w-full flex flex-col items-center px-7 pt-7 pb-4 md:p-14 xl:p-24 mt-10">
       <div className="flex flex-col items-center text-blue3 text-center gap-2.5">
-        <h1 className="font-bold text-4xl">Meet the Team</h1>
-        <p className="text-xl">
+        <h1 className="font-bold text-3xl md:text-4xl">Meet the Team</h1>
+        <p className="text-sm md:text-xl">
           The minds behind SYSDEV &#8212; building solution for a better AdDU.
         </p>
       </div>
-      <div className="flex flex-col items-center mt-20 gap-y-4">
+      <div className="flex flex-col items-center mt-14 md:mt-20 gap-y-4">
         <h2 className="text-2xl text-black font-bold">Officers</h2>
-        <ul className="grid grid-cols-1 justify-items-center gap-x-10 md:grid-cols-2 xl:grid-cols-4">
+        <ul className="grid grid-cols-2 justify-items-center md:gap-x-10 xl:gap-x-6 gap-y-4 md:grid-cols-2 xl:grid-cols-4">
           {officers.map((member, idx) => {
             if (member.roles.includes(officerRoles[0])) {
               return (
-                <li key={idx} className="order-1 md:col-span-2 xl:col-span-4">
+                <li key={idx} className="order-1 col-span-2 xl:col-span-4">
                   <OfficerCard
                     member={{ ...member }}
                   />
@@ -68,7 +68,7 @@ export default function AboutUsMeetTheTeamSection() {
               );
             } else if (member.roles.includes(officerRoles[1])) {
               return (
-                <li key={idx} className="order-2 md:col-span-2 xl:col-span-4">
+                <li key={idx} className="order-2 col-span-2 xl:col-span-4">
                   <OfficerCard
                     member={{ ...member }}
                   />

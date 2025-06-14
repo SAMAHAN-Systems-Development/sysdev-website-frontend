@@ -8,7 +8,7 @@ export default function AboutUsIdea() {
   const router = useRouter();
 
   return (
-      <div className="w-full lg:gap-3 flex flex-col items-center py-24 text-blue3 text-lg md:text-3xl lg:text-4xl font-instrument-sans">
+      <div className="w-full lg:gap-3 flex flex-col items-center py-9 md:py-16 lg:py-20 text-blue3 text-lg md:text-3xl lg:text-4xl font-instrument-sans">
         <div className="font-semibold md:font-normal">Have a project or idea in mind? </div>
         <div className="font-bold md:font-semibold">
           Let’s build it together

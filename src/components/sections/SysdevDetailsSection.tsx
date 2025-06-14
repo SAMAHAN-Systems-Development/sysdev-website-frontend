@@ -16,7 +16,7 @@ const departmentIcons = [
 
 function SysdevDetailsSection() {
   return (
-    <div className='flex flex-col items-center justify-center w-full gap-y-13 text-black mt-15 '>
+    <div className='flex flex-col items-center justify-center w-full gap-y-13 text-black mt-15 md:mt-18 md:mb-14'>
         <div className='w-7/9 lg:w-4/5'>
             <div className='flex flex-col items-center'>
         <div className="relative h-24 w-56 md:h-32 md:w-72 lg:h-36 lg:w-80 overflow-hidden"> 

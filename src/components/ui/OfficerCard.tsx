@@ -95,14 +95,14 @@ export function OfficerCard({
     flex  items-center rounded-3xl  
     flex-col
       w-[150px] sm:w-[180px] md:w-[250px] 
-      h-auto min-h-[220px] sm:min-h-[260px] md:min-h-[350px]
+      h-fit
       flex-shrink-0 
       p-3 sm:p-4 md:p-5`}>
 
       <div className="relative 
         w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40
         rounded-full overflow-hidden bg-gray-300 
-        mb-3 sm:mb-4 md:mb-5
+        mb-1
         mx-auto
         flex-shrink-0">
         <Image
@@ -114,7 +114,7 @@ export function OfficerCard({
       </div>
 
       <div className="flex flex-col justify-center w-full min-w-0">
-        <div className="h-[48px] sm:h-[48px] md:h-[56px] flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
           <h3 className={`${instrument_sans.className} 
             text-[14px] sm:text-[15px] md:text-[17px]
             font-bold text-black
@@ -128,7 +128,7 @@ export function OfficerCard({
         <p className={`${instrument_sans.className} 
           text-[10px] sm:text-xs md:text-sm
           text-black opacity-80
-          mb-2 sm:mb-3
+          mb-1 md:mb-2
           text-center w-full
           truncate`}>
           {email}
@@ -138,8 +138,8 @@ export function OfficerCard({
           <div className="flex justify-center w-full">
             <div className={`
               ${instrument_sans.className} 
-              rounded-full font-medium w-full bg-blue3 text-yellow3
-              min-w-[110px] sm:min-w-[130px] md:min-w-[140px]
+              rounded-full font-medium bg-blue3 text-yellow3
+              min-w-[110px] sm:min-w-[130px] md:min-w-[160px]
               mx-auto
               text-[10px] sm:text-[11px] md:text-[13px]
               py-1 px-2 sm:px-3 md:px-4
