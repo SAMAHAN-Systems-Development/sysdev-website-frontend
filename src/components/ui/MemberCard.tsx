@@ -92,8 +92,8 @@ export function MemberCard({
     if (positions.length === 3) {
       // for exactly 3 positions: first position on top, other two in a row below
       return (
-        <>
-          <div className="w-full mb-0.5">
+        <div className="h-9 md:h-14 w-full">
+          <div className="w-full mb-1.5">
             <div className={`
               ${instrument_sans.className} 
               ${positionVariants({ positionColor: positions[0].color })}
@@ -113,7 +113,7 @@ export function MemberCard({
               </div>
             ))}
           </div>
-        </>
+        </div>
       );
       // for 1-4 positions, display in rows of 2
     } else {
@@ -123,7 +123,7 @@ export function MemberCard({
       }
       
       return rows.map((row, rowIndex) => (
-        <div key={rowIndex} className={`w-full flex gap-x-2 ${rowIndex > 0 ? "mt-1" : ""}`}>
+        <div key={rowIndex} className={`w-full h-9 md:h-14 flex items-end gap-x-2 ${rowIndex > 0 ? "mt-1" : ""}`}>
           {row.map((pos, colIndex) => (
             <div
               key={`${rowIndex}-${colIndex}`}
@@ -174,9 +174,9 @@ export function MemberCard({
   <div className={`flex items-center rounded-3xl md:rounded-2xl bg-blue3
     flex-row md:flex-col
     max-w-9/10 md:max-w-none w-64 md:w-56 
-    h-[135px] md:h-80
+    max-h-[135px] md:max-h-80 h-fit
     flex-shrink-0 
-    py-3 px-4 md:p-5`}>
+    py-6 px-4 md:p-5`}>
       
     <div className="relative 
       w-20 h-20 md:w-[150px] md:h-[150px] 

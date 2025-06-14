@@ -1,5 +1,6 @@
 import Head from "next/head";
 import type { Metadata } from "next";
+import HomePage from "@/components/pages/HomePage";
 export const metadata: Metadata = {
   title: "SAMAHAN Systems Development",
   description: "The official website of SAMAHAN Systems Development",
@@ -30,7 +31,7 @@ export default function Home() {
     </Head>
     <main>
       {/* {"Insert your component here"} */}
-      
+      <HomePage/>
     </main>
   </>);
 }

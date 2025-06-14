@@ -10,9 +10,10 @@ import { useEffect, useState } from "react"
 interface ProjectCardProps {
     project: Project
     setOpenedProjectId: (projectId: number | null) => void;
+    smallVersion?: boolean;
 }
 
-export default function ProjectCard({ project, setOpenedProjectId }: ProjectCardProps) {
+export default function ProjectCard({ project, setOpenedProjectId, smallVersion }: ProjectCardProps) {
     function truncate(str: string, n: number) {
         return str.length > n ? str.slice(0, n) + "..." : str
     }
@@ -39,38 +40,38 @@ export default function ProjectCard({ project, setOpenedProjectId }: ProjectCard
             {/* wrapper for img padding */}
             <div className="p-2 flex justify-center">
                 {/* project image */}
-                <div className="relative h-48 sm:h-52 md:h-56 w-full max-w-80 sm:max-w-none rounded-xl overflow-hidden">
+                <div className={`${!smallVersion ? "sm:h-52 md:h-56 sm:max-w-none h-48 max-w-80" : "h-30 max-w-56"} relative w-full rounded-xl overflow-hidden`}>
                     <Image src={"/images/PlaceholderImage.png"} alt={project.title} fill className="object-cover" />
                 </div>
             </div>
 
             {/* card content */}
             <div className="flex justify-center">
-                <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 w-full max-w-80 sm:max-w-none">
-                {/* title */}
-                <div className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-3 sm:mb-4 text-center leading-tight h-12 sm:h-14 md:h-16 flex items-center justify-center line-clamp-2">
-                    {truncate(project.title, 45)}
-                </div>
+                <div className={`px-4 ${!smallVersion ? "sm:px-6 pb-4 sm:pb-6 sm:max-w-none max-w-80 pt-2" : "max-w-56"}  w-full`}>
+                    {/* title */}
+                    <div className={` ${!smallVersion ? "sm:text-xl md:text-2xl sm:mb-4 sm:h-14 md:h-16 h-12 mb-3 text-lg" : "h-10 mb-2 text-base"} font-bold text-black text-center leading-tight flex items-center justify-center line-clamp-2`}>
+                        {truncate(project.title, 45)}
+                    </div>
 
-                {/* client */}
-                <div className="flex items-center mb-2 sm:mb-3">
-                    <FaUser className="w-3 h-3 sm:w-4 sm:h-4 text-green mr-2 sm:mr-3 flex-shrink-0" />
-                    <span className="text-sm sm:text-base text-gray-800 font-medium truncate">
-                        {clients && Object.values(clients).map(c => c.name).join(', ')}
-                    </span>
-                </div>
+                    {/* client */}
+                    <div className={`flex items-center  ${!smallVersion ? "sm:mb-3 mb-2" : "mb-1.5"}`}>
+                        <FaUser className={`w-3 h-3 ${!smallVersion ? "sm:w-4 sm:h-4 sm:mr-3" : ""}  text-green mr-2 flex-shrink-0`} />
+                        <span className={` ${!smallVersion ? "text-sm sm:text-base" : "text-xs lg:text-sm"} text-gray-800 font-medium truncate`}>
+                            {clients && Object.values(clients).map(c => c.name).join(', ')}
+                        </span>
+                    </div>
 
-                {/* deployment date */}
-                <div className="flex items-center mb-4 sm:mb-6">
-                    <IoCalendar className="w-3 h-3 sm:w-4 sm:h-4 text-blue1 mr-2 sm:mr-3 flex-shrink-0" />
-                    <span className="text-sm sm:text-base text-gray-800">
-                        {new Date(project.dateLaunched).toLocaleDateString("en-US", {
-                            month: "long",
-                            year: "numeric",
-                        })}
-                    </span>
+                    {/* deployment date */}
+                    <div className={`flex items-center mb-4 ${!smallVersion ? "sm:mb-6" : ""}`}>
+                        <IoCalendar className={`w-3 h-3 ${!smallVersion ? "sm:w-4 sm:h-4 sm:mr-3" : ""}  text-blue1 mr-2 flex-shrink-0`} />
+                        <span className={` ${!smallVersion ? "text-sm sm:text-base" : "text-xs lg:text-sm"} text-gray-800`}>
+                            {new Date(project.dateLaunched).toLocaleDateString("en-US", {
+                                month: "long",
+                                year: "numeric",
+                            })}
+                        </span>
+                    </div>
                 </div>
-            </div>
             </div>
             
         </div>
