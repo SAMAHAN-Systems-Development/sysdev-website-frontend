@@ -6,7 +6,7 @@ const HomeGetStartedBanner = () => {
 
     return (
         <div
-            className='w-full flex flex-col items-center justify-center text-center py-12 px-4 sm:px-6 lg:px-8 relative bg-cover bg-center'
+            className='w-full flex flex-col items-center justify-center text-center py-3 md:py-14 lg:py-22 px-4 sm:px-6 lg:px-8 relative bg-cover bg-center'
             style={{ backgroundImage: `url(${backgroundImageUrl})` }}
         >
             <div className="absolute inset-0 bg-blue3 opacity-70"></div>

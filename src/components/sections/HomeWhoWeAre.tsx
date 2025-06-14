@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const HomeWhoWeAre = () => {
   const router = useRouter();
   return (
-    <section className="min-h-[80vh]  flex items-center justify-center overflow-hidden">
+    <section className="flex items-center justify-center overflow-hidden my-9 md:my-14">
       <div className="flex flex-col justify-center items-center p-6 md:p-10 lg:p-12 max-w-lg md:max-w-3xl lg:max-w-[1000px]">
         <h5 className="text-black text-2xl md:text-3xl lg:text-4xl font-bold italic mb-3 md:mb-5 lg:mb-8">
           Who we are

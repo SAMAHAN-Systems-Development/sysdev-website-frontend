@@ -12,7 +12,7 @@ interface HomeFeaturedProjectsSectionProps {
 
 const HomeFeaturedProjectsSection: React.FC<HomeFeaturedProjectsSectionProps> = ({ projectsData, openedProjectId, setOpenedProjectId }) => {
   return (
-    <div className='flex flex-col justify-center items-center w-full px-6'>
+    <div className='flex flex-col justify-center items-center w-full px-6 mt-16 md:mt-26'>
         <div className='text-black italic font-bold text-2xl md:text-4xl mb-5 md:mb-8'>Featured Projects</div>
         <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-y-2 lg:gap-x-4 mb-4 md:mb-10'>
             {projectsData

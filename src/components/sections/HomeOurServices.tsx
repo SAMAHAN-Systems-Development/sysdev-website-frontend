@@ -44,7 +44,7 @@ export default function HomeOurServices() {
   ];
 
   return (
-    <section className="font-inter mx-auto flex w-full max-w-lg flex-col px-2 py-18 text-black md:max-w-[768px] md:px-14 lg:max-w-[1024px] lg:px-20">
+    <section className="font-inter mx-auto flex w-full max-w-lg flex-col px-2 py-18 md:py-32 text-black md:max-w-[768px] md:px-14 lg:max-w-[1024px] lg:px-20">
       <div className="flex flex-col gap-2 text-center lg:mb-3">
         <h1 className="text-xl font-bold italic md:text-3xl lg:text-4xl">
           Our Services
