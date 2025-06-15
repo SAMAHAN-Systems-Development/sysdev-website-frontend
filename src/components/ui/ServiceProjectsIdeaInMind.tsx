@@ -3,7 +3,7 @@ import Button from './Button';
 
 const ServiceProjectsIdeaInMind = () => {
   return (
-    <div className="max-w-96 sm:max-w-lg md:max-w-2xl lg:max-w-5xl px-8 md:px-12 lg:px-20 py-4 mx-auto h-48 sm:h-56 md:h-72 lg:h-96 flex items-center my-12 md:my-20">
+    <div className="w-full max-w-96 sm:max-w-lg md:max-w-2xl lg:max-w-5xl px-8 md:px-12 lg:px-20 py-4 mx-auto h-48 sm:h-56 md:h-72 lg:h-96 flex items-center my-12 md:my-20">
       <div className="rounded-2xl overflow-hidden shadow-lg flex h-full">
         {/* Text Content - Responsive width */}
         <div className="w-1/2 sm:w-2/5 lg:w-2/5 px-4 py-7 sm:px-6 md:px-10 flex flex-col justify-center z-10 bg-blue3">
