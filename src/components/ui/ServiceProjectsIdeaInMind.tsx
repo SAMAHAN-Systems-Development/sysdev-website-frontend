@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import Link from 'next/link';
 
 const ServiceProjectsIdeaInMind = () => {
   return (
@@ -11,7 +12,11 @@ const ServiceProjectsIdeaInMind = () => {
             Have a project or idea in mind? Let&apos;s build it together
           </h2>
           <div className='flex items-center min-h-8 md:min-h-11 lg:min-h-12'>
-            <Button size={"normal"} className='font-bold w-24 md:w-36'>Get In Touch</Button>
+            <Button size={"normal"} className='font-bold w-24 md:w-36'>
+              <Link href={"/contact-us"}>
+                Get In Touch
+              </Link>
+            </Button>
           </div>
           
         </div>

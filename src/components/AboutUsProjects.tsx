@@ -19,7 +19,7 @@ export default function AboutUsProjects() {
           usability.
         </p>
         <div className="flex items-center justify-center w-full h-14 mt-5 max-w-3xs md:max-w-md">
-          <Link className="w-full" href="/">
+          <Link className="w-full" href="/projects">
             <Button
               variant={"green"}
               size={"big"}

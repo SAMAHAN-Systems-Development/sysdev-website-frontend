@@ -7,12 +7,12 @@ import { useSearchParams } from "next/navigation";
 function MembersWrapper() {
   const searchParams = useSearchParams();
   const departmentParam = searchParams.get("department");
-  const [currentDepartment, setCurrentDepartment] = useState(departmentParam || "Officers");
+  const [currentDepartment, setCurrentDepartment] = useState(departmentParam || "Full-Stack");
 
   // Optional: if URL changes during client-side navigation, update state
   useEffect(() => {
     const dept = searchParams.get("department");
-    setCurrentDepartment(dept || "Officers");
+    setCurrentDepartment(dept || "Full-Stack");
   }, [searchParams]);
 
   return (

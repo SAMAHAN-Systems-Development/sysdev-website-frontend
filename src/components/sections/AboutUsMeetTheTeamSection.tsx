@@ -145,7 +145,7 @@ export default function AboutUsMeetTheTeamSection() {
       <div className="mt-14 lg:mt-20 flex h-13 w-full items-center justify-center">
         <Link
           className="w-full max-w-[230px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px]"
-          href="/"
+          href="/members?department=Full-Stack"
         >
           <Button className="w-full font-bold" variant={"pink"} size={"big"}>
             Meet the Team

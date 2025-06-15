@@ -3,6 +3,7 @@ import React from 'react'
 import ProjectCard from '../ui/ProjectCard';
 import Button from '../ui/Button';
 import ProjectsModal from '../ui/ProjectsModal';
+import Link from 'next/link';
 
 interface HomeFeaturedProjectsSectionProps {
     projectsData: Project[];
@@ -27,7 +28,11 @@ const HomeFeaturedProjectsSection: React.FC<HomeFeaturedProjectsSectionProps> = 
             ))}
         </div>
         <div className='flex items-center h-13'>
-            <Button size={"big"} variant={"pink"} className='font-bold w-64 md:w-96 lg:w-[400px] lg:text-lg'>View All Projects</Button>
+            <Button size={"big"} variant={"pink"} className='font-bold w-64 md:w-96 lg:w-[400px] lg:text-lg'>
+              <Link href={"/projects"}>
+                View All Projects
+              </Link>
+            </Button>
         </div>
         {openedProjectId && (
         <ProjectsModal

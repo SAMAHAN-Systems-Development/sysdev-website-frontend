@@ -4,6 +4,13 @@ import Button from './ui/Button'
 const HomeGetStartedBanner = () => {
     const backgroundImageUrl = 'images/AboutUsHeroBannerBackground.png';
 
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = '/images/2nd Sem AY 24-25 Org Primer.pdf'; // relative to public/
+        link.download = 'SysDevPrimer.pdf'; // optional: set filename
+        link.click();
+    };
+
     return (
         <div
             className='w-full flex flex-col items-center justify-center text-center py-3 md:py-14 lg:py-22 px-4 sm:px-6 lg:px-8 relative bg-cover bg-center'
@@ -23,6 +30,7 @@ const HomeGetStartedBanner = () => {
                         variant={"yellow"}
                         className="font-bold w-[12rem] sm:w-72 md:w-96 mb-10"
                         size={"big"}
+                        onClick={handleDownload}
                     >
                         Download Primer
                     </Button>
@@ -32,4 +40,4 @@ const HomeGetStartedBanner = () => {
     )
 }
 
-export default HomeGetStartedBanner
+export default HomeGetStartedBanner;
