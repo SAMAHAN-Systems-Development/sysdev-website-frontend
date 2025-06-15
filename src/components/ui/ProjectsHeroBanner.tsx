@@ -2,10 +2,9 @@
 import React from "react";
 import Image from "next/image";
 import Button from "./Button";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const ProjectsHeroBanner = () => {
-  const navigator = useRouter();
   return (
     <section>
       <div className="relative w-[100vw] h-[100vh] -mt-4">
@@ -24,13 +23,15 @@ const ProjectsHeroBanner = () => {
               Works throughout the years done by SYSDEV with collaboration, teamwork and hardwork.
             </p>
             <div className="mt-10 md:mt-20 flex items-center h-17">
-              <Button size={"big"} onClick={() => navigator.push("/")}>
-                <p className="px-6 lg:px-8">
+              <Button size={"big"}>
+                <Link href={"/contact-us"}>
+                  <p className="px-6 lg:px-8">
                   Let&apos;s{" "}
                   <i>
                     <strong>Collaborate</strong>
                   </i>
                 </p>
+                </Link>
               </Button>
             </div>
           </div>

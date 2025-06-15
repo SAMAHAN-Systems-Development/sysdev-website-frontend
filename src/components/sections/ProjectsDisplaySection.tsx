@@ -7,6 +7,7 @@ import { Project } from '@/lib/features/projects/types/projects';
 import ProjectCard from '../ui/ProjectCard';
 import ProjectsModal from '../ui/ProjectsModal';
 import { GetProjects } from '@/lib/features/projects/service/GetProjects.api';
+import ServiceProjectsIdeaInMind from '../ui/ServiceProjectsIdeaInMind';
 
 function ProjectsDisplaySection() {
   const [openedProjectId, setOpenedProjectId] = useState<number | null>(null);
@@ -50,7 +51,7 @@ function ProjectsDisplaySection() {
   }, [openedProjectId]);
 
   return (
-    <div className='w-full flex flex-col items-center py-28'>
+    <div className='w-full flex flex-col items-center py-16'>
       <div className='w-full max-w-4xl px-6 sm:px-10 lg:px-8'>
         <div className="mb-2">
           <ProjectsFilter selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} />
@@ -78,6 +79,7 @@ function ProjectsDisplaySection() {
             ))}
         </div>
       </div>
+      <ServiceProjectsIdeaInMind/>
       {openedProjectId && (
         <ProjectsModal
           openedProjectId={openedProjectId}

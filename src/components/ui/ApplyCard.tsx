@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 
 export function ApplyCard() {
   return (
-    <div className="w-5/6 max-w-xs md:max-w-2xl lg:max-w-5xl mx-auto rounded-3xl bg-blue3 overflow-hidden">
+    <div className="w-5/6 max-w-xs md:max-w-2xl lg:max-w-5xl mx-auto rounded-3xl bg-blue3 overflow-hidden my-12">
      <div className="flex flex-col md:flex-row items-center md:items-start lg:items-center justify-between py-10 px-6 md:p-8 lg:p-10">
        <div className="text-center md:text-left w-full lg:w-4/5">
         <h2 className={`${instrument_sans.className} text-2xl md:text-4xl font-bold text-white mb-5 md:mb-4 md:line-clamp-2 md:overflow-hidden`}>
@@ -24,11 +24,7 @@ export function ApplyCard() {
             </Button>
           </div>
         </div>
-        
-        {/* circle image - hidden on mobile and tablet, visible on desktop */}
-        <div className="hidden lg:block w-1/3 relative">
-            <div className="w-56 h-56 rounded-full border-2 border-white/30 ml-auto"></div>
-        </div>
+      
       </div>
     </div>
   );

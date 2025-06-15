@@ -4,6 +4,10 @@ import React, { useEffect, useState } from 'react'
 import HomeFeaturedProjectsSection from '../sections/HomeFeaturedProjectsSection'
 import { GetProjects } from '@/lib/features/projects/service/GetProjects.api';
 import { Project } from '@/lib/features/projects/types/projects';
+import HomeHeroBanner from '../HomeHeroBanner';
+import HomeWhoWeAre from '../sections/HomeWhoWeAre';
+import HomeGetStartedBanner from '../HomeGetStartedBanner';
+import HomeOurServices from '../sections/HomeOurServices';
 
 function HomePage() {
     const [projectsData, setProjectsData] = useState<Project[]>([]);
@@ -33,11 +37,15 @@ function HomePage() {
 
   return (
     <div>
+        <HomeHeroBanner/>
+        <HomeWhoWeAre/>
+        <HomeGetStartedBanner/>
         <HomeFeaturedProjectsSection 
             projectsData={projectsData}
             openedProjectId={openedProjectId}
             setOpenedProjectId={setOpenedProjectId}
         />
+        <HomeOurServices/>
     </div>
   )
 }

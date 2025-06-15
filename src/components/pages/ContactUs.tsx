@@ -291,7 +291,7 @@ const ContactUs: React.FC = () => {
                       <span className="">samahansysdev</span>
                     </a>
                     <a
-                      href="https://linkedin.com/company/samahan-systems-development"
+                      href="https://www.linkedin.com/company/samahan-sysdev"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 underline hover:text-[var(--color-yellow3)]"
@@ -445,7 +445,7 @@ const ContactUs: React.FC = () => {
                         Choose File
                       </label>
                     </div>
-                    <span className="text-[10px] md:text-sm lg:text-base text-gray-500">
+                    <span className="text-[10px] md:text-sm lg:text-base text-gray-500 pl-2">
                       JPG, PNG, PDF, DOCX formats up to 2MB each
                     </span>
                   </div>

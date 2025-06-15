@@ -2,7 +2,6 @@
 import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
 
 const departments = [
-  'Officers',
   'Full-Stack',
   'Front-End',
   'Back-End',
@@ -94,7 +93,7 @@ const MembersFilter: React.FC<MembersFilterProps> = ({
             <button
             key={dept}
             onClick={() => setCurrentDepartment(dept)}
-            className={`px-4 pb-1 py-1.5 rounded-t-2xl transition duration-200 text-black font-medium whitespace-nowrap cursor-pointer lg:text-[13px] xl:text-base ${
+            className={`px-4 pb-1 py-1.5 rounded-t-2xl transition duration-200 text-black font-medium whitespace-nowrap cursor-pointer text-base ${
                 currentDepartment === dept ? 'bg-[#BDFF30] text-[#F530FD]' : 'bg-transparent'
             }`}
             >

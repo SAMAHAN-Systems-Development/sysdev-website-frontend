@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import Button from '../ui/Button'
@@ -15,9 +16,15 @@ const departmentIcons = [
 ];
 
 function SysdevDetailsSection() {
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = '/images/2nd Sem AY 24-25 Org Primer.pdf'; // relative to public/
+        link.download = 'SysDevPrimer.pdf'; // optional: set filename
+        link.click();
+    };
   return (
-    <div className='flex flex-col items-center justify-center w-full gap-y-13 text-black mt-15 '>
-        <div className='w-7/9 lg:w-4/5'>
+    <div className='flex flex-col items-center justify-center w-full gap-y-13 text-black mt-15 md:mt-18 md:mb-14'>
+        <div className='w-7/9 lg:w-4/5 max-w-4xl lg:max-w-5xl'>
             <div className='flex flex-col items-center'>
         <div className="relative h-24 w-56 md:h-32 md:w-72 lg:h-36 lg:w-80 overflow-hidden"> 
           <Image src={"/images/SysDevMascot_cropped.png"} alt={"SysDev Mascot"} fill className="object-cover" />
@@ -42,7 +49,7 @@ function SysdevDetailsSection() {
           Together, let&apos;s create, code, and go on an exciting journey in software development! Founded in 2021, SYSDEV operates under SAMAHAN to create tools that simplify campus life. SAMAHAN Systems Development is in-charge of designing and developing software and digital systems.
         </div>
         <div className='flex items-center justify-center h-13 w-full mt-8 md:mt-12 lg:mt-16'>
-          <Button variant={"green"} size={"big"} className='w-full font-bold'>Download Primer</Button>
+          <Button variant={"green"} size={"big"} className='w-full font-bold' onClick={handleDownload}>Download Primer</Button>
         </div>
       </div>
         </div>
