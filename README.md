@@ -42,7 +42,7 @@ Project is already partially connected with backend.
 2. Follow the instructions in the "Production and Frontend Use setup" in the repo's documentation. Note that you'll have to install Docker.
 3. You have to run the backend and frontend project at the same time.
 
-Note: Projects and Members may appear with incorrect details or logic. It's because the project is still fetching dummy data from the backend and data is not final yet. Incorrect details may include: incorrect filtering of member roles in members page, missing officers in about-us, officers tab in members page displaying all the members, missing client names in projects, and no dev contributors in project modal.
+Note: Projects and Members may appear with incorrect details or logic. It's because the project is still fetching dummy data from the backend and data is not final yet. Incorrect details may include: incorrect filtering of member roles in members page, missing officers in about-us, missing client names in projects, and no dev contributors in project modal.
 
 ## Testing the Contact Us page
 
