@@ -110,7 +110,7 @@ export default function Footer({ className = "" }: FooterProps) {
                         />
                         <div>
                             <p className="text-white text-sm font-inter mb-2 mt-5 md:mt-0 max-w-40">Meet the developers behind the website.</p>
-                            <Link href={"/"} className="inline-block">
+                            <Link href={"/meet-the-developers"} className="inline-block">
                                 <TbCircleArrowRightFilled className="text-white hover:text-yellow2 transition-colors w-6 h-6" />
                             </Link>
                         </div>
@@ -141,7 +141,7 @@ export default function Footer({ className = "" }: FooterProps) {
 
                     <div className="md:col-span-3 lg:col-span-4 lg:col-start-5 space-y-2">
                         <p className="text-white md:text-sm lg:text-lg max-w-xs font-inter mb-2">Meet the developers behind the website.</p>
-                        <Link href={"/"}>
+                        <Link href={"/meet-the-developers"}>
                             <TbCircleArrowRightFilled className="text-white hover:text-yellow2 transition-colors md:w-5 md:h-5 lg:w-6 lg:h-6" />
                         </Link>
                         <div className="flex gap-2 mt-8 md:mt-8 lg:mt-10">

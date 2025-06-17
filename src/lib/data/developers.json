@@ -1,0 +1,148 @@
+[
+    {
+        "photoUrl": "Dable.jpg",
+        "name": "Nica Zoe Dable",
+        "role": "Project Manager"
+    },
+    {
+        "photoUrl": "Layos.jpg",
+        "name": "Benedict Layos",
+        "role": "Project Manager"
+    },
+    {
+        "photoUrl": "Lampa.jpg",
+        "name": "John Kyle Lampa",
+        "role": "Frontend Head"
+    },
+    {
+        "photoUrl": "Haw.jpg",
+        "name": "Sarah Haw",
+        "role": "UI/UX Head"
+    },
+    {
+        "photoUrl": "Tollo.jpg",
+        "name": "AJ Tollo",
+        "role": "Backend Head"
+    },
+    {
+        "photoUrl": "Pigao.jpg",
+        "name": "Maverick Jasper Pigao",
+        "role": "UI/UX Co-Head"
+    },
+    {
+        "photoUrl": "Wabina.jpg",
+        "name": "Ivan Sam Wabina",
+        "role": "Backend Co-Head"
+    },
+    {
+        "photoUrl": "Casiano.jpg",
+        "name": "Peter Casiano",
+        "role": "Frontend Developer"
+    },
+    {
+        "photoUrl": "Du.jpg",
+        "name": "Ellyanna Du",
+        "role": "Frontend Developer"
+    },
+    {
+        "photoUrl": "Eramis.jpg",
+        "name": "Shika Rani Eramis",
+        "role": "Frontend Developer"
+    },
+    {
+        "photoUrl": "Juarbal.jpg",
+        "name": "Evanica Rose Juarbal",
+        "role": "Frontend Developer/QA"
+    },
+    {
+        "photoUrl": "Matila.jpg",
+        "name": "Alyssa Mhie Matila",
+        "role": "Frontend Developer"
+    },
+    {
+        "photoUrl": "Nacar.jpg",
+        "name": "Ram Christian Nacar",
+        "role": "Frontend Developer"
+    },
+    
+    {
+        "photoUrl": "SysDevEgg.jpg",
+        "name": "Brian Vitualla",
+        "role": "Frontend Developer"
+    },
+    {
+        "photoUrl": "Bulao.jpg",
+        "name": "Adrianne Mykhel Bulao",
+        "role": "Backend Developer"
+    },
+    {
+        "photoUrl": "Clarde.jpg",
+        "name": "Mark Clarde",
+        "role": "Backend Developer"
+    },
+    {
+        "photoUrl": "SysDevEgg.jpg",
+        "name": "Derick Lance Eroy",
+        "role": "Backend Developer"
+    },
+    {
+        "photoUrl": "SysDevEgg.jpg",
+        "name": "Cassey Anne Gempesaw",
+        "role": "Backend Developer/DO"
+    },
+    {
+        "photoUrl": "Labuguen.jpg",
+        "name": "Isabelle Labuguen",
+        "role": "Backend Developer"
+    },
+    {
+        "photoUrl": "Molero.jpg",
+        "name": "Raffi Molero",
+        "role": "Backend Developer"
+    },
+    {
+        "photoUrl": "Regencia.jpg",
+        "name": "Harriet Jaymee Regencia",
+        "role": "Backend Developer"
+    },
+    {
+        "photoUrl": "Yap.jpg",
+        "name": "Anthony Yap",
+        "role": "Backend Developer"
+    },
+    {
+        "photoUrl": "Angeles.jpg",
+        "name": "Martina Angeles",
+        "role": "UI/UX Designer"
+    },
+    {
+        "photoUrl": "Diaz.jpg",
+        "name": "Jan Dexter Diaz",
+        "role": "UI/UX Designer"
+    },
+    {
+        "photoUrl": "Modin.jpg",
+        "name": "Kristyle Modin",
+        "role": "UI/UX Designer/QA"
+    },
+    {
+        "photoUrl": "Rivera.jpg",
+        "name": "John Michael Rivera",
+        "role": "UI/UX Designer"
+    },
+    {
+        "photoUrl": "Espejo.jpg",
+        "name": "Anya Jessica Espejo",
+        "role": "Graphic Designer"
+    },
+    {
+        "photoUrl": "Jardiel.jpg",
+        "name": "Keshia Angela Jardiel",
+        "role": "Graphic Designer"
+    },
+    {
+        "photoUrl": "SysDevEgg.jpg",
+        "name": "Shaira Lou Manipbel",
+        "role": "Graphic Designer"
+    }
+]
