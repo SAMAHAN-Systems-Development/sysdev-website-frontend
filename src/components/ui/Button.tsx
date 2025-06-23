@@ -9,7 +9,7 @@ const buttonVariants = cva(
         yellow: 'bg-yellow2 active:bg-yellow4 text-blue3',
         blue: 'bg-blue3 active:bg-blue2 text-white',
         pink: 'bg-pink2 active:bg-pink3 text-white',
-        green: 'bg-green active:bg-green2 text-blue3',
+        green: 'bg-green active:bg-green2 text-black',
       },
       size: {
         tight: 'text-xs md:text-sm lg:text-base hover:py-0.5',
