@@ -11,7 +11,7 @@ const DevelopersCarousel = () => {
   const carouselItems = [
     {
       title: "Front-End Developer",
-      desc: "Designs Interactive user Interfaces.",
+      desc: "Designs interactive user interfaces.",
       img: "AboutUsHeroBannerBackground.png",
     },
     {
@@ -109,7 +109,7 @@ const DevelopersCarousel = () => {
               className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 cursor-pointer ${
                 index === currentIndex
                   ? "bg-[#FFDF36] scale-125"
-                  : "bg-white/50"
+                  : "bg-white"
               }`}
             />
           ))}
