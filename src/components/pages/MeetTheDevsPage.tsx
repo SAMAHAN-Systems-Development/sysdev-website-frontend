@@ -27,26 +27,19 @@ function MeetTheDevsPage() {
       dev.role.toLowerCase().includes('backend') && 
       !dev.role.toLowerCase().includes('head')
     ),
-    'Quality Assurance': developers.filter(dev => 
-      dev.role.toLowerCase().includes('qa') && 
-      !dev.role.toLowerCase().includes('head')
-    ),
-    'DevOps': developers.filter(dev => 
-      dev.role.toLowerCase().includes('devops') && 
-      !dev.role.toLowerCase().includes('head')
-    )
+    
   };
 
   
   return (
     <div className='text-black flex flex-col items-center my-12 md:mb-16'>
       <div className="text-center mb-8">
-        <h1 className="font-bold text-2xl lg:text-3xl sm:text-4xl">Meet the Developers</h1>
+        <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl ">Meet the Developers</h1>
       </div>
       
-       <div className="w-full max-w-6xl px-4 mb-6">
-        <h2 className="font-semibold text-2xl mb-3 text-center">Project Managers</h2>
-        <div className="grid md:grid-cols-2 gap-0 -mx-2">
+      <div className="max-w-6xl px-4 mb-16">
+        <h2 className="font-semibold text-xl md:text-2xl mb-3 text-center">Project Managers</h2>
+        <div className="grid md:grid-cols-2 gap-8 -mx-2">
           {projectManagers.map((dev, idx) => (
             <div key={dev.name + idx} className="flex justify-center">
               <DeveloperCard
@@ -61,27 +54,28 @@ function MeetTheDevsPage() {
 
       {Object.entries(departments).map(([department, devs]) => (
         devs.length > 0 && (
-          <div key={department} className="w-full max-w-6xl px-4 mb-6">
-            <h2 className="font-semibold text-2xl mb-3 text-center">{department}</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-8">
-            {devs.map((dev, idx) => {
-              const isLast = idx === devs.length - 1;
-              return (
-                <div
-                  key={dev.name + idx}
-                  className={`flex justify-center ${
-                    isLast && devs.length % 3 === 1 ? 'lg:col-span-3' : ''
-                  }`}
-                >
-                  <DeveloperCard
-                    photoUrl={`/images/developers/${dev.photoUrl}`}
-                    name={dev.name}
-                    role={dev.role}
-                  />
-                </div>
-              );
-            })}
-          </div>
+          <div key={department} className="max-w-6xl px-4 mb-16">
+            <h2 className="font-semibold text-xl md:text-2xl mb-3 text-center">{department}</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+              {devs.map((dev, idx) => {
+                const isLast = idx === devs.length - 1;
+                return (
+                  <div
+                    key={dev.name + idx}
+                    className={`flex justify-center ${
+                      isLast && devs.length % 2 === 1 ? 'md:col-span-2 lg:col-span-1' : (isLast && devs.length % 3 === 1 ? '' : '')
+
+                    }`}
+                  >
+                    <DeveloperCard
+                      photoUrl={`/images/developers/${dev.photoUrl}`}
+                      name={dev.name}
+                      role={dev.role}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )
       ))}
