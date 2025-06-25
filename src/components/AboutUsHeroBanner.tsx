@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AboutUsHeroBannerBackground from "../../public/images/AboutUsHeroBannerBackground.png";
+import AboutUsHeroBannerBackground from "../../public/images/ABOUT-hero.jpg";
 
 export default function AboutUsHeroBanner() {
   return (
@@ -9,7 +9,7 @@ export default function AboutUsHeroBanner() {
         src={AboutUsHeroBannerBackground}
         alt="About us hero banner"
       />
-      <div className="absolute -z-10 w-full h-full bg-blue3/70" />
+      <div className="absolute -z-10 w-full h-full" />
       <div className="flex flex-col gap-5 py-10 px-10 w-full max-w-[320px] justify-center min-h-full md:px-28 xl:px-56 md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] 2xl:max-w-[1536px]">
         <h1 className="font-instrument-sans font-bold text-yellow3 text-4xl md:text-7xl">
           About Us
