@@ -2,7 +2,7 @@ import React from 'react'
 import Button from './ui/Button'
 
 const HomeGetStartedBanner = () => {
-    const backgroundImageUrl = 'images/AboutUsHeroBannerBackground.png';
+    const backgroundImageUrl = 'images/HOME-get-started.jpg';
 
     const handleDownload = () => {
         const link = document.createElement('a');
@@ -16,7 +16,6 @@ const HomeGetStartedBanner = () => {
             className='w-full flex flex-col items-center justify-center text-center py-3 md:py-14 lg:py-22 px-4 sm:px-6 lg:px-8 relative bg-cover bg-center'
             style={{ backgroundImage: `url(${backgroundImageUrl})` }}
         >
-            <div className="absolute inset-0 bg-blue3 opacity-70"></div>
 
             <div className="relative z-10 flex flex-col items-center">
                 <h1 className='font-instrument-sans font-bold text-white text-xl sm:text-2xl lg:text-3xl mt-10 mb-1 md:mb-3'>

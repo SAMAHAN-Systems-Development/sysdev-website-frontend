@@ -2,8 +2,8 @@
 import Image from "next/image";
 
 export default function MissionVision() {
-  const mission =  "/images/AboutUsProjectsBackground.png";
-  const vision = "/images/AboutUsProjectsBackground.png";
+  const mission =  "/images/ABOUT-mission.jpg";
+  const vision = "/images/ABOUT-vision.jpg";
 
    const Card = ({ 
     image, 
@@ -66,7 +66,7 @@ export default function MissionVision() {
         </div>
         <div className="flex justify-center items-center">
           <div className="relative w-[350px] h-[350px] lg:w-[400px] lg:h-[400px] rounded-[20px] overflow-hidden">
-            <Image src={mission} alt="SysDev Mission" fill style={{ objectFit: 'cover' }} />
+            <Image src={vision} alt="SysDev Mission" fill style={{ objectFit: 'cover' }} />
           </div>
         </div>
         

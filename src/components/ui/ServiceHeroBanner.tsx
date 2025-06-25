@@ -4,21 +4,14 @@ const ServiceHeroBanner = () => {
     return (
 
         <div className="relative w-full h-min overflow-hidden">
-            {/* Placeholder for blue gradient bg */}
+            {/* Placeholder for blue gradient bg */}         
             <Image
-                src="/images/AboutUsHeroBannerBackground.png"
+                src="/images/SERVICES-hero.jpg"
                 alt="Service Hero Banner Background"
                 fill
-                className="object-cover block md:hidden"
+                className="object-cover"
                 priority
-            />              
-
-            <Image
-                src="/images/AboutUsHeroBannerBackground.png"
-                alt="Service Hero Banner Background"
-                fill
-                className="object-cover hidden md:block"
-                priority
+                quality={95}
             />
 
             <div className="relative flex flex-col justify-between text-center">

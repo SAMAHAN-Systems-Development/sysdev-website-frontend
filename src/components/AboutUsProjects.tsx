@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Button from "./ui/Button";
-import AboutUsProjectsBackground from "../../public/images/AboutUsProjectsBackground.png";
+import AboutUsProjectsBackground from "../../public/images/PROJECTS.jpg";
 import Link from "next/link";
 
 export default function AboutUsProjects() {
@@ -11,7 +11,7 @@ export default function AboutUsProjects() {
         src={AboutUsProjectsBackground}
         alt="About us projects background"
       />
-      <div className="absolute w-full h-full -z-10 bg-blue3/70" />
+      <div className="absolute w-full h-full -z-10 " />
       <div className="text-white flex flex-col gap-3 items-center w-full py-20 md:py-28 px-4 max-w-[320px] md:max-w-[690px] lg:max-w-[1024px]">
         <h1 className="text-4xl font-bold font-instrument-sans md:text-5xl">Projects</h1>
         <p className="text-xs text-center font-instrument-sans md:text-lg">

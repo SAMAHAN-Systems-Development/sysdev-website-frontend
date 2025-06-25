@@ -10,7 +10,7 @@
     {
         "id": "image1",
         "type": "image",
-        "src": "/images/AboutUsHeroBannerBackground.png",
+        "src": "/images/SERVICES-whatweoffer-1.jpg",
         "alt": "Development Support",
         "orderClasses": "order-2 lg:order-2",
         "roundingClasses": "rounded-r-xl lg:rounded-t-xl lg:rounded-br-none"
@@ -26,7 +26,7 @@
     {
         "id": "image2",
         "type": "image",
-        "src": "/images/AboutUsHeroBannerBackground.png",
+        "src": "/images/SERVICES-whatweoffer-2.jpg",
         "alt": "Partnership Collaboration",
         "orderClasses": "order-3 lg:order-4",
         "roundingClasses": "rounded-l-xl lg:rounded-bl-xl lg:rounded-tl-none"
@@ -42,7 +42,7 @@
     {
         "id": "image3",
         "type": "image",
-        "src": "/images/AboutUsHeroBannerBackground.png",
+        "src": "/images/SERVICES-whatweoffer-3.jpg",
         "alt": "Future Collaborations",
         "orderClasses": "order-6 lg:order-6",
         "roundingClasses": "rounded-r-xl lg:rounded-br-xl lg:rounded-tr-none"

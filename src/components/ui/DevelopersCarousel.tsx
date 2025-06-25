@@ -12,23 +12,19 @@ const DevelopersCarousel = () => {
     {
       title: "Front-End Developer",
       desc: "Designs interactive user interfaces.",
-      img: "AboutUsHeroBannerBackground.png",
+      img: "ABOUT-carousel-frontend.jpg",
     },
     {
       title: "Back-End Developer",
       desc: "Manages databases and server logic.",
-      img: "AboutUsHeroBannerBackground.png",
+      img: "ABOUT-carousel-backend.jpg",
     },
     {
       title: "UI/UX Designer",
       desc: "Crafts intuitive user experiences.",
-      img: "AboutUsHeroBannerBackground.png",
+      img: "ABOUT-carousel-uiux.jpg",
     },
-    {
-      title: "Project Manager",
-      desc: "Oversees timelines and stakeholder communication.",
-      img: "AboutUsHeroBannerBackground.png",
-    },
+
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
