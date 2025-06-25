@@ -9,12 +9,12 @@ const ProjectsHeroBanner = () => {
     <section>
       <div className="relative w-[100vw] h-[100vh] -mt-4">
         <Image
-          src="/images/AboutUsHeroBannerBackground.png"
+          src="/images/PROJECTS.jpg"
           alt="Banner"
           fill
           className="object-cover"
         ></Image>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0E2558]/100 to-[#0E255838] flex justify-center items-center">
+        <div className="absolute inset-0 flex justify-center items-center">
           <div className="flex flex-col items-center mb-24">
             <h1 className="text-[#FFDF36] text-[40px] lg:text-[50px] font-bold">
               Projects
