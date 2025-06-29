@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import importedServicesData from '@/data/services.json';
+import { withBasePath } from '@/lib/utils';
 
 interface ServiceItem {
     id: string;
@@ -39,7 +40,7 @@ const Services = () => {
                         ) : (
                             <div className="relative w-full h-full min-h-[120px] sm:min-h-[150px] md:min-h-[230px] lg:min-h-[200px]">
                                 <Image
-                                    src={item.src || ''}
+                                    src={withBasePath(item.src || '')}
                                     alt={item.alt || 'Service Image'}
                                     fill
                                     className="object-cover"

@@ -6,6 +6,7 @@ import { FaUser } from "react-icons/fa"
 import type { Client, Project } from "@/lib/features/projects/types/projects"
 import { GetProjectById } from '@/lib/features/projects/service/GetProjectById.api';
 import { useEffect, useState } from "react"
+import { withBasePath } from "@/lib/utils"
 
 interface ProjectCardProps {
     project: Project
@@ -41,7 +42,7 @@ export default function ProjectCard({ project, setOpenedProjectId, smallVersion 
             <div className="p-2 flex justify-center">
                 {/* project image */}
                 <div className={`${!smallVersion ? "sm:h-52 md:h-56 sm:max-w-none h-48 max-w-80" : "h-30 max-w-56"} relative w-full rounded-xl overflow-hidden`}>
-                    <Image src={"/images/PlaceholderImage.png"} alt={project.title} fill className="object-cover" />
+                    <Image src={withBasePath("/images/PlaceholderImage.png")} alt={project.title} fill className="object-cover" />
                 </div>
             </div>
 

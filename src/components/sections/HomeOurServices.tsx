@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { withBasePath } from "@/lib/utils";
 
 interface Services {
   title: string;
@@ -26,21 +27,21 @@ export default function HomeOurServices() {
   ];
 
   const departmentIcons = [
-    { src: "/images/department-icons/FrontEndLogo.svg", alt: "FrontEnd" },
-    { src: "/images/department-icons/BackEndLogo.svg", alt: "BackEnd" },
-    { src: "/images/department-icons/DevOpsLogo.svg", alt: "DevOps" },
-    { src: "/images/department-icons/UIUXLogo.svg", alt: "UIUX" },
+    { src: withBasePath("/images/department-icons/FrontEndLogo.svg"), alt: "FrontEnd" },
+    { src: withBasePath("/images/department-icons/BackEndLogo.svg"), alt: "BackEnd" },
+    { src: withBasePath("/images/department-icons/DevOpsLogo.svg"), alt: "DevOps" },
+    { src: withBasePath("/images/department-icons/UIUXLogo.svg"), alt: "UIUX" },
     {
-      src: "/images/department-icons/ProjectManagerLogo.svg",
+      src: withBasePath("/images/department-icons/ProjectManagerLogo.svg"),
       alt: "Project Manager",
     },
     {
-      src: "/images/department-icons/GraphicDesignerLogo.svg",
+      src: withBasePath("/images/department-icons/GraphicDesignerLogo.svg"),
       alt: "Graphics Designer",
     },
-    { src: "/images/department-icons/CoreLogo.svg", alt: "Core" },
-    { src: "/images/department-icons/FullstackLogo.svg", alt: "Fullstack" },
-    { src: "/images/department-icons/QALogo.svg", alt: "QA" },
+    { src: withBasePath("/images/department-icons/CoreLogo.svg"), alt: "Core" },
+    { src: withBasePath("/images/department-icons/FullstackLogo.svg"), alt: "Fullstack" },
+    { src: withBasePath("/images/department-icons/QALogo.svg"), alt: "QA" },
   ];
 
   return (
