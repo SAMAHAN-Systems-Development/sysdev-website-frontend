@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { instrument_sans, inter } from "@/styles/font";
 import NavigationBar from "@/components/ui/NavigationBar";
 import Footer from "@/components/ui/Footer";
+import { withBasePath } from "@/lib/utils";
 
 export default function RootLayout({
   children,
@@ -11,13 +12,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/images/favicon.ico?v=M44lzPylqQ" sizes="any" />
+        <link rel="icon" href={withBasePath("/images/favicon.ico?v=M44lzPylqQ")} sizes="any" />
         <link
           rel="mask-icon"
           href="{{ base_path }}/images/safari-pinned-tab.svg?v=M44lzPylqQ"
           color="#000000"
         ></link>
-        <meta property="og:image" content="/images/SysDevLogo.png"></meta>
+        <meta property="og:image" content={withBasePath("/images/SysDevLogo.png")}></meta>
       </head>
       <body
         className={`${inter.variable} ${instrument_sans.variable} antialiased`}

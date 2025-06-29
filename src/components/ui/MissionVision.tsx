@@ -1,9 +1,10 @@
 "use client"
+import { withBasePath } from "@/lib/utils";
 import Image from "next/image";
 
 export default function MissionVision() {
-  const mission =  "/images/ABOUT-mission.jpg";
-  const vision = "/images/ABOUT-vision.jpg";
+  const mission =  withBasePath("/images/ABOUT-mission.jpg");
+  const vision = withBasePath("/images/ABOUT-vision.jpg");
 
    const Card = ({ 
     image, 

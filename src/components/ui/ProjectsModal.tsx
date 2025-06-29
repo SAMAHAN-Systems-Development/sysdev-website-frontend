@@ -9,6 +9,7 @@ import { DetailedProject } from "@/lib/features/projects/types/projects";
 import Image from "next/image";
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 import { GetProjectById } from "@/lib/features/projects/service/GetProjectById.api";
+import { withBasePath } from "@/lib/utils";
 
 
 type ProjectsModalProps = {
@@ -70,7 +71,7 @@ const prevSlide = () => {
                         {detailedProject?.images?.map((image, index) => (
                           <div key={index} className="relative w-full flex-shrink-0 h-36">
                             <Image
-                              src={"/images/PlaceholderImage.png"} // Placeholder image
+                              src={withBasePath("/images/PlaceholderImage.png")} // Placeholder image
                               alt={image.caption || `Image ${index + 1}`}
                               fill
                               className="object-cover"
