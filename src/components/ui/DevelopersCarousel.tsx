@@ -7,6 +7,7 @@ import {
   FaArrowLeft,
   FaArrowRight,
 } from "react-icons/fa";
+import { withBasePath } from "@/lib/utils";
 const DevelopersCarousel = () => {
   const carouselItems = [
     {
@@ -51,7 +52,7 @@ const DevelopersCarousel = () => {
           {carouselItems.map((item, index) => (
             <div key={index} className="relative min-w-full h-[600px]">
               <Image
-                src={`/images/${item.img}`}
+                src={withBasePath(`/images/${item.img}`)}
                 alt={`${item.title}`}
                 fill
                 className="object-cover"

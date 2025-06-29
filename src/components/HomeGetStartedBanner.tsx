@@ -3,7 +3,7 @@ import Button from './ui/Button'
 import { withBasePath } from '@/lib/utils';
 
 const HomeGetStartedBanner = () => {
-    const backgroundImageUrl = withBasePath('images/HOME-get-started.jpg');
+    const backgroundImageUrl = withBasePath('/images/HOME-get-started.jpg');
 
     const handleDownload = () => {
         const link = document.createElement('a');
