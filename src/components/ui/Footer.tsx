@@ -4,6 +4,7 @@ import { FaFacebook, FaLinkedinIn } from "react-icons/fa"
 import { IoIosMail } from "react-icons/io"
 import { TbCircleArrowRightFilled } from "react-icons/tb";
 import allLinksData from '@/data/navLinks.json';
+import { withBasePath } from "@/lib/utils";
 
 interface NavLink {
     href: string;
@@ -102,7 +103,7 @@ export default function Footer({ className = "" }: FooterProps) {
 
                     <div className="flex flex-col items-center text-center space-y-4">
                         <Image
-                            src="/images/SysDevLogo.svg"
+                            src={withBasePath("/images/SysDevLogo.svg")}
                             alt="SAMAHAN Systems Development Logo"
                             width={140}
                             height={35}
@@ -131,7 +132,7 @@ export default function Footer({ className = "" }: FooterProps) {
                 <div className="hidden md:grid md:grid-cols-7 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
                     <div className="md:col-span-2 lg:col-span-3">
                         <Image
-                            src="/images/SysDevLogo.svg"
+                            src={withBasePath("/images/SysDevLogo.svg")}
                             alt="SAMAHAN Systems Development Logo"
                             width={200}
                             height={50}

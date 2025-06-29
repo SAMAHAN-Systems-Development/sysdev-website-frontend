@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
 import importedNavLinksData from '@/data/navLinks.json';
 import importedCompactNavLinksData from '@/data/compactNavLinks.json';
+import { withBasePath } from '@/lib/utils';
 
 interface SubLink {
   href: string;
@@ -69,7 +70,7 @@ const NavigationBar = () => {
   return (
     <div className='bg-blue3 text-white p-4 md:px-12 xl:px-20 flex items-center justify-between relative'>
       <Link href="/" onClick={() => { setCompactMenuOpen(false); setOpenDropdownLabel(null); }}>
-        <Image src="/images/SysDevLogo.svg" alt="SysDev Logo" width={50} height={50} className='h-12 logo-hide-navbar' />
+        <Image src={withBasePath("/images/SysDevLogo.svg")} alt="SysDev Logo" width={50} height={50} className='h-12 logo-hide-navbar' />
       </Link>
 
       <div className='hidden lg:flex items-center gap-5'>

@@ -3,13 +3,14 @@ import React from "react";
 import Image from "next/image";
 import Button from "./Button";
 import Link from "next/link";
+import { withBasePath } from "@/lib/utils";
 
 const ProjectsHeroBanner = () => {
   return (
     <section>
       <div className="relative w-[100vw] h-[100vh] -mt-4">
         <Image
-          src="/images/PROJECTS.jpg"
+          src={withBasePath("/images/PROJECTS.jpg")}
           alt="Banner"
           fill
           className="object-cover"
