@@ -1,3 +1,4 @@
+import { withBasePath } from "@/lib/utils"
 import Image from "next/image"
 
 const ServiceHeroBanner = () => {
@@ -6,7 +7,7 @@ const ServiceHeroBanner = () => {
         <div className="relative w-full h-min overflow-hidden">
             {/* Placeholder for blue gradient bg */}         
             <Image
-                src="/images/SERVICES-hero.jpg"
+                src={withBasePath("/images/SERVICES-hero.jpg")}
                 alt="Service Hero Banner Background"
                 fill
                 className="object-cover"
@@ -27,7 +28,7 @@ const ServiceHeroBanner = () => {
                 <div className="flex justify-center text-center pt-2">
                     <div className="relative w-[500px] h-[150px] md:w-[800px] md:h-[350px] lg:w-[1050px] lg:h-[450px] xl:w-[1200px] xl:h-[600px]">
                         <Image
-                            src="/images/SysDevMascot_cropped.png"
+                            src={withBasePath("/images/SysDevMascot_cropped.png")}
                             alt="SysDev Mascot"
                             fill
                             className="object-contain object-bottom"
