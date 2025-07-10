@@ -43,4 +43,3 @@ const ProjectsHeroBanner = () => {
 };
 
 export default ProjectsHeroBanner;
-
