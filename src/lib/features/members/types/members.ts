@@ -27,13 +27,13 @@ export const RawMemberSchema = z.object({
 /**
  * Frontend member schema (cleaned-up)
  */
-export const MemberSchema = z.object({
-  id: z.number(),
-  name: z.string(),
-  email: z.string(),
-  roles: z.array(z.string()).min(1),
-  photo: z.string().optional(),
-});
+// export const MemberSchema = z.object({
+//   id: z.number(),
+//   name: z.string(),
+//   email: z.string(),
+//   roles: z.array(z.string()).min(1),
+//   photo: z.string().optional(),
+// });
 
 /**
  * Schema for member upload / editing form,
@@ -54,6 +54,5 @@ export const UploadMemberSchema = z.object({
 
 // Types inferred from schemas
 export type RawMember = z.infer<typeof RawMemberSchema>;
-export type Member = z.infer<typeof MemberSchema>;
 export type UploadMember = z.infer<typeof UploadMemberSchema>;
 

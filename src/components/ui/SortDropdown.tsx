@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 
 interface SortDropdownProps {
-    sortByName: 'A2Z' | 'Z2A' | null;
-    setSortByName: (value: 'A2Z' | 'Z2A' | null) => void;
+    sortByName: 'asc' | 'desc' | null;
+    setSortByName: (value: 'asc' | 'desc' | null) => void;
     sortByYear: 'yearDesc' | 'yearAsc' | null;
     setSortByYear: (value: 'yearDesc' | 'yearAsc' | null) => void;
 }
@@ -17,9 +17,9 @@ const SortDropdown: React.FC<SortDropdownProps> = ({
 }) => {
     const [open, setOpen] = useState(false);
 
-    const handleSelect = (value: 'Default' | 'A2Z' | 'Z2A' | 'yearDesc' | 'yearAsc') => {
+    const handleSelect = (value: 'Default' | 'asc' | 'desc' | 'yearDesc' | 'yearAsc') => {
         setOpen(false);
-        if (value === 'A2Z' || value === 'Z2A') {
+        if (value === 'asc' || value === 'desc') {
             setSortByName(value);
             setSortByYear(null);
         } else if (value === 'yearDesc' || value === 'yearAsc') {
@@ -31,10 +31,10 @@ const SortDropdown: React.FC<SortDropdownProps> = ({
         }
     };
 
-    const options: { label: string; value: 'Default' | 'A2Z' | 'Z2A' | 'yearDesc' | 'yearAsc' }[] = [
+    const options: { label: string; value: 'Default' | 'asc' | 'desc' | 'yearDesc' | 'yearAsc' }[] = [
         { label: 'Default', value: 'Default' },
-        { label: 'A > Z', value: 'A2Z' },
-        { label: 'Z > A', value: 'Z2A' },
+        { label: 'A > Z', value: 'asc' },
+        { label: 'Z > A', value: 'desc' },
         { label: 'Newest', value: 'yearDesc' },
         { label: 'Oldest', value: 'yearAsc' },
     ];
@@ -42,8 +42,8 @@ const SortDropdown: React.FC<SortDropdownProps> = ({
 
     // Determine selected label for display
     const selectedLabel =
-        sortByName === 'A2Z' ? 'A > Z'
-        : sortByName === 'Z2A' ? 'Z > A'
+        sortByName === 'asc' ? 'A > Z'
+        : sortByName === 'desc' ? 'Z > A'
         : sortByYear === 'yearDesc' ? 'Newest'
         : sortByYear === 'yearAsc' ? 'Oldest'
         : 'Default';
@@ -56,7 +56,7 @@ const SortDropdown: React.FC<SortDropdownProps> = ({
                         <span className='text-gray-500 '>Sort by:</span>
                         <div className='w-1.5'></div>
                         <span className='text-[#F530FD] px-1 font-semibold'>{selectedLabel}</span>
-                        <div className='w-4 h-4 bg-[#727272] rounded-md ml-1 mr-1 pl-[1px] pt-[1px] '>
+                        <div className='w-4 h-4 bg-[#727272] rounded-md ml-1 mr-1 pt-[1px] '>
                             {open ? <RiArrowDropUpLine color='white'/> : <RiArrowDropDownLine color='white'/>}
                         </div>
                     </div>
