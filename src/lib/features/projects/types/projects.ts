@@ -7,7 +7,7 @@ export const ProjectSchema = z.object({
   id: z.number(),
   title: z.string(),
   briefDesc: z.string(),
-  type: z.enum(["internal", "external", "cross-orgs"]),
+  type: z.enum(["internal", "external", "cross_orgs"]),
   fullDesc: z.string(),
   dateLaunched: z.string(),
   links: z.array(

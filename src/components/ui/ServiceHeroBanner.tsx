@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const ServiceHeroBanner = () => {
     return (
-
+        <section>
         <div className="relative w-full h-min overflow-hidden">
             {/* Placeholder for blue gradient bg */}         
             <Image
@@ -37,6 +37,7 @@ const ServiceHeroBanner = () => {
                 </div>
             </div>
         </div>
+        </section>
     )
 }
 

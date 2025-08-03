@@ -2,10 +2,10 @@ import { cva } from "class-variance-authority";
 import { instrument_sans } from "@/styles/font";
 import Image from "next/image";
 import React from "react";
-import type { Member } from "@/lib/features/members/types/members";
+import type { RawMember } from "@/lib/features/members/types/members";
 
 const positionVariants = cva(
-   "md:py-1 w-full min-w-[58px] rounded-full text-[10px] md:text-xs font-medium text-center",
+  "md:py-1 w-full min-w-[58px] rounded-full text-[10px] md:text-xs font-medium text-center",
   {
     variants: {
       positionColor: {
@@ -27,55 +27,72 @@ const positionVariants = cva(
 );
 
 export interface MemberCardProps {
-  member: Member;
+  member: RawMember;
 }
 
-export function MemberCard({
-  member,
-}: MemberCardProps) {
-  const {
-    name,
-    email,
-    roles,
-    photo,
-  } = member;
+export function MemberCard({ member }: MemberCardProps) {
+  const { name, email, roles, photo } = member;
 
-  const nameTextColor = "text-white";
+  // ✅ Normalize roles to string[]
+  const roleNames = roles.map((r) =>
+    typeof r === "string" ? r : r.roles.name
+  );
 
-  const positions = roles.map(role => ({
+  const positions = roleNames.map((role) => ({
     text: role,
-    color: getPositionColor(role)
+    color: getPositionColor(role),
   }));
 
   function getPositionColor(position: string): PositionColorVariant {
-    
     switch (position) {
       case "Front-End":
+      case "Frontend":
         return "frontend";
       case "Back-End":
+      case "Backend":
         return "backend";
       case "Full-Stack":
+      case "Fullstack":
         return "fullstack";
       case "DevOps":
         return "devops";
-      case "UI/UX": 
+      case "UI/UX":
+      case "UIUX":
         return "uiux";
       case "Creatives":
+      case "Creative":
         return "creatives";
       case "Alumni":
         return "alumni";
       case "Project Manager":
         return "projmngr";
       case "QA":
+      case "Quality Assurance":
         return "qa";
       default:
         return "frontend";
     }
   }
 
-  // only replace "Proj. Man." with "PM" when on mobile
+  function getDisplayRole(role: string): string {
+    switch (role) {
+      case "Frontend":
+        return "Front-End";
+      case "Backend":
+        return "Back-End";
+      case "Fullstack":
+        return "Full-Stack";
+      case "Creative":
+        return "Creatives";
+      case "Quality Assurance":
+        return "QA";
+      default:
+        return role;
+    }
+  }
+
   const getResponsiveText = (text: string) => {
-    switch(text) {
+    switch (text) {
       case "Project Manager":
         return (
           <span>
@@ -83,57 +100,66 @@ export function MemberCard({
             <span className="hidden md:inline">Proj. Man.</span>
           </span>
         );
-        default:
+      default:
         return text;
     }
   };
 
   const renderPositions = () => {
     if (positions.length === 3) {
-      // for exactly 3 positions: first position on top, other two in a row below
       return (
         <div className="h-9 md:h-14 w-full">
           <div className="w-full mb-1.5">
-            <div className={`
+            <div
+              className={`
               ${instrument_sans.className} 
               ${positionVariants({ positionColor: positions[0].color })}
-            `}>
+            `}
+            >
               {getResponsiveText(positions[0].text)}
             </div>
           </div>
           <div className="w-full flex gap-2">
             {positions.slice(1).map((pos, idx) => (
               <div key={idx} className="flex-1">
-                <div className={`
+                <div
+                  className={`
                   ${instrument_sans.className} 
                   ${positionVariants({ positionColor: pos.color })}
-                `}>
-                  {getResponsiveText(pos.text)}
+                `}
+                >
+                  {getResponsiveText(getDisplayRole(pos.text))}
                 </div>
               </div>
             ))}
           </div>
         </div>
       );
-      // for 1-4 positions, display in rows of 2
     } else {
       const rows = [];
       for (let i = 0; i < positions.length; i += 2) {
         rows.push(positions.slice(i, Math.min(i + 2, positions.length)));
       }
-      
+
       return rows.map((row, rowIndex) => (
-        <div key={rowIndex} className={`w-full h-9 md:h-14 flex items-end gap-x-2 ${rowIndex > 0 ? "mt-1" : ""}`}>
+        <div
+          key={rowIndex}
+          className={`w-full h-9 md:h-14 flex items-end gap-x-2 ${
+            rowIndex > 0 ? "mt-1" : ""
+          }`}
+        >
           {row.map((pos, colIndex) => (
             <div
               key={`${rowIndex}-${colIndex}`}
               className={`flex-1 ${row.length === 1 ? "min-w-[120px] mx-auto" : ""}`}
             >
-              <div className={`
+              <div
+                className={`
                 ${instrument_sans.className} 
                 ${positionVariants({ positionColor: pos.color })}
-              `}>
-                {getResponsiveText(pos.text)}
+              `}
+              >
+                {getResponsiveText(getDisplayRole(pos.text))}
               </div>
             </div>
           ))}
@@ -142,20 +168,18 @@ export function MemberCard({
     }
   };
 
-  // Helper to map position to positionColor variant
-  type PositionColorVariant = 
-    | "frontend" 
-    | "backend" 
-    | "fullstack" 
-    | "devops" 
-    | "uiux" 
-    | "creatives" 
-    | "alumni" 
-    | "projmngr" 
+  type PositionColorVariant =
+    | "frontend"
+    | "backend"
+    | "fullstack"
+    | "devops"
+    | "uiux"
+    | "creatives"
+    | "alumni"
+    | "projmngr"
     | "qa";
 
   let photoSrc: string;
-
   const isFile = (value: unknown): value is File =>
     typeof File !== "undefined" && value instanceof File;
 
@@ -167,102 +191,62 @@ export function MemberCard({
     photoSrc = "/placeholder-profile.png";
   }
 
-
-  
-
   return (
-  <div className={`flex items-center rounded-3xl md:rounded-2xl bg-blue3
+    <div
+      className={`flex items-center rounded-3xl md:rounded-2xl bg-blue3
     flex-row md:flex-col
     max-w-9/10 md:max-w-none w-64 md:w-56 
-    max-h-[135px] md:max-h-80 h-fit
+    max-h-[135px] md:max-h-96 h-fit
     flex-shrink-0 
-    py-6 px-4 md:p-5`}>
-      
-    <div className="relative 
+    py-6 px-4 md:p-5`}
+    >
+      <div
+        className="relative 
       w-20 h-20 md:w-[150px] md:h-[150px] 
       rounded-full overflow-hidden bg-gray-300 
       mb-0 md:mb-3
       ml-0 mr-3 md:mx-auto
-      flex-shrink-0">
-      <Image
-        src={photoSrc}
-        alt={`${name}'s profile`}
-        fill
-        style={{ objectFit: "cover" }}
-      />
-    </div>
+      flex-shrink-0"
+      >
+        <Image
+          src={photoSrc}
+          alt={`${name}'s profile`}
+          fill
+          style={{ objectFit: "cover" }}
+        />
+      </div>
 
-    <div className="flex flex-col w-full min-w-0 h-full gap-y-1 justify-center md:justify-between">
-      <div className="">
-        <div className="md:mb-1 md:flex md:flex-col md:justify-center">
-          <h3 className={`${instrument_sans.className} 
+      <div className="flex flex-col w-full min-w-0 h-full gap-y-1 justify-center md:justify-between">
+        <div>
+          <div className="md:mb-1 md:flex md:flex-col md:justify-center md:h-10">
+            <h3
+              className={`${instrument_sans.className} 
           text-xs  md:text-sm 
-          font-bold ${nameTextColor} 
+          font-bold text-white
           mb-1.5  md:mb-0 
           text-left md:text-center 
-          line-clamp-2 overflow-hidden text-ellipsis`}>  
-          {name}
-          </h3>
-        </div>
+          line-clamp-2 overflow-hidden text-ellipsis`}
+            >
+              {name}
+            </h3>
+          </div>
 
-        <p className={`${instrument_sans.className} 
+          <p
+            className={`${instrument_sans.className} 
           text-xs 
-          ${nameTextColor} opacity-80
+          text-white opacity-80
           mb-3 
           text-left md:text-center 
-          truncate`}>
-          {email}
-        </p>
-      </div>
-      
-      
-      <div className="flex flex-wrap gap-1 md:gap-2 w-full">
-        {renderPositions()}
+          truncate`}
+          >
+            {email}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-1 md:gap-2 w-full">
+          {renderPositions()}
+        </div>
       </div>
     </div>
-  </div>
   );
 }
-
-
-// // Helper to map position to card background variant
-// function getCardBackground(position: string): MemberCardProps["backgroundColor"] {
-//   switch (position) {
-//     case "Full-Stack":
-//     case "Front-End":
-//     case "Back-End":
-//     case "QA":
-//     case "DevOps":
-//     case "UI/UX":
-//     case "Creatives":
-//     case "Alumni":
-//     case "Project Manager":
-//       return "blue3";
-//     default:
-//       return "blue3";
-//   }
-// }
-
-// // MemberCardList component
-// export function MemberCardList() {
-//   // Type assertion to ensure membersData is Member[]
-//   const members = membersData as Member[];
-
-//   return (
-//     <div className="flex 
-//       flex-col md:flex-row md:flex-wrap lg:flex-row lg:flex-wrap 
-//       justify-center 
-//       gap-4 md:gap-6 lg:gap-8 
-//        
-//       max-w-screen-2xl mx-auto">
-//       {members.map((member, idx) => (
-//         <MemberCard
-//           key={idx}
-//           member={member}
-//           backgroundColor={getCardBackground(member.position)}
-//           positionColor={getPositionColor(member.position)}
-//         />
-//       ))}
-//     </div>
-//   );
-// }

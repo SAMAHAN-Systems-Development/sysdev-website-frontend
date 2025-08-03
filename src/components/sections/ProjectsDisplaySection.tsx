@@ -13,7 +13,7 @@ function ProjectsDisplaySection() {
   const [openedProjectId, setOpenedProjectId] = useState<number | null>(null);
   const [selectedFilter, setSelectedFilter] = useState<'SAMAHAN' | 'Other'>('SAMAHAN');
   // Separate states for sorting
-  const [sortByName, setSortByName] = useState<'A2Z' | 'Z2A' | null>(null);
+  const [sortByName, setSortByName] = useState<'asc' | 'desc' | null>(null);
   const [sortByYear, setSortByYear] = useState<'yearDesc' | 'yearAsc' | null>(null);
 
   const [projectsData, setProjectsData] = useState<Project[]>([]);
@@ -25,8 +25,8 @@ function ProjectsDisplaySection() {
       if (sortByYear) {
         res = await GetProjects(undefined, undefined, sortByYear);
       } else if (sortByName) {
-        // Map A2Z/Z2A to asc/desc for API
-        const apiSort = sortByName === 'A2Z' ? 'asc' : 'desc';
+        // Map asc/desc to asc/desc for API
+        const apiSort = sortByName === 'asc' ? 'asc' : 'desc';
         res = await GetProjects(undefined, apiSort, undefined);
       } else {
         res = await GetProjects();
@@ -68,7 +68,7 @@ function ProjectsDisplaySection() {
           {(projectsData as Project[])
             .filter(project =>
               ((selectedFilter === 'SAMAHAN' && (project.type == "internal")) ||
-                (selectedFilter === 'Other' && (project.type == "external" || project.type == "cross-orgs")))
+                (selectedFilter === 'Other' && (project.type == "external" || project.type == "cross_orgs")))
             )
             .map((project, idx) => (
               <ProjectCard
