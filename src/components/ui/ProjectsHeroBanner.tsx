@@ -8,7 +8,7 @@ import { withBasePath } from "@/lib/utils";
 const ProjectsHeroBanner = () => {
   return (
     <section>
-      <div className="relative w-[100vw] h-[100vh] -mt-4">
+      <div className="relative w-[100vw] h-[100vh] overflow-hidden">
         <Image
           src={withBasePath("/images/PROJECTS.jpg")}
           alt="Banner"
