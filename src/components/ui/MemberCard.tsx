@@ -31,7 +31,7 @@ export interface MemberCardProps {
 }
 
 export function MemberCard({ member }: MemberCardProps) {
-  const { name, email, roles, photo } = member;
+  const { name, roles, photo } = member;
 
   // ✅ Normalize roles to string[]
   const roleNames = roles.map((r) =>
@@ -198,7 +198,7 @@ export function MemberCard({ member }: MemberCardProps) {
     max-w-9/10 md:max-w-none w-64 md:w-56 
     max-h-[135px] md:max-h-96 h-fit
     flex-shrink-0 
-    py-6 px-4 md:p-5`}
+    py-5 px-4 md:p-5`}
     >
       <div
         className="relative 
@@ -231,6 +231,7 @@ export function MemberCard({ member }: MemberCardProps) {
             </h3>
           </div>
 
+          {/*
           <p
             className={`${instrument_sans.className} 
           text-xs 
@@ -241,6 +242,7 @@ export function MemberCard({ member }: MemberCardProps) {
           >
             {email}
           </p>
+          */}
         </div>
 
         <div className="flex flex-wrap gap-1 md:gap-2 w-full">
