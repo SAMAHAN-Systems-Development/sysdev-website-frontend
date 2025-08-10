@@ -36,7 +36,7 @@ export default function AboutUsMeetTheTeamSection() {
       if (Array.isArray(res)) {
         const membersArray = res.flat();
         setMembers(membersArray);
-        console.log("Members fetched:", membersArray);
+        //console.log("Members fetched:", membersArray);
       }
     }
     fetchData();

@@ -14,9 +14,9 @@ export const GetMembers = async (
     return res.data;
   } catch (e) {
     if (e instanceof AxiosError) {
-      console.error(e.response?.data);
+      //.error(e.response?.data);
     } else {
-      console.error('Unknown error', e);
+      //console.error('Unknown error', e);
     }
     return undefined;
   }

@@ -23,7 +23,7 @@ const ProjectsModal: React.FC<ProjectsModalProps> = ({ openedProjectId, setOpene
       useEffect(() => {
   async function fetchData() {
     const res = await GetProjectById(openedProjectId);
-    console.log("GetProjectById response:", res);
+    //console.log("GetProjectById response:", res);
     // If your API returns an object, not an array:
     if (res && typeof res === "object") {
       setDetailedProject(res);

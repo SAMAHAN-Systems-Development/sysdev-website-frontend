@@ -150,7 +150,7 @@ const ContactUs: React.FC = () => {
       const fileInfos: UploadcareFileInfo[] = await Promise.all(uploadPromises);
       return fileInfos.map((fileInfo) => fileInfo.cdnUrl);
     } catch (error) {
-      console.error("Uploadcare error:", error);
+      // console.error("Uploadcare error:", error);
       throw error;
     }
   };
