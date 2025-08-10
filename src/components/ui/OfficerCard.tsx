@@ -8,7 +8,7 @@ export interface OfficerCardProps {
 }
 
 export function OfficerCard({ member }: OfficerCardProps) {
-  const { name, email, roles, photo } = member;
+  const { name, roles, photo } = member;
 
   const officerRoles = [
     "Director",
@@ -131,7 +131,7 @@ export function OfficerCard({ member }: OfficerCardProps) {
           </h3>
         </div>
 
-        <p
+        {/* <p
           className={`
             ${instrument_sans.className} 
             text-[10px] sm:text-xs md:text-sm
@@ -140,7 +140,7 @@ export function OfficerCard({ member }: OfficerCardProps) {
           `}
         >
           {email}
-        </p>
+        </p> */}
 
         {/* Officer Role Badge */}
         {primaryOfficerRole && (
