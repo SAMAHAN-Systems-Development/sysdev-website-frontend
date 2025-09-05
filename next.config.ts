@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["avatars.githubusercontent.com", "cdn.jsdelivr.net"],
+    domains: ["avatars.githubusercontent.com", "cdn.jsdelivr.net", "103.37.49.230"],
   },
   publicRuntimeConfig: {
     basePath: "", // Set your basePath value here
