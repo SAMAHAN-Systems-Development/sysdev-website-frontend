@@ -28,7 +28,7 @@ export const setAuthHeader = (token: string | null): void => {
     }
 };
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL! || "http://localhost:8000";
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL! || "https://samahan.addu.edu.ph/sysdev";
 
 export const request = async <T>(
     method: AxiosRequestConfig['method'],
