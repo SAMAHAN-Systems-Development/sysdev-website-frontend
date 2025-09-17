@@ -3,6 +3,11 @@ import { z } from "zod";
 const MAX_UPLOAD_SIZE = 3 * 1024 * 1024; // 3MB
 const ACCEPTED_FILE_TYPES = ["image/png", "image/jpeg"];
 
+const ImageSchema = z.object({
+  url: z.string(),
+  caption: z.string().nullable(),
+});
+
 export const ProjectSchema = z.object({
   id: z.number(),
   title: z.string(),
@@ -18,7 +23,7 @@ export const ProjectSchema = z.object({
   ),
   status: z.string(),
   featured: z.boolean(),
-  images: z.array(z.string()).min(1),
+  images: z.array(z.union([z.string(), ImageSchema])).min(1), // <-- Accept string or object
   newImages: z
     .instanceof(File)
     .optional()
@@ -74,11 +79,6 @@ const CollaboratorsByRoleSchema = z.record(
     organizations: z.array(OrganizationSchema),
   })
 );
-
-const ImageSchema = z.object({
-  url: z.string(),
-  caption: z.string().nullable(),
-});
 
 const LinkSchema = z.object({
   link: z.string(),
