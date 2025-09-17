@@ -71,8 +71,8 @@ const prevSlide = () => {
                         {detailedProject?.images?.map((image, index) => (
                           <div key={index} className="relative w-full flex-shrink-0 h-36">
                             <Image
-                              src={withBasePath("/images/PlaceholderImage.png")} // Placeholder image
-                              alt={image.caption || `Image ${index + 1}`}
+                              src={typeof image === "string" ? image : image.url}
+                              alt={detailedProject.title + " image " + (index + 1)}
                               fill
                               className="object-cover"
                               priority={index === 0}

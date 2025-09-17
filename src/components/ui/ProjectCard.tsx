@@ -42,7 +42,18 @@ export default function ProjectCard({ project, setOpenedProjectId, smallVersion 
             <div className="p-2 flex justify-center">
                 {/* project image */}
                 <div className={`${!smallVersion ? "sm:h-52 md:h-56 sm:max-w-none h-48 max-w-80" : "h-30 max-w-56"} relative w-full rounded-xl overflow-hidden`}>
-                    <Image src={withBasePath("/images/PlaceholderImage.png")} alt={project.title} fill className="object-cover" />
+                    <Image 
+                        src={
+                            project.images && project.images.length > 0
+                                ? typeof project.images[0] === "string"
+                                    ? project.images[0]
+                                    : project.images[0].url
+                                : "/images/PlaceholderImage.png"
+                        }
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                    />
                 </div>
             </div>
 
