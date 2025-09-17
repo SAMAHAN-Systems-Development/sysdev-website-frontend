@@ -6,7 +6,6 @@ import { FaUser } from "react-icons/fa"
 import type { Client, Project } from "@/lib/features/projects/types/projects"
 import { GetProjectById } from '@/lib/features/projects/service/GetProjectById.api';
 import { useEffect, useState } from "react"
-import { withBasePath } from "@/lib/utils"
 
 interface ProjectCardProps {
     project: Project

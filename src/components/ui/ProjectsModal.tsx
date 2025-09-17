@@ -9,7 +9,6 @@ import { DetailedProject } from "@/lib/features/projects/types/projects";
 import Image from "next/image";
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 import { GetProjectById } from "@/lib/features/projects/service/GetProjectById.api";
-import { withBasePath } from "@/lib/utils";
 
 
 type ProjectsModalProps = {
