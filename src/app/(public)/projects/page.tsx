@@ -1,6 +1,10 @@
 import ProjectsPage from '@/components/pages/Projects'
 import React from 'react'
 
+export const metadata = {
+  title: 'Projects',
+}
+
 function Page() {
   return (
     <div><ProjectsPage/></div>
