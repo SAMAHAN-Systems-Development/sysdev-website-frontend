@@ -78,8 +78,8 @@ export default function Footer({ className = "" }: FooterProps) {
     );
 
     return (
-        <footer className={`bg-blue3 text-white py-16 px-4 sm:px-6 md:px-17 ${className}`}>
-            <div className="container mx-auto max-w-7xl">
+        <footer className={`bg-blue3 text-white py-16 px-4 sm:px-6 md:px-17 lg:px-24 ${className}`}>
+            <div className="container mx-auto max-w-2xl lg:max-w-6xl">
 
                 <div className="block md:hidden space-y-10">
                     <div className="flex justify-center gap-x-6">
@@ -105,8 +105,8 @@ export default function Footer({ className = "" }: FooterProps) {
                         <Image
                             src={withBasePath("/images/SysDevLogo.svg")}
                             alt="SAMAHAN Systems Development Logo"
-                            width={140}
-                            height={35}
+                            width={130}
+                            height={30}
                             className="h-auto"
                         />
                         <div>
@@ -129,14 +129,14 @@ export default function Footer({ className = "" }: FooterProps) {
                     </div>
                 </div>
 
-                <div className="hidden md:grid md:grid-cols-7 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
+                <div className="hidden md:grid md:grid-cols-7 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-0">
                     <div className="md:col-span-2 lg:col-span-3">
                         <Image
                             src={withBasePath("/images/SysDevLogo.svg")}
                             alt="SAMAHAN Systems Development Logo"
                             width={200}
                             height={50}
-                            className="w-full h-auto max-w-[120px] md:max-w-[140px] lg:max-w-[200px]"
+                            className="w-full h-auto max-w-[120px] md:max-w-[130px] lg:max-w-[150px]"
                         />
                     </div>
 
@@ -164,7 +164,7 @@ export default function Footer({ className = "" }: FooterProps) {
                             })}
                         </div>
                     </div>
-                    <div className="md:col-span-1 lg:col-span-4 lg:col-start-10 space-y-4">
+                    <div className="md:col-span-1 md:pl-5 lg:pl-0 lg:col-span-4 lg:col-start-10 space-y-4">
                         {renderLinkList(navigationLinks, "Navigation")}
                     </div>
                     {/* <div className="md:col-span-1 lg:col-span-2 lg:col-start-11 space-y-4">
