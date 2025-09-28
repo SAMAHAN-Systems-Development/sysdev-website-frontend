@@ -42,7 +42,7 @@ export default function MissionVision() {
 
   // desktop version (hidden on mobile)
   const DesktopLayout = () => (
-    <div className="hidden md:flex justify-center">
+    <div className="hidden lg:flex justify-center">
       <div className="grid grid-cols-2  gap-8 lg:gap-12 mb-16 w-full px-5 max-w-4xl lg:max-w-5xl">
         <div className="flex justify-center items-center">
           <div className="relative w-[350px] h-[350px] lg:w-[400px] lg:h-[400px] rounded-[20px] overflow-hidden">
@@ -83,7 +83,7 @@ export default function MissionVision() {
     <section className="w-full py-8 md:py-12 lg:py-16 bg-white">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
         {/* mbile-only view */}
-        <div className="md:hidden space-y-8">
+        <div className="lg:hidden space-y-8">
           <Card 
             image={mission}
             title="Mission"
