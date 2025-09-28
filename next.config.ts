@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
       "avatars.githubusercontent.com",
       "cdn.jsdelivr.net",
       "103.37.49.230",
+      "samahan.addu.edu.ph",
     ],
   },
   publicRuntimeConfig: {
