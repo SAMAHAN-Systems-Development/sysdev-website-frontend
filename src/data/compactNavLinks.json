@@ -4,7 +4,8 @@
     { "href": "/about-us", "label": "About" },
     { "href": "/services", "label": "Services" },
     { "href": "/members?department=Full-Stack", "label": "Members" },
-    { "href": "/contact-us", "label": "Contact" }
+    { "href": "/contact-us", "label": "Contact" },
+    { "href": "/projects", "label": "Projects" }
   ],
   "mobileCompactMenuLinks": [
     { "href": "/", "label": "Home" },
