@@ -24,6 +24,10 @@ function MembersWrapper() {
 }
 
 export default function Page() {
+  useEffect(() => {
+    document.title = "Members";
+  }, []);
+
   return (
     <Suspense fallback={<div>Loading members...</div>}>
       <MembersWrapper />
