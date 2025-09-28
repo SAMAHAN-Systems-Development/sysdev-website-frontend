@@ -73,7 +73,7 @@ const NavigationBar = () => {
         <Image src={withBasePath("/images/SysDevLogo.svg")} alt="SysDev Logo" width={50} height={50} className='h-12 logo-hide-navbar' />
       </Link>
 
-      <div className='hidden lg:flex items-center gap-5'>
+      <div className='hidden lg:flex items-center gap-8'>
         <div className='flex gap-7 xl:gap-10'>
           {displayNavLinks.map((link) => (
             <div
@@ -119,12 +119,12 @@ const NavigationBar = () => {
           ))}
         </div>
         <div className='flex items-center h-7' >
-          <Button size={"tight"} className='w-[86px]' onClick={() => closeAllDropdownsAndNavigate('/projects')}> Projects </Button>
+          <Button size={"tight"} className='w-[90px]' onClick={() => closeAllDropdownsAndNavigate('/projects')}> Projects </Button>
         </div>
       </div>
 
       <div className="hidden md:flex lg:hidden items-center gap-3 ">
-        <Button size={"tight"} className='w-auto px-4' onClick={() => closeAllDropdownsAndNavigate('/projects')}> Projects </Button>
+        {/* <Button size={"tight"} className='w-auto px-4' onClick={() => closeAllDropdownsAndNavigate('/projects')}> Projects </Button> */}
         <button
           onClick={toggleCompactMenu}
           className="text-white p-2 focus:outline-none hover:text-yellow4 transition-colors duration-200 cursor-pointer"
