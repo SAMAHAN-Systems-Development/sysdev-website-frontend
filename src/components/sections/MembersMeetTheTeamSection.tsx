@@ -109,6 +109,9 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
     <section className="font-inter w-full flex flex-col items-center px-4 sm:px-7 pt-4 sm:pt-7 pb-4 sm:pb-4 md:pt-10 mt-5 sm:mt-10">
       <div className="flex flex-col items-center text-black text-center gap-2.5">
         <h1 className="font-bold text-3xl sm:text-4xl">Meet the Team</h1>
+        <p className="text-sm md:text-lg -mt-2 mb-2">
+          (A.Y. &apos;24 - &apos;25)
+        </p>
         <p className="text-base sm:text-lg">
           The minds behind SYSDEV &#8212; building solution for a better AdDU.
         </p>

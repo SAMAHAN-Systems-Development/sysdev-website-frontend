@@ -79,7 +79,10 @@ export default function AboutUsMeetTheTeamSection() {
     >
       {/* Header */}
       <div className="flex flex-col items-center text-blue3 text-center gap-2.5">
-        <h1 className="font-bold text-3xl md:text-4xl">Meet the Team</h1>
+        <h1 className="font-bold text-3xl md:text-4xl">Meet the Officers</h1>
+        <p className="text-sm md:text-lg -mt-2 mb-2">
+          (A.Y. &apos;24 - &apos;25)
+        </p>
         <p className="text-sm md:text-xl">
           The minds behind SYSDEV &#8212; building solution for a better AdDU.
         </p>
