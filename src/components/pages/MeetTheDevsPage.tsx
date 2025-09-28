@@ -68,7 +68,7 @@ function MeetTheDevsPage() {
                     }`}
                   >
                     <DeveloperCard
-                      photoUrl={`/images/developers/${dev.photoUrl}`}
+                      photoUrl={`https://samahan.addu.edu.ph/sysdev/images/developers/${dev.photoUrl}`}
                       name={dev.name}
                       role={dev.role}
                     />
