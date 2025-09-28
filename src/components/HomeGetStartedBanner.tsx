@@ -7,7 +7,7 @@ const HomeGetStartedBanner = () => {
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = '/images/2nd Sem AY 24-25 Org Primer.pdf'; // relative to public/
+        link.href = 'https://samahan.addu.edu.ph/sysdev/images/2nd%20Sem%20AY%2024-25%20Org%20Primer.pdf'; // relative to public/
         link.download = 'SysDevPrimer.pdf'; // optional: set filename
         link.click();
     };
