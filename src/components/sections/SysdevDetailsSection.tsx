@@ -56,7 +56,7 @@ function SysdevDetailsSection() {
 					<div className="h-3.5 lg:h-5 w-full bg-yellow2"></div>
 				</div>
 				<div className="w-full flex flex-col items-center text-sm md:text-base lg:text-lg mt-8">
-					<div className="text-justify leading-snug mb-5">
+					<div className="text-sm text-justify leading-snug mb-5">
 						This division is responsible for creating digital technologies and
 						software to increase SAMAHAN&apos;s efficiency through technology. A
 						committed group called SAMAHAN Systems Development creates and
@@ -64,7 +64,7 @@ function SysdevDetailsSection() {
 						productivity. We want to utilize technology for a favorable effect
 						on the community.
 					</div>
-					<div className="text-justify leading-snug mb-8">
+					<div className="text-sm text-justify leading-snug mb-8">
 						Joining our team entails putting your skills to use and obtaining
 						real-world experience. IT abilities in practical settings. We invite
 						you to join us in building systems that are advantageous to all. us
