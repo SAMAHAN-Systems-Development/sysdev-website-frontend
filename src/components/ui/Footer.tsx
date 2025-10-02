@@ -68,7 +68,7 @@ export default function Footer({ className = "" }: FooterProps) {
                     <Link
                         key={link.label}
                         href={link.href}
-                        className="block text-gray-400 hover:text-yellow2 transition-colors text-sm md:text-xs lg:text-sm"
+                        className="block text-white-400 hover:text-yellow2 transition-colors text-sm md:text-xs lg:text-sm"
                     >
                         {link.label}
                     </Link>

@@ -71,10 +71,10 @@ const ContactUs: React.FC = () => {
                     <span className="font-medium text-xl">Email</span>
                   </div>
                   <a
-                    href="mailto:samahansysdev@addu.edu.ph"
+                    href="mailto:samahan.sd@addu.edu.ph"
                     className="ml-8 text-sm lg:text-base text-[var(--color-white)] hover:text-[var(--color-yellow3)]"
                   >
-                    samahansysdev@addu.edu.ph
+                    samahan.sd@addu.edu.ph"
                   </a>
                 </div>
 
