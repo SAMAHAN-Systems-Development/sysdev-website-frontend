@@ -74,7 +74,7 @@ const ContactUs: React.FC = () => {
                     href="mailto:samahan.sd@addu.edu.ph"
                     className="ml-8 text-sm lg:text-base text-[var(--color-white)] hover:text-[var(--color-yellow3)]"
                   >
-                    samahan.sd@addu.edu.ph"
+                    samahan.sd@addu.edu.ph
                   </a>
                 </div>
 
