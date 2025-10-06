@@ -142,7 +142,8 @@ export default function Footer({ className = "" }: FooterProps) {
 
                     <div className="md:col-span-3 lg:col-span-4 lg:col-start-5 space-y-2">
                         <p className="text-white md:text-sm lg:text-lg max-w-xs font-inter mb-2">Meet the developers behind the website.</p>
-                        <Link href={"/meet-the-developers"}>
+                        <Link className='flex flex-row gap-4' href={"/meet-the-developers"}>
+                            <p className='font-inter text-yellow2'>Meet the Developers</p>
                             <TbCircleArrowRightFilled className="text-white hover:text-yellow2 transition-colors md:w-5 md:h-5 lg:w-6 lg:h-6" />
                         </Link>
                         <div className="flex gap-2 mt-8 md:mt-8 lg:mt-10">
