@@ -90,7 +90,6 @@ export default function AboutUsMeetTheTeamSection() {
 
       {/* Officers Section */}
       <div className="flex flex-col items-center mt-14 md:mt-20 gap-y-4">
-        <h2 className="text-2xl text-black font-bold">Officers</h2>
         <ul className="grid grid-cols-2 xl:grid-cols-4 justify-items-center gap-y-4 md:gap-x-10 xl:gap-x-6">
           {officers.map((member, idx) => (
             <li key={member.id} className={getOfficerClass(idx)}>
