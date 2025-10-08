@@ -25,6 +25,26 @@ const DevelopersCarousel = () => {
       desc: "Crafts intuitive user experiences.",
       img: "ABOUT-carousel-uiux.jpg",
     },
+    {
+      title: "Creatives",
+      desc: "Produces engaging visual and multimedia content such as graphics, layouts, and branding materials.",
+      img: "ABOUT-carousel-creatives.png",
+    },
+    {
+      title: "Project Manager",
+      desc: "Oversees timelines and stakeholder communication.",
+      img: "ABOUT-carousel-projectmanager.png",
+    },
+    {
+      title: "Quality Assurance",
+      desc: "Tests applications for bugs, errors, and performance issues to maintain software reliability.",
+      img: "ABOUT-carousel-qualityassurance.png",
+    },
+    {
+      title: "DevOps Engineer",
+      desc: "Automates deployment, monitors infrastructure, and bridges development and operations for efficiency.",
+      img: "ABOUT-carousel-devops.png",
+    },
 
   ];
 
@@ -117,3 +137,4 @@ const DevelopersCarousel = () => {
 };
 
 export default DevelopersCarousel;
+
