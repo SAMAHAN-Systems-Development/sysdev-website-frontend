@@ -16,17 +16,17 @@ const ServiceProjectsIdeaInMind = () => {
 					height={500}
 				/>
 				{/* Text Content - Responsive width */}
-				<div className="w-3/5 sm:w-1/3 lg:w-2/5 flex flex-col justify-center z-10">
-					<h2 className="text-sm sm:text-lg md:text-xl lg:text-3xl text-white md:mb-3 lg:mb-4 leading-tight max-w-[220px]">
+				<div className="w-3/5 sm:w-1/3 lg:w-2/5 flex flex-col justify-center z-10 sm:ml-5 md:ml-0">
+					<h2 className="text-sm sm:text-lg md:text-xl lg:text-3xl text-white mb-1.5 md:mb-3 lg:mb-4 leading-tight max-w-[220px]">
 						<div>Have a project or idea in mind?</div>
 						<div>Let&apos;s build it together</div>
 					</h2>
-					<div className="items-center min-h-8 md:min-h-11 lg:min-h-12 flex md:hidden">
+					<div className="items-center min-h-8 md:min-h-11 lg:min-h-12 flex sm:hidden">
 						<Button size={"tight"} className="font-bold w-24 md:w-36 lg:w-44">
 							<Link href={"/contact-us"}>Get In Touch</Link>
 						</Button>
 					</div>
-					<div className="items-center min-h-8 md:min-h-11 lg:min-h-12 hidden md:flex">
+					<div className="items-center sm:min-h-11 lg:min-h-12 hidden sm:flex">
 						<Button size={"normal"} className="font-bold w-24 md:w-36 lg:w-44">
 							<Link href={"/contact-us"}>Get In Touch</Link>
 						</Button>
