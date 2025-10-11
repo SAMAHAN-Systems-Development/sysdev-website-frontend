@@ -3,23 +3,30 @@ import { Project } from "../types/projects";
 import { AxiosError } from "axios";
 
 export const GetProjects = async (
-  status: 'active' | 'not_active' | 'upcoming' | 'ongoing' | undefined = undefined,
-  sortByName: 'desc' | 'asc' = 'desc',
-  sortByYear: 'yearDesc' | 'yearAsc' = 'yearDesc',
-  type: 'internal' | 'external' | 'cross_orgs' | undefined = undefined,
+  status:
+    | "active"
+    | "not_active"
+    | "upcoming"
+    | "ongoing"
+    | undefined = undefined,
+  sortByName: "desc" | "asc" | undefined = undefined,
+  sortByYear: "yearDesc" | "yearAsc" | undefined = undefined,
+  type: "internal" | "external" | "cross_orgs" | undefined = undefined,
   page: number = 1,
-  limit: number = 100,
+  limit: number = 100
 ) => {
   try {
-    const url = `/api/projects?page=${page}&limit=${limit}` +
-      (sortByName ? `&sortByName=${sortByName}` : '') +
-      (sortByYear ? `&sortByYear=${sortByYear}` : '') +
-      (type ? `&type=${type}` : '') +
-      (status ? `&status=${status}` : '');
-    const res = await request<ApiArrayRequest<Project[]>>('GET', url);
-    //console.log(res);
+    const url =
+      `/api/projects?page=${page}&limit=${limit}` +
+      (sortByName ? `&sortByName=${sortByName}` : "") +
+      (sortByYear ? `&sortByYear=${sortByYear}` : "") +
+      (type ? `&type=${type}` : "") +
+      (status ? `&status=${status}` : "");
+    console.log("API URL:", url);
+    const res = await request<ApiArrayRequest<Project[]>>("GET", url);
+    console.log("API Response:", res.data);
     return res.data;
-  } catch(e) {
+  } catch (e) {
     if (e instanceof Error) {
       //console.error(e.toString());
     } else if (e instanceof AxiosError) {
@@ -30,5 +37,4 @@ export const GetProjects = async (
     //console.log(e);
     return undefined;
   }
-}
-
+};
