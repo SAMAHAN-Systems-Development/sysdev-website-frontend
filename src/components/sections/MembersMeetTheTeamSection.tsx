@@ -5,6 +5,7 @@ import MembersFilter from "../ui/MembersFilter";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { GetMembers } from "@/lib/features/members/service/GetMembers.api";
+import { departmentCards, DepartmentCard } from "../ui/DepartmentCard";
 
 export interface MembersMeetTheTeamSectionProps {
   currentDepartment: string;
@@ -123,6 +124,13 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
           setCurrentDepartment={setCurrentDepartment}
         />
       </div>
+
+      {/* Department Card */}
+      {departmentCards[currentDepartment as keyof typeof departmentCards] && (
+
+          <DepartmentCard {...departmentCards[currentDepartment as keyof typeof departmentCards]} />
+
+      )}
 
       <div className="flex flex-col items-center mt-12 sm:mt-16 gap-y-3 sm:gap-y-6 md:gap-y-9 lg:gap-y-10 w-full md:w-auto">
         <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 md:gap-10 w-full max-w-6xl">
