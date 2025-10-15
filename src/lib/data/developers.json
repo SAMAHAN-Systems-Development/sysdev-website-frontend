@@ -64,11 +64,6 @@
     "name": "Alyssa Mhie Matila",
     "role": "Frontend Developer"
   },
-  {
-    "photoUrl": "Nacar.jpg",
-    "name": "Ram Christian Nacar",
-    "role": "Frontend Developer"
-  },
 
   {
     "photoUrl": "SysDevEgg.jpg",
@@ -91,7 +86,7 @@
     "role": "Backend Developer"
   },
   {
-    "photoUrl": "SysDevEgg.jpg",
+    "photoUrl": "Gempesaw.jpg",
     "name": "Cassey Anne Gempesaw",
     "role": "Backend Developer/DO"
   },
@@ -151,12 +146,12 @@
     "role": "Graphic Designer"
   },
   {
-    "photoUrl": "SysDevEgg.jpg",
+    "photoUrl": "Gempesaw.jpg",
     "name": "Cassey Anne Gempesaw",
     "role": "Devops Engineer"
   },
   {
-    "photoUrl": "SysDevEgg.jpg",
+    "photoUrl": "Ceniza.jpg",
     "name": "Ruper Art Ceniza",
     "role": "Devops Engineer"
   }
