@@ -132,8 +132,8 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
 
       )}
 
-      <div className="flex flex-col items-center mt-12 sm:mt-16 gap-y-3 sm:gap-y-6 md:gap-y-9 lg:gap-y-10 w-full md:w-auto">
-        <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 md:gap-10 w-full max-w-6xl">
+      <div className="flex flex-col items-center mt-12 sm:mt-16 gap-y-3 sm:gap-y-9 lg:gap-y-10 w-full sm:w-auto">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 sm:gap-10 w-full max-w-6xl">
           {members.map((member, idx) => (
             <li key={idx} className="flex justify-center">
               <MemberCard member={member} />
