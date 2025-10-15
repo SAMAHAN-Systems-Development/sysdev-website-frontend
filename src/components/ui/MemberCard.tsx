@@ -5,7 +5,7 @@ import React from "react";
 import type { RawMember } from "@/lib/features/members/types/members";
 
 const positionVariants = cva(
-  "md:py-1 w-full min-w-[58px] rounded-full text-[10px] md:text-xs font-medium text-center",
+  "sm:py-1 w-full min-w-[58px] rounded-full text-[10px] sm:text-xs font-medium text-center",
   {
     variants: {
       positionColor: {
@@ -96,8 +96,8 @@ export function MemberCard({ member }: MemberCardProps) {
       case "Project Manager":
         return (
           <span>
-            <span className="inline md:hidden">PM</span>
-            <span className="hidden md:inline">Proj. Man.</span>
+            <span className="inline sm:hidden">PM</span>
+            <span className="hidden sm:inline">Proj. Man.</span>
           </span>
         );
       default:
@@ -108,7 +108,7 @@ export function MemberCard({ member }: MemberCardProps) {
   const renderPositions = () => {
     if (positions.length === 3) {
       return (
-        <div className="h-9 md:h-14 w-full">
+        <div className="h-9 sm:h-14 w-full">
           <div className="w-full mb-1.5">
             <div
               className={`
@@ -144,7 +144,7 @@ export function MemberCard({ member }: MemberCardProps) {
       return rows.map((row, rowIndex) => (
         <div
           key={rowIndex}
-          className={`w-full h-9 md:h-14 flex items-end gap-x-2 ${
+          className={`w-full h-9 sm:h-14 flex items-end gap-x-2 ${
             rowIndex > 0 ? "mt-1" : ""
           }`}
         >
@@ -193,19 +193,19 @@ export function MemberCard({ member }: MemberCardProps) {
 
   return (
     <div
-      className={`flex items-center rounded-3xl md:rounded-2xl bg-blue3
-    flex-row md:flex-col
-    max-w-9/10 md:max-w-none w-64 md:w-56 
-    max-h-[135px] md:max-h-96 h-fit
+      className={`flex items-center rounded-3xl sm:rounded-2xl bg-blue3
+    flex-row sm:flex-col
+    max-w-9/10 sm:max-w-none w-64 sm:w-56 
+    max-h-[135px] sm:max-h-96 h-fit
     flex-shrink-0 
-    py-5 px-4 md:p-5`}
+    py-5 px-4 sm:p-5`}
     >
       <div
         className="relative 
-      w-20 h-20 md:w-[150px] md:h-[150px] 
+      w-20 h-20 sm:w-[150px] sm:h-[150px] 
       rounded-full overflow-hidden bg-gray-300 
-      mb-0 md:mb-3
-      ml-0 mr-3 md:mx-auto
+      mb-0 sm:mb-3
+      ml-0 mr-3 sm:mx-auto
       flex-shrink-0"
       >
         <Image
@@ -216,15 +216,15 @@ export function MemberCard({ member }: MemberCardProps) {
         />
       </div>
 
-      <div className="flex flex-col w-full min-w-0 h-full gap-y-1 justify-center md:justify-between">
+      <div className="flex flex-col w-full min-w-0 h-full gap-y-1 justify-center sm:justify-between">
         <div>
-          <div className="md:mb-1 md:flex md:flex-col md:justify-center md:h-10">
+          <div className="sm:mb-1 sm:flex sm:flex-col sm:justify-center sm:h-10">
             <h3
               className={`${instrument_sans.className} 
-          text-xs  md:text-sm 
+          text-xs  sm:text-sm 
           font-bold text-white
-          mb-1.5  md:mb-0 
-          text-left md:text-center 
+          mb-1.5  sm:mb-0 
+          text-left sm:text-center 
           line-clamp-2 overflow-hidden text-ellipsis`}
             >
               {name}
@@ -237,7 +237,7 @@ export function MemberCard({ member }: MemberCardProps) {
           text-xs 
           text-white opacity-80
           mb-3 
-          text-left md:text-center 
+          text-left sm:text-center 
           truncate`}
           >
             {email}
@@ -245,7 +245,7 @@ export function MemberCard({ member }: MemberCardProps) {
           */}
         </div>
 
-        <div className="flex flex-wrap gap-1 md:gap-2 w-full">
+        <div className="flex flex-wrap gap-1 sm:gap-2 w-full">
           {renderPositions()}
         </div>
       </div>

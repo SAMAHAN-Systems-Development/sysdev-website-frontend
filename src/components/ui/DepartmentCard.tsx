@@ -52,7 +52,7 @@ export interface DepartmentCardProps {
 }
 
 export const DepartmentCard: React.FC<DepartmentCardProps> = ({ title, desc, img }) => (
-  <div className="relative w-full md:w-3/4 md:max-w-3xl h-56 md:h-72 lg:h-80 rounded-3xl lg:rounded-4xl overflow-hidden mb-10 mt-10">
+  <div className="relative w-4/5 md:w-3/4 md:max-w-3xl h-56 md:h-72 lg:h-80 rounded-3xl lg:rounded-4xl overflow-hidden mb-10 mt-10">
     <Image
       src={withBasePath(`/images/${img}`)}
       alt={title}
@@ -60,9 +60,9 @@ export const DepartmentCard: React.FC<DepartmentCardProps> = ({ title, desc, img
       className="object-cover"
       priority
     />
-    <div className="absolute inset-0 bg-blue-950/50 flex flex-col justify-center items-center z-10">
-      <h1 className="text-2xl md:text-4xl font-bold text-yellow2 mb-2">{title}</h1>
-      <p className="text-lg md:text-2xl text-white text-center max-w-xl">{desc}</p>
+    <div className="absolute inset-0 bg-blue-950/50 flex flex-col justify-center items-center z-10 p-3 md:p-6">
+      <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow2 mb-2">{title}</h1>
+      <p className="text-sm md:text-lg text-white text-center max-w-xl">{desc}</p>
     </div>
   </div>
 );
