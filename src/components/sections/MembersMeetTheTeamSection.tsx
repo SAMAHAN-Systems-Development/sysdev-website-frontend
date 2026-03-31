@@ -12,10 +12,9 @@ export interface MembersMeetTheTeamSectionProps {
   setCurrentDepartment: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps> = ({
-  currentDepartment,
-  setCurrentDepartment,
-}) => {
+export const MembersMeetTheTeamSection: React.FC<
+  MembersMeetTheTeamSectionProps
+> = ({ currentDepartment, setCurrentDepartment }) => {
   const router = useRouter();
   const [members, setMembers] = React.useState<RawMember[]>([]);
 
@@ -30,7 +29,7 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
     "Backend Head",
     "UI/UX Head",
     "Creatives Head",
-    "Public Relations Officer"
+    "Public Relations Officer",
   ];
 
   function extractMembers(res: unknown): RawMember[] {
@@ -52,7 +51,7 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
     window.history.replaceState(
       null,
       "",
-      `/members?department=${encodeURIComponent(currentDepartment)}`
+      `/members?department=${encodeURIComponent(currentDepartment)}`,
     );
   }, [currentDepartment]);
 
@@ -93,7 +92,7 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
       // ✅ Filter out officers
       const filteredMembers = membersArray.filter(
         (member) =>
-          !member.roles.some((r) => officerRoles.includes(r.roles.name))
+          !member.roles.some((r) => officerRoles.includes(r.roles.name)),
       );
 
       setMembers(filteredMembers);
@@ -107,15 +106,18 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
   }, [currentDepartment, router]);
 
   return (
-    <section className="font-inter w-full flex flex-col items-center px-4 sm:px-7 pt-4 sm:pt-7 pb-4 sm:pb-4 md:pt-10 mt-5 sm:mt-10">
-      <div className="flex flex-col items-center text-black text-center gap-2.5">
-        <h1 className="font-bold text-3xl sm:text-4xl">Meet the Team</h1>
-        <p className="text-sm md:text-lg -mt-2 mb-2">
-          (A.Y. &apos;24 - &apos;25)
-        </p>
-        <p className="text-base sm:text-lg">
-          The minds behind SYSDEV &#8212; building solution for a better AdDU.
-        </p>
+    <section className=" font-inter w-full flex flex-col items-center pb-4 sm:pb-7">
+      <div className="relative flex flex-col items-center text-whtie text-center gap-2.5 w-full pt-20 pb-16 bg-blue3">
+        <div className="absolute bg-gradient-to-b from-black/50 z-10 inset-0"></div>
+        <div className="z-10">
+          <h1 className="font-bold text-3xl sm:text-4xl">Members</h1>
+          <p className="text-sm md:text-lg mt-1 mb-2 text-yellow4">
+            (A.Y. &apos;25 - &apos;26)
+          </p>
+          <p className="text-base sm:text-lg">
+            The minds behind SYSDEV &#8212; building solution for a better AdDU.
+          </p>
+        </div>
       </div>
 
       <div className="mt-10 w-full">
@@ -127,9 +129,11 @@ export const MembersMeetTheTeamSection: React.FC<MembersMeetTheTeamSectionProps>
 
       {/* Department Card */}
       {departmentCards[currentDepartment as keyof typeof departmentCards] && (
-
-          <DepartmentCard {...departmentCards[currentDepartment as keyof typeof departmentCards]} />
-
+        <DepartmentCard
+          {...departmentCards[
+            currentDepartment as keyof typeof departmentCards
+          ]}
+        />
       )}
 
       <div className="flex flex-col items-center mt-12 sm:mt-16 gap-y-3 sm:gap-y-9 lg:gap-y-10 w-full sm:w-auto">

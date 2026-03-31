@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import Link from "next/link";
-import { GetMembers } from '@/lib/features/members/service/GetMembers.api';
+import { GetMembers } from "@/lib/features/members/service/GetMembers.api";
 import { RawMember } from "@/lib/features/members/types/members";
 import Button from "../ui/Button";
 import { OfficerCard } from "../ui/OfficerCard";
@@ -24,9 +24,9 @@ export default function AboutUsMeetTheTeamSection() {
       "Backend Head",
       "UI/UX Head",
       "Creatives Head",
-      "Public Relations Officer"
+      "Public Relations Officer",
     ],
-    []
+    [],
   );
 
   // Fetch members on mount
@@ -45,15 +45,15 @@ export default function AboutUsMeetTheTeamSection() {
   // Filter and sort officers
   useEffect(() => {
     const filteredOfficers = members.filter((member) =>
-      member.roles.some((r) => officerRoles.includes(r.roles.name))
+      member.roles.some((r) => officerRoles.includes(r.roles.name)),
     );
 
     const sortedOfficers = filteredOfficers.sort((a, b) => {
       const aIndex = officerRoles.findIndex((role) =>
-        a.roles.some((r) => r.roles.name === role)
+        a.roles.some((r) => r.roles.name === role),
       );
       const bIndex = officerRoles.findIndex((role) =>
-        b.roles.some((r) => r.roles.name === role)
+        b.roles.some((r) => r.roles.name === role),
       );
       return aIndex - bIndex;
     });
@@ -65,10 +65,14 @@ export default function AboutUsMeetTheTeamSection() {
   const getOfficerClass = (index: number) => {
     // For large screens (xl), we use 4 columns
     switch (index) {
-      case 0: return "col-span-2 xl:col-span-4"; // First row single item
-      case 1: return "col-span-2 xl:col-span-4"; // Second row single item
-      case officers.length - 1: return "col-span-2 xl:col-span-4"; // Last row single item
-      default: return "col-span-1"; // All middle items take 1 column each
+      case 0:
+        return "col-span-2 xl:col-span-4"; // First row single item
+      case 1:
+        return "col-span-2 xl:col-span-4"; // Second row single item
+      case officers.length - 1:
+        return "col-span-2 xl:col-span-4"; // Last row single item
+      default:
+        return "col-span-1"; // All middle items take 1 column each
     }
   };
 
@@ -81,10 +85,10 @@ export default function AboutUsMeetTheTeamSection() {
       <div className="flex flex-col items-center text-blue3 text-center gap-2.5">
         <h1 className="font-bold text-3xl md:text-4xl">Meet the Officers</h1>
         <p className="text-sm md:text-lg -mt-2 mb-2">
-          (A.Y. &apos;24 - &apos;25)
+          (A.Y. &apos;25 - &apos;26)
         </p>
         <p className="text-sm md:text-xl">
-          The minds behind SYSDEV &#8212; building solution for a better AdDU.
+          The minds behind SYSDEV &#8212; building solution for a better AdDU .
         </p>
       </div>
 
