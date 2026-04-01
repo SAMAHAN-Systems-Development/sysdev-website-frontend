@@ -18,19 +18,19 @@ export const MembersMeetTheTeamSection: React.FC<
   const router = useRouter();
   const [members, setMembers] = React.useState<RawMember[]>([]);
 
-  const officerRoles = [
-    "Director",
-    "Deputy Director",
-    "Secretary General",
-    "Treasurer",
-    "Auditor",
-    "External Affairs Head",
-    "Frontend Head",
-    "Backend Head",
-    "UI/UX Head",
-    "Creatives Head",
-    "Public Relations Officer",
-  ];
+  // const officerRoles = [
+  //   "Director",
+  //   "Deputy Director",
+  //   "Secretary General",
+  //   "Treasurer",
+  //   "Auditor",
+  //   "External Affairs Head",
+  //   "Frontend Head",
+  //   "Backend Head",
+  //   "UI/UX Head",
+  //   "Creatives Head",
+  //   "Public Relations Officer",
+  // ];
 
   function extractMembers(res: unknown): RawMember[] {
     if (
@@ -90,12 +90,12 @@ export const MembersMeetTheTeamSection: React.FC<
       const membersArray: RawMember[] = extractMembers(res);
 
       // ✅ Filter out officers
-      const filteredMembers = membersArray.filter(
-        (member) =>
-          !member.roles.some((r) => officerRoles.includes(r.roles.name)),
-      );
+      // const filteredMembers = membersArray.filter(
+      //   (member) =>
+      //     !member.roles.some((r) => officerRoles.includes(r.roles.name)),
+      // );
 
-      setMembers(filteredMembers);
+      setMembers(membersArray);
     }
 
     fetchData();

@@ -21,17 +21,18 @@ export function OfficerCard({ member }: OfficerCardProps) {
     "Backend Head",
     "UI/UX Head",
     "Creatives Head",
-    "Public Relations Officer"
+    "Public Relations Officer",
+    "Logistics Head",
   ];
 
   // Map RawMember roles to string[] of role names
   const roleNames = roles.map((r) =>
-    typeof r === "string" ? r : r.roles.name
+    typeof r === "string" ? r : r.roles.name,
   );
 
   // Find first officer role that matches this member
   const primaryOfficerRole = roleNames.find((role) =>
-    officerRoles.includes(role)
+    officerRoles.includes(role),
   );
 
   // Helper for responsive role display
