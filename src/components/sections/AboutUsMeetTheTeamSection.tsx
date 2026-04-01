@@ -25,6 +25,7 @@ export default function AboutUsMeetTheTeamSection() {
       "UI/UX Head",
       "Creatives Head",
       "Public Relations Officer",
+      "Logistics Head",
     ],
     [],
   );
@@ -69,8 +70,6 @@ export default function AboutUsMeetTheTeamSection() {
         return "col-span-2 xl:col-span-4"; // First row single item
       case 1:
         return "col-span-2 xl:col-span-4"; // Second row single item
-      case officers.length - 1:
-        return "col-span-2 xl:col-span-4"; // Last row single item
       default:
         return "col-span-1"; // All middle items take 1 column each
     }

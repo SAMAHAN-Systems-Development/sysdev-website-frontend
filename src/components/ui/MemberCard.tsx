@@ -23,7 +23,7 @@ const positionVariants = cva(
     defaultVariants: {
       positionColor: "frontend",
     },
-  }
+  },
 );
 
 export interface MemberCardProps {
@@ -35,7 +35,7 @@ export function MemberCard({ member }: MemberCardProps) {
 
   // ✅ Normalize roles to string[]
   const roleNames = roles.map((r) =>
-    typeof r === "string" ? r : r.roles.name
+    typeof r === "string" ? r : r.roles.name,
   );
 
   const positions = roleNames.map((role) => ({
@@ -100,6 +100,7 @@ export function MemberCard({ member }: MemberCardProps) {
             <span className="hidden sm:inline">Proj. Man.</span>
           </span>
         );
+
       default:
         return text;
     }
@@ -112,7 +113,7 @@ export function MemberCard({ member }: MemberCardProps) {
           <div className="w-full mb-1.5">
             <div
               className={`
-              ${instrument_sans.className} 
+              ${instrument_sans.className}
               ${positionVariants({ positionColor: positions[0].color })}
             `}
             >
@@ -124,7 +125,7 @@ export function MemberCard({ member }: MemberCardProps) {
               <div key={idx} className="flex-1">
                 <div
                   className={`
-                  ${instrument_sans.className} 
+                  ${instrument_sans.className}
                   ${positionVariants({ positionColor: pos.color })}
                 `}
                 >
@@ -144,7 +145,7 @@ export function MemberCard({ member }: MemberCardProps) {
       return rows.map((row, rowIndex) => (
         <div
           key={rowIndex}
-          className={`w-full h-9 sm:h-14 flex items-end gap-x-2 ${
+          className={`w-full  flex items-end gap-x-2 ${
             rowIndex > 0 ? "mt-1" : ""
           }`}
         >
@@ -155,7 +156,7 @@ export function MemberCard({ member }: MemberCardProps) {
             >
               <div
                 className={`
-                ${instrument_sans.className} 
+                ${instrument_sans.className}
                 ${positionVariants({ positionColor: pos.color })}
               `}
               >
@@ -195,8 +196,8 @@ export function MemberCard({ member }: MemberCardProps) {
     <div
       className={`flex items-center rounded-3xl sm:rounded-2xl bg-blue3
     flex-row sm:flex-col
-    max-w-9/10 sm:max-w-none w-64 sm:w-56 
-    max-h-[135px] sm:max-h-96 h-fit
+    max-w-9/10 sm:max-w-none w-90 sm:w-86 
+    max-h-[135px] sm:max-h-96 
     flex-shrink-0 
     py-5 px-4 sm:p-5`}
     >
@@ -216,7 +217,7 @@ export function MemberCard({ member }: MemberCardProps) {
         />
       </div>
 
-      <div className="flex flex-col w-full min-w-0 h-full gap-y-1 justify-center sm:justify-between">
+      <div className="flex flex-col w-full min-w-0 h-full gap-y-1 justify-start">
         <div>
           <div className="sm:mb-1 sm:flex sm:flex-col sm:justify-center sm:h-10">
             <h3
