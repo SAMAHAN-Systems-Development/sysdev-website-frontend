@@ -1,0 +1,107 @@
+{
+  "title": "Alumni (2024–2025)",
+  "batchYear": "2024–2025",
+  "officers": [
+    { "firstName": "Jiyo Seth", "lastName": "Valmoria", "role": "Director" },
+    {
+      "firstName": "Arabella Grace",
+      "lastName": "Mejorada",
+      "role": "Deputy Director"
+    },
+    {
+      "firstName": "Jan Patrick",
+      "lastName": "Matayabas",
+      "role": "External Affairs Head"
+    },
+    {
+      "firstName": "Mariel",
+      "lastName": "Mabano",
+      "role": "Secretary-General"
+    },
+    {
+      "firstName": "Isabelle Faith",
+      "lastName": "Labuguen",
+      "role": "Auditor"
+    },
+    { "firstName": "Aaron Justin", "lastName": "Macias", "role": "Treasurer" },
+    {
+      "firstName": "Paolo Luis",
+      "lastName": "Ramirez",
+      "role": "Front End Head"
+    },
+    {
+      "firstName": "Ivan Sam",
+      "lastName": "Wabina",
+      "role": "Back End Head"
+    },
+    {
+      "firstName": "Maverick",
+      "lastName": "Pigao",
+      "role": "UI/UX Design Head"
+    },
+    { "firstName": "Mark Lyod", "lastName": "Carin", "role": "Creatives Head" }
+  ],
+  "data": [
+    {
+      "role": "Front-End Developer",
+      "members": [
+        { "firstName": "Kervi Kent", "lastName": "Asombrado" },
+        { "firstName": "Peter Andre", "lastName": "Casiano" },
+        { "firstName": "Sean Elijah", "lastName": "Chavez" },
+        { "firstName": "Anya Patricia", "lastName": "Kuan" },
+        { "firstName": "Mariel", "lastName": "Mabano" },
+        { "firstName": "Paolo Luis", "lastName": "Ramirez" },
+        { "firstName": "Yassir", "lastName": "Utara" }
+      ]
+    },
+    {
+      "role": "Back-End Developer",
+      "members": [
+        { "firstName": "Adrianne Mykhel", "lastName": "Bulao" },
+        { "firstName": "Mark Cyryl", "lastName": "Clarde" },
+        { "firstName": "Isabelle Faith", "lastName": "Labuguen" },
+        { "firstName": "Janriz Christian", "lastName": "Prado" },
+        { "firstName": "Ivan Sam", "lastName": "Wabina" },
+        { "firstName": "Anthony Dexter", "lastName": "Yap" }
+      ]
+    },
+    {
+      "role": "FullStack Developer",
+      "members": [
+        { "firstName": "Ron Joshua", "lastName": "Bersabal" },
+        { "firstName": "Marvin Paul", "lastName": "Eloja" },
+        { "firstName": "Derick Lance", "lastName": "Eroy" },
+        { "firstName": "Aaron Justin", "lastName": "Macias" },
+        { "firstName": "Jan Patrick", "lastName": "Matayabas" },
+        { "firstName": "Marjhealou Nina Anne", "lastName": "Paraiso" },
+        { "firstName": "Jiyo Seth", "lastName": "Valmoria" }
+      ]
+    },
+    {
+      "role": "UI/UX Designer",
+      "members": [
+        { "firstName": "Dominic Miguel", "lastName": "Almonte" },
+        { "firstName": "Martina Aaron", "lastName": "Angeles" },
+        { "firstName": "Clyde Cedrick", "lastName": "Macabangon" },
+        { "firstName": "Maverick Jasper", "lastName": "Pigao" }
+      ]
+    },
+    {
+      "role": "Creatives",
+      "members": [{ "firstName": "Josh Elizalde", "lastName": "Banggud" }]
+    },
+    {
+      "role": "Project Manager",
+      "members": [
+        { "firstName": "Martina Aaron", "lastName": "Angeles" },
+        { "firstName": "Isabelle Faith", "lastName": "Labuguen" },
+        { "firstName": "Jan Patrick", "lastName": "Matayabas" },
+        { "firstName": "Jiyo Seth", "lastName": "Valmoria" }
+      ]
+    },
+    {
+      "role": "Quality Assurance Specialist",
+      "members": [{ "firstName": "Jiyo Seth", "lastName": "Valmoria" }]
+    }
+  ]
+}
